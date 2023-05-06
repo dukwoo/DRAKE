@@ -7,3 +7,15 @@ def prensend(request):
         request,
         'prensend/prensend.html',
     )
+
+def recommend(request):
+    return render(
+        request,
+        'prensend/recommend.html',
+    )
+
+def friends(request):
+    return render(
+        request,
+        'prensend/friends.html',
+    )
