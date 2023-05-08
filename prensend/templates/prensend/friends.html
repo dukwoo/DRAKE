@@ -4,13 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <title>친구목록</title>
-    <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
+    <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}?after">
 </head>
 <body>
     <!--navbar-->
     {% include 'prensend/navbar.html' %}
 
     <div class="t1">친구목록</div>
+
+    <div class="friend_box">
+        <div class="friend_image">
+            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+        </div>
+        <div class="friend_name">
+            <p class="name">임예진 (20200694)</p>
+        </div>
+        <div class="friend_button">
+            <button class="button" type="button">
+                방 단서 찾기
+            </button>
+        </div>
+    </div>
+    <div class="friend_box">
+        <div class="friend_image">
+            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+        </div>
+        <div class="friend_name">
+            <p class="name">김지현 (20200711)</p>
+        </div>
+        <div class="friend_button">
+            <button class="button" type="button">
+                방 단서 찾기
+            </button>
+        </div>
+    </div>
+    <div class="friend_box">
+        <div class="friend_image">
+            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+        </div>
+        <div class="friend_name">
+            <p class="name">이수민 (20200885)</p>
+        </div>
+        <div class="friend_button">
+            <button class="button" type="button">
+                방 단서 찾기
+            </button>
+        </div>
+    </div>
+    <div class="friend_box">
+        <div class="friend_image">
+            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+        </div>
+        <div class="friend_name">
+            <p class="name">조수인 (20200747)</p>
+        </div>
+        <div class="friend_button">
+            <button class="button" type="button">
+                방 단서 찾기
+            </button>
+        </div>
+    </div>
 
     <!--footer-->
     {% include 'prensend/footer.html' %}
