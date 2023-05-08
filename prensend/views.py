@@ -19,3 +19,9 @@ def friends(request):
         request,
         'prensend/friends.html',
     )
+
+def quiz(request):
+    return render(
+        request,
+        'prensend/quiz.html',
+    )
