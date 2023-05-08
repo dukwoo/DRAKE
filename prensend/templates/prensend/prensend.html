@@ -1,10 +1,23 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
         <title>대문페이지</title>
+
+        <!--nav&foot css-->
+        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+
     </head>
 <body>
+    <!--navbar-->
+    {% include 'prensend/navbar.html' %}
+
+    <span onclick="javascript:click()"> 목록 </span>
     <h1>대문페이지</h1>
+    
+    <!--footer-->
+    {% include 'prensend/footer.html' %}
 </body>
 </html>
