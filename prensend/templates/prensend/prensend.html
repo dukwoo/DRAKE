@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ko">
+
     <head>
         <meta charset="UTF-8">
         <title>대문페이지</title>
+        <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
         <!--nav&foot css-->
+        <!-- (나브바 css부분 수정되면 주석 해제함)
         <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
         <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
-
+        -->
     </head>
+
 <body>
     <!--navbar-->
     {% include 'prensend/navbar.html' %}
 
-    <span onclick="javascript:click()"> 목록 </span>
-    <h1>대문페이지</h1>
+    <!-- <span onclick="javascript:click()"> 목록 </span> -->
+    <div class="icon" style="width: 1000px; margin: auto;">
+        <img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" onclick="location.href='/quiz/'">
+    </div>
     
     <!--footer-->
     {% include 'prensend/footer.html' %}
