@@ -4,14 +4,43 @@
     <head>
         <meta charset="UTF-8">
         <title>Mypage</title>
-
+        <link rel="stylesheet" href="{% static 'prensend/css/mypage.css' %}">
+        
     </head>
 <body>
-    <div>
-        <div>
-            <a><img src={% static "prensend/image/camerabtn.png" %} width="40px"></a>
-        </div>
-        
-    </div>
+    <!--navbar-->
+    {% include 'prensend/navbar.html' %}
+    <table>
+        <tr>
+            <td>
+                <a style="margin-left:40px;"><img src={% static "prensend/images/프로필1.png" %} width="120px"></a>
+                <div style="font-size:1.5em;">drake@duksung.ac.kr</div>
+            </td>
+            <td>
+                <div style="margin-left:120px;">
+                    <div>
+                        <span class="let">나의 단서</span>
+                        <button class="favorite styled" type="button">수정</button>
+                    </div>
+                    <div class="box" style="margin-top: 30px;">여성</div>
+                    <div class="box" style="margin-top: 20px;">23세</div>
+                    <div class="box" style="margin-top: 20px;">대학생</div>
+                </div>
+            </td>
+            <td>
+                <div style="margin-left:150px;">
+                    <div>
+                        <span class="let">마이룸 단서</span>
+                        <button class="favorite styled" type="button">수정</button>
+                    </div>
+                    <div class="box" style="margin-top: 30px;">컴퓨터 모니터</div>
+                    <div class="box" style="margin-top: 20px;">책</div>
+                    <div class="box" style="margin-top: 20px;">곰돌이 인형</div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!--footer-->
+    {% include 'prensend/footer.html' %}
 </body>
 </html>

@@ -94,31 +94,33 @@
         </script>
 
         <link rel="stylesheet" href="{% static 'prensend/css/calendar.css' %}">
-
+        
     </head>
 <body>
+    <!--navbar-->
+    {% include 'prensend/navbar.html' %}
     <table>
         <tr>
             <td>
-                <div>
+                <div class="div">
                     <table class="Calendar">
                         <thead>
                             <tr>
-                                <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
-                                <td colspan="5">
+                                <td onClick="prevCalendar();" style="cursor:pointer; width: 50px;height: 50px;">&#60;</td>
+                                <td colspan="5" style="width: 50px; height: 50px;">
                                     <span id="calYear"></span>년
                                     <span id="calMonth"></span>월
                                 </td>
-                                <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+                                <td onClick="nextCalendar();" style="cursor:pointer;width: 50px; height: 50px;">&#62;</td>
                             </tr>
                             <tr>
-                                <td>일</td>
-                                <td>월</td>
-                                <td>화</td>
-                                <td>수</td>
-                                <td>목</td>
-                                <td>금</td>
-                                <td>토</td>
+                                <td style="width: 50px; height: 50px;">일</td>
+                                <td style="width: 50px; height: 50px;">월</td>
+                                <td style="width: 50px; height: 50px;">화</td>
+                                <td style="width: 50px; height: 50px;">수</td>
+                                <td style="width: 50px; height: 50px;">목</td>
+                                <td style="width: 50px; height: 50px;">금</td>
+                                <td style="width: 50px; height: 50px;">토</td>
                             </tr>
                         </thead>
 
@@ -128,10 +130,12 @@
                 </div>
             </td>
             <td><table><tr>
-                <div id="date" style="width:100px;"></div>
-                <div id="todo" style="width:300px;">일정이 없습니다.</div></tr><tr><div></div></tr><tr><div></div></tr></table>
+                <div id="date"></div>
+                <div id="todo">일정이 없습니다.</div></tr><tr><div></div></tr></table>
             </td>
         </tr>
     </table>
+    <!--footer-->
+    {% include 'prensend/footer.html' %}
 </body>
 </html>
