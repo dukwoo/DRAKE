@@ -25,3 +25,15 @@ def quiz(request):
         request,
         'prensend/quiz.html',
     )
+    
+def calendar(request):
+    return render(
+        request,
+        'prensend/calendar.html'
+    )
+
+def mypage(request):
+    return render(
+        request,
+        'prensend/mypage.html'
+    )
