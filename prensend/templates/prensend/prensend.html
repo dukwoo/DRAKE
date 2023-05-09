@@ -5,15 +5,18 @@
     <head>
         <meta charset="UTF-8">
         <title>대문페이지</title>
+
+		<!--nav&foot css-->
+        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+
+		<!--nav js-->
+		<script defer src="{% static 'prensend/javascripts/navbar.js' %}"></script>
+
+		<!--friends,animation css-->
         <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/animations.css">
-
-        <!--nav&foot css-->
-        <!-- (나브바 css부분 수정되면 주석 해제함)
-        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
-        -->
 
         <style>
             #object{
@@ -79,11 +82,10 @@
     </head>
 
 <body>
-    
-    <!--navbar-->
+	<!--navbar-->
+	<span onclick="javascript:navbar()"> 목록 </span>
     {% include 'prensend/navbar.html' %}
 
-    <!-- <span onclick="javascript:click()"> 목록 </span> -->
     <div id="object" class="slideUp" style="width: 1000px; margin: auto;">
         <img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" onclick="location.href='/quiz/'">
     </div>
@@ -97,4 +99,6 @@
     <!--footer-->
     {% include 'prensend/footer.html' %}
 </body>
+
+
 </html>

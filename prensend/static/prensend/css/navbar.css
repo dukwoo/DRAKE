@@ -1,10 +1,9 @@
-/*nav {
-    display:none;
-}*/
+/* navbar 넣을 때, css, js 파일도 같이 작성, footer도 마찬가지로 */
 
-div {
-    display:block;
-    background-color: aquamarine;
+#nav{
+    display:none;
+    position:absolute;
+    background-color: #aadccd;
     width:30%;
     height:100%;
 }
