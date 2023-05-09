@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
         <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
 
-		<!--nav js-->
-		<script defer src="{% static 'prensend/javascripts/navbar.js' %}"></script>
+		<!--font awesome-->
+		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
 
 		<!--friends,animation css-->
         <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
@@ -19,6 +19,13 @@
         <link rel="stylesheet" href="css/animations.css">
 
         <style>
+			/* 나브바의 로고 CSS 추가 */
+			#list { 
+				display: inline;
+    			width:300px;
+    			height:200px;
+			}
+
             #object{
 	            visibility: hidden;
             }
@@ -83,8 +90,8 @@
 
 <body>
 	<!--navbar-->
-	<span onclick="javascript:navbar()"> 목록 </span>
-    {% include 'prensend/navbar.html' %}
+	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
+	{% include 'prensend/navbar.html' %}
 
     <div id="object" class="slideUp" style="width: 1000px; margin: auto;">
         <img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" onclick="location.href='/quiz/'">

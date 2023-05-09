@@ -6,5 +6,12 @@
     background-color: #aadccd;
     width:30%;
     height:100%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 20px;
 }
 
+#exit {
+    padding-left: 100px;
+    font-size: 25px;
+}
