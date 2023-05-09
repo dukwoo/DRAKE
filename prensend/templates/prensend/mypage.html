@@ -2,14 +2,32 @@
 {% load static %}
 <html lang="ko">
     <head>
+        <!--nav&foot css-->
+        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+
+		<!--font awesome-->
+		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
+
         <meta charset="UTF-8">
         <title>Mypage</title>
         <link rel="stylesheet" href="{% static 'prensend/css/mypage.css' %}">
-        
+
+        <style>
+            /* 나브바의 로고 CSS 추가 */
+			#list { 
+				display: block;
+    			width:300px;
+    			height:200px;
+			}
+        </style>
     </head>
 <body>
     <!--navbar-->
-    {% include 'prensend/navbar.html' %}
+	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
+	<div id="list2" style="width:300px; height:200px; display:none;"></div>
+	{% include 'prensend/navbar.html' %}
+
     <table>
         <tr>
             <td>
@@ -40,7 +58,5 @@
             </td>
         </tr>
     </table>
-    <!--footer-->
-    {% include 'prensend/footer.html' %}
 </body>
 </html>

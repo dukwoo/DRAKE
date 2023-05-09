@@ -21,7 +21,7 @@
         <style>
 			/* 나브바의 로고 CSS 추가 */
 			#list { 
-				display: inline;
+				display: block;
     			width:300px;
     			height:200px;
 			}
@@ -91,6 +91,7 @@
 <body>
 	<!--navbar-->
 	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
+	<div id="list2" style="width:300px; height:200px; display:none;"></div>
 	{% include 'prensend/navbar.html' %}
 
     <div id="object" class="slideUp" style="width: 1000px; margin: auto;">
@@ -103,8 +104,12 @@
         });
     </script>
 
-    <!--footer-->
-    {% include 'prensend/footer.html' %}
+	<!--footer-->
+	<footer style="bottom:0; height:100px; text-align:center;">
+		<div>
+			<div> Copyright @ DRAKE </div>
+		</div>
+	</footer>
 </body>
 
 
