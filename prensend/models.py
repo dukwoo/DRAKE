@@ -9,7 +9,7 @@ class Item(models.Model):
     price = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
-        return self.pk
+        return f'[{self.pk}] : {self.title}'
 
     def get_absolute_url(self):
         return f'/prensend/{self.pk}/'
