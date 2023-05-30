@@ -19,13 +19,12 @@ def friends(request):
         request,
         'prensend/friends.html',
     )
-'''
+
 def quiz(request):
     return render(
         request,
         'prensend/quiz.html',
     )
-'''
 
 def calendar(request):
     return render(
@@ -39,8 +38,8 @@ def mypage(request):
         'prensend/mypage.html'
     )
 
+'''
 def productinfo_index(request):
-    ''' product 목록 출력 '''
 
     #오름차순으로 1등부터 가져오기 
     products = Item.objects.all()
@@ -76,10 +75,7 @@ def productinfo_index(request):
     search_mode_gender = request.GET.get('search_mode_gender')
     print(search_mode_age,",",search_mode_price,",",search_mode_gender)
 
-
     #나이 성별 확인
-    
-    '''
     if search_mode_age and search_mode_gender:
         if search_mode_age == '1020':
             if search_mode_gender == 'man':
@@ -105,11 +101,10 @@ def productinfo_index(request):
             elif search_mode_gender == 'woman':
                 product_list = products.filter(is_50woman, products)
     
-    '''
-    
-    
     context = {'product_list':product_list}
     return render(request, 'prensend/quiz.html', context)
+'''
+
 
 
 

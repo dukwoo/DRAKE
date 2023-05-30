@@ -59,11 +59,11 @@
             <div>
                 <h1 style="text-align: center;">선물의 간단한 정보를 입력해주세요.</h1>
             </div>
-            <form action="{% url 'productinfo_index' %}" method="get" id="search_mode_age">
+            <form action="#" method="get" id="search_mode_age">
                 <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_age" id="search_mode_age">
-                        <option value="" selected>연령</option>
-                        <option value="1020">10-20대</option>
+                        <option value="">연령</option>
+                        <option value="1020" selected>10-20대</option>
                         <option value="30">30대</option>
                         <option value="40">40대</option>
                         <option value="50">50대 이상</option>
@@ -80,23 +80,23 @@
                     <option>40대</option>
                     <option>50대</option>
                     <option>60대 이상</option>
-                </select>
+                </select>0
             </div>-->
-            <form action="{% url 'productinfo_index' %}" method="get" id="search_mode_gender">
+            <form action="#" method="get" id="search_mode_gender">
                 <div class="gender" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_gender" id="search_mode_gender">
-                        <option value="" selected>성별</option>
-                        <option value="man">남성</option>
+                        <option value="">성별</option>
+                        <option value="man" selected>남성</option>
                         <option value="woman">여성</option>
                     </select>
                 </div>
             </form> 
             
-            <form action="{% url 'productinfo_index' %}" method="get" id="search_mode_price">
+            <form action="#" method="get" id="search_mode_price">
                 <div class="price" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_price" id="search_mode_price">
-                        <option value="" selected>가격대</option>
-                        <option value="1">1만원 이하</option>
+                        <option value="">가격대</option>
+                        <option value="1" selected>1만원 이하</option>
                         <option value="12">1-2만원대</option>
                         <option value="34">3-4만원대</option>
                         <option value="5">5만원 이상</option>
@@ -179,14 +179,14 @@
         //나이
         $(document).ready(function(){
             $("select[name=search_mode_age]").change(function (){
-                $("#search_mode_age").submit();
+               $("#search_mode_age").submit();
             });
         });
 
         //성별
         $(document).ready(function(){
             $("select[name=search_mode_gender]").change(function (){
-                $("#search_mode_gender").submit();
+               $("#search_mode_gender").submit();
             });
         });
 
