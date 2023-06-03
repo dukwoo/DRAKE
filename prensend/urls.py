@@ -5,7 +5,7 @@ urlpatterns = [
     path('', views.prensend),
     path('recommend/', views.recommend),
     path('friends/', views.friends),
-    path('quiz/', views.quiz),
+    path('quiz/', views.quizinfo_index),
     path('calendar/', views.calendar),
     path('mypage/', views.mypage),
 ]
