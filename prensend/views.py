@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Item
 
 # Create your views here.
@@ -20,34 +20,6 @@ def friends(request):
         'prensend/friends.html',
     )
 
-#def quiz(request):
-#    return render(
-#        request,
-#        'prensend/quiz.html',
-#    )
-
-def quizinfo_index(request):
-    search_mode_age = request.GET.get('search_mode_age')
-    print(search_mode_age)
-
-    if search_mode_age:
-        if search_mode_age == '1020':
-            age_list = Item.objects.all
-        elif search_mode_age == '30':
-            age_list = Item.objects.get(1)
-        elif search_mode_age == '40':
-            age_list = Item.objects.get(2)
-        else:
-            age_list = Item.objects.get(3)      
-
-    context = {'age_list':age_list}
-    return render(
-        request,
-        'prensend/quiz.html',
-        context
-    )
-
-
 def calendar(request):
     return render(
         request,
@@ -58,9 +30,17 @@ def mypage(request):
     return render(
         request,
         'prensend/mypage.html'
+)
+
+def quizinfo_index(request):
+    if request.method == 'POST':
+        sel = request.POST.get('search_mode_age')
+        print(sel)
+        items = Item.objects.all()
+
+    return render (
+        request,
+        'prensend/quiz.html',
     )
-
-
-
 
     
