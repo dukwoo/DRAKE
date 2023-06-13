@@ -67,8 +67,7 @@
                 <h1 style="text-align: center;">선물의 간단한 정보를 입력해주세요.</h1>
             </div>
 
-
-            <form method="post" id="search_mode" action="{% url 'prensend:quizinfo_index' %}">
+            <form action="{% url 'prensend:quizinfo_index' %}" method="post">
                 {% csrf_token %}
                 <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_age" id="search_mode_age">
@@ -103,9 +102,9 @@
                     </button>
                 </div>
             </form>
+
         </div>
     </div>
-
 
 </body>
 </html>

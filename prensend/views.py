@@ -33,8 +33,6 @@ def mypage(request):
         'prensend/mypage.html'
 )
 
-
-
 def get_filtered_items(age, gender, price):
     items = Item.objects.all()
     result_list = []
@@ -69,9 +67,4 @@ def quizinfo_index(request):
         }
         return render(request, 'prensend/recommend.html', context)
 
-    categories = Item.objects.values_list('category', flat=True).distinct()
-
-    context = {
-        'categories': categories,
-    }
-    return render(request, 'prensend/quiz.html', context)
+    return render(request, 'prensend/quiz.html')
