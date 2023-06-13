@@ -61,16 +61,14 @@
 	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
 	{% include 'prensend/navbar.html' %}
 
-    <div id="quiz" style="display:block">
+    <div id="quiz">
         <div class="information" style="background-color: #8EC6C9; border-radius: 40px; padding: 40px; margin: auto; width: 700px;">
             <div>
                 <h1 style="text-align: center;">선물의 간단한 정보를 입력해주세요.</h1>
             </div>
 
 
-
-
-            <form method="post" id="search_mode">
+            <form method="post" id="search_mode" action="{% url 'prensend:quizinfo_index' %}">
                 {% csrf_token %}
                 <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_age" id="search_mode_age">
@@ -100,7 +98,7 @@
                     </select>
                     <br><br><br>
                         
-                    <button class="button" type="button" id="btn" style="background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
+                    <button class="button" type="submit" id="btn" style="background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
                         추천 선물 보기
                     </button>
                 </div>
@@ -108,8 +106,6 @@
         </div>
     </div>
 
-    <div id="res" style="display:none">
-        {{ sel }}
 
 </body>
 </html>

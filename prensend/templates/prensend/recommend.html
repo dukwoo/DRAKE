@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
 </head>
 <body>
+
     <div class="t1">추천 선물 결과입니다.</div>
     <div class="box">
+    {% for f in filtered_items %}
     <div class="rec_box">
         <div class="rec_image">
             <img class="image" src="{% static 'prensend/images/향수1.png' %}" alt="친구프로필1">
@@ -17,11 +19,10 @@
             <p class="name1">조말론 런던</p>
         </div>
         <div class="rec_name2">
-            <p class="name2">Redcurrant & Cream Cologne
-                레드커런트 앤 크림 코롱</p>
+            <p class="name2">{{f.title}}</p>
         </div>
         <div class="rec_price">
-            <p class="price">240,000원</p>
+            <p class="price">{{f.price}}</p>
         </div>
         <div class="rec_button">
             <button class="button" type="button" onclick="location.href='https://www.jomalone.co.kr/product/31696/93034/special-edition/redcurrant-cream-cologne?size=100ML'">
@@ -29,45 +30,9 @@
             </button>
         </div>
     </div>
-    <div class="rec_box">
-        <div class="rec_image">
-            <img class="image" src="{% static 'prensend/images/핸드크림.png' %}" alt="친구프로필1">
-        </div>
-        <div class="rec_name1">
-            <p class="name1">록시땅</p>
-        </div>
-        <div class="rec_name2">
-            <p class="name2">2022 시어 버터 드라이 스킨 핸드크림 30ml</p>
-        </div>
-        <div class="rec_price">
-            <p class="price">15,000원</p>
-        </div>
-        <div class="rec_button">
-            <button class="button" type="button" onclick="location.href='https://kr.loccitane.com/2022-%EC%8B%9C%EC%96%B4-%EB%B2%84%ED%84%B0-%EB%93%9C%EB%9D%BC%EC%9D%B4-%EC%8A%A4%ED%82%A8-%ED%95%B8%EB%93%9C-%ED%81%AC%EB%A6%BC-30ml-01MA030K22.html'">
-                상품 보러가기
-            </button>
-        </div>
-    </div>
-    <div class="rec_box">
-        <div class="rec_image">
-            <img class="image" src="{% static 'prensend/images/향수2.png' %}" alt="친구프로필1">
-        </div>
-        <div class="rec_name1">
-            <p class="name1">디올</p>
-        </div>
-        <div class="rec_name2">
-            <p class="name2">미스 디올
-                NEW 블루밍 부케 오 드 뚜왈렛</p>
-        </div>
-        <div class="rec_price">
-            <p class="price">96,000원</p>
-        </div>
-        <div class="rec_button">
-            <button class="button" type="button" onclick="location.href='https://shop.dior.co.kr/products/y0996612?variant=42278315655326&currency=KRW&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQiAjbagBhD3ARIsANRrqEugO3Z4eQUPcpPt9rMPEKZKFjUfi551A4cm52QdbvEUKOvU793fV3IaAkz1EALw_wcB'">
-                상품 보러가기
-            </button>
-        </div>
-    </div>
+    {{% endfor %}}
+
+
     </div>
 </body>
 </html>
