@@ -86,7 +86,7 @@ DATABASES = {
 # MySQL db 연동
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'frensend',
         'USER': 'root',
         'PASSWORD': 'dladyd34##A',

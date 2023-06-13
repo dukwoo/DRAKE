@@ -34,7 +34,7 @@ def mypage(request):
 
 def quizinfo_index(request):
     if request.method == 'POST':
-        sel = request.POST.get('search_mode_age')
+        sel = request.POST.get('search_mode')
         print(sel)
         items = Item.objects.all()
 
@@ -42,5 +42,3 @@ def quizinfo_index(request):
         request,
         'prensend/quiz.html',
     )
-
-    

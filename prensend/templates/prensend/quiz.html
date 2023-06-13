@@ -67,33 +67,10 @@
                 <h1 style="text-align: center;">선물의 간단한 정보를 입력해주세요.</h1>
             </div>
 
-            <form action="{% url 'quizinfo_index' %}" method="post">
-                {% csrf_token %}
-                <select name="search_mode_age" id="search_mode_age">
-                    <option value="">연령</option>
-                    <option value="1020" selected>10-20대</option>
-                    <option value="30">30대</option>
-                    <option value="40">40대</option>
-                    <option value="50">50대 이상</option>
-                </select>
 
-                <button type="submit" id="btn">선물 추천</button>
-            </form>
-    
-            <!--
-            <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
-                <select>
-                    <option selected>연령대</option>
-                    <option>10대 이하</option>
-                    <option>20대</option>
-                    <option>30대</option>
-                    <option>40대</option>
-                    <option>50대</option>
-                    <option>60대 이상</option>
-                </select>
-            </div>-->
-            <!--
-                <form action="{% url 'prensend:quizinfo_index' %}" method="post" id="search_mode_age">
+
+
+            <form method="post" id="search_mode">
                 {% csrf_token %}
                 <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_age" id="search_mode_age">
@@ -104,9 +81,7 @@
                         <option value="50">50대 이상</option>
                     </select>
                 </div>
-            </form>
 
-            <form action="{% url 'prensend:quizinfo_index' %}" method="post" id="search_mode_gender">
                 <div class="gender" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_gender" id="search_mode_gender">
                         <option value="">성별</option>
@@ -114,25 +89,22 @@
                         <option value="woman">여성</option>
                     </select>
                 </div>
-            </form>
-            
-                <form action="{% url 'prensend:quizinfo_index' %}" id="search_mode_price" method="post">
-                    <div class="price" style="margin: auto; text-align: center; margin-top: 20px;">
-                        <select name="search_mode_price" id="search_mode_price">
-                            <option value="">가격대</option>
-                            <option value="1" selected>1만원 이하</option>
-                            <option value="12">1-2만원대</option>
-                            <option value="34">3-4만원대</option>
-                            <option value="5">5만원 이상</option>
-                        </select>
-                        <br><br><br>
+
+                <div class="price" style="margin: auto; text-align: center; margin-top: 20px;">
+                    <select name="search_mode_price" id="search_mode_price">
+                        <option value="">가격대</option>
+                        <option value="1" selected>1만원 이하</option>
+                        <option value="12">1-2만원대</option>
+                        <option value="34">3-4만원대</option>
+                        <option value="5">5만원 이상</option>
+                    </select>
+                    <br><br><br>
                         
-                        <button class="button" type="button" id="btn" style="background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
-                            추천 선물 보기
-                        </button>
-                    </div>
-                </form>
-            -->
+                    <button class="button" type="button" id="btn" style="background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
+                        추천 선물 보기
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
