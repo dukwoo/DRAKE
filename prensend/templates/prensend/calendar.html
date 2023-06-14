@@ -35,7 +35,6 @@
             }
 
             //달력 배열 초기화
-            
             for(var i = 0; i<arr.length; i++)
                 for(var j = 0; j < arr[i].length; j++)
                     arr[i][j] = "일정이 없습니다.";
@@ -102,9 +101,9 @@
                 var x = document.getElementById("date"); // 날짜가 선택되면 선택된 날짜로 숫자 변경
                 x.innerHTML = (nowMonth.getMonth()+1) + "월 " + newDIV.innerHTML + "일";
                 
-                showTodo();
+                showTodo(nowMonth.getMonth()+1, newDIV.innerHTML);
                 //document.getElementById("todo").innerText = "일정이 없습니다.";
-                //document.getElementById("input_todo").value = null;
+                document.getElementById("input_todo").value = null;
             }
     
             // 이전달 버튼 클릭
@@ -117,11 +116,7 @@
                 nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
                 buildCalendar();    // 달력 다시 생성
             }
-            /*
-            function nextCalendar2() {
-                nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
-                buildCalendar();    // 달력 다시 생성
-            }*/
+            
             // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
             function leftPad(value) {
                 if (value < 10) {
@@ -135,8 +130,14 @@
             function addTodo(){
                 //alert("버튼 클릭")
                 var inputTodo = document.getElementById('input_todo').value;
-                arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()] = inputTodo;
+                var tt = document.getElementById('date').innerText;
+                var ttt = tt.slice(-3, tt.length-1);
 
+                Number(ttt);
+                //alert(typeof(Number(ttt)));
+
+                arr[(nowMonth.getMonth() + 1)][Number(ttt)] = inputTodo;
+                showTodo(nowMonth.getMonth() + 1, Number(ttt));
                 //var dd = ((nowMonth.getMonth() + 1) + nowMonth.getDate());
                 
                 /*
@@ -147,8 +148,8 @@
             }
             
             // 일정 나타내기
-            function showTodo(){
-                document.getElementById("todo").innerText = arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()];
+            function showTodo(m, d){
+                document.getElementById("todo").innerText = arr[m][d];
                 //alert(arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()]);
             }
         </script>
