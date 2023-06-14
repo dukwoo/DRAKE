@@ -32,7 +32,8 @@
         <tr>
             <td>
                 <a style="margin-left:40px;"><img src={% static "prensend/images/프로필1.png" %} width="120px"></a>
-                <div style="font-size:1.5em;">drake@duksung.ac.kr</div>
+                <div style="font-size:1.5em;">{{ user.username }}</div>
+                <div style="font-size:1.5em;">{{ user.email }}</div>
             </td>
             <td>
                 <div style="margin-left:120px;">
