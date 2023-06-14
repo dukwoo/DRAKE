@@ -27,6 +27,7 @@ def mypage(request):
         'prensend/mypage.html'
 )
 
+#추천 알고리즘 (상위 3개만 가져오기, 수정좀)
 def get_filtered_items(age, gender, price):
     items = Item.objects.all()
     result_list = []
