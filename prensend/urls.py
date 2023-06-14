@@ -5,9 +5,9 @@ app_name = 'prensend'
 
 urlpatterns = [
     path('', views.prensend),
-    path('recommend/', views.quizinfo_index),
+    path('recommend/', views.quizinfo_index, name='quizinfo_index'),
     path('friends/', views.friends),
-    path('quiz/', views.quizinfo_index),
+    path('quiz/', views.quiz),
     path('calendar/', views.calendar),
     path('mypage/', views.mypage),
 ]

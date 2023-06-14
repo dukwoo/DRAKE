@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', include('prensend.urls',namespace='prensend')),
+    path('', include('prensend.urls')),
     path('admin/', admin.site.urls),
 ]
 
