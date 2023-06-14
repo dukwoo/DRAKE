@@ -95,13 +95,10 @@
 	{% include 'prensend/navbar.html' %}
 
     <!--회원가입-->
-    <div class="container my-3">
+    <div class="container my-3" style="margin: 30px auto; color: #636260; border: 3px solid; border-radius: 30px; width: 500px; padding: 40px; background: white;">
 		<div class="row my-3">
-            <div class="col-4">
-                <h4>회원가입</h4>
-            </div>
-            <div class="col-8 text-right">
-                <span>또는 <a href="{% url 'common:login' %}">로그인 하세요.</a></span>
+            <div class="col-4" style="font-size: 40px;">
+                Sign In
             </div>
             <form methon="post" class="post-form">
                 {% csrf_token %}
@@ -124,6 +121,26 @@
                 <button type="submit" class="btn btn-primary">생성하기</button>
             </form>
         </div>
+		<div class="box_signup" style="margin-top: 10px;">
+			<span>
+				<button type="button" onclick="location.href='{%url 'common:login' %}'"
+				style="width: 150px;
+				height: 40px;
+				margin-top: 15px;
+				margin-left: 170px;
+				border-radius: 10px;
+				border: 3px solid #199172;
+				background-color: white;
+				color: #199172;
+				font-weight: bold;
+				font-size: 20px;
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top: 5px;
+				padding-bottom: 5px;">
+				로그인</button>
+			</span>
+		</div>
     </div>
     
     <script>
