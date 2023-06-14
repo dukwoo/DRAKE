@@ -28,20 +28,6 @@
             let today = new Date();     // 페이지를 로드한 날짜를 저장
             today.setHours(0, 0, 0, 0);    // 비교 편의를 위해 today의 시간을 초기화
     
-            // 달력 배열 생성
-            var arr = new Array(12);
-            for(var i = 0; i < arr.length; i++){
-                arr[i] = new Array(31);
-            }
-
-            //달력 배열 초기화
-            
-            for(var i = 0; i<arr.length; i++)
-                for(var j = 0; j < arr[i].length; j++)
-                    arr[i][j] = "일정이 없습니다.";
-            
-            //arr[10][20] = "이수민";
-
             // 달력 생성 : 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣는다.
             function buildCalendar() {
     
@@ -89,8 +75,6 @@
                 }
                 var a = document.getElementById("date");
                 a.innerHTML = (nowMonth.getMonth() + 1) + "월 " + nowMonth.getDate() + "일";
-
-                document.getElementById("todo").innerText = arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()];
             }
     
             // 날짜 선택
@@ -101,10 +85,6 @@
                 newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
                 var x = document.getElementById("date"); // 날짜가 선택되면 선택된 날짜로 숫자 변경
                 x.innerHTML = (nowMonth.getMonth()+1) + "월 " + newDIV.innerHTML + "일";
-                
-                showTodo();
-                //document.getElementById("todo").innerText = "일정이 없습니다.";
-                //document.getElementById("input_todo").value = null;
             }
     
             // 이전달 버튼 클릭
@@ -117,11 +97,7 @@
                 nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
                 buildCalendar();    // 달력 다시 생성
             }
-            /*
-            function nextCalendar2() {
-                nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
-                buildCalendar();    // 달력 다시 생성
-            }*/
+    
             // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
             function leftPad(value) {
                 if (value < 10) {
@@ -129,27 +105,6 @@
                     return value;
                 }
                 return value;
-            }
-
-            // 일정 추가하고 나타내기
-            function addTodo(){
-                //alert("버튼 클릭")
-                var inputTodo = document.getElementById('input_todo').value;
-                arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()] = inputTodo;
-
-                //var dd = ((nowMonth.getMonth() + 1) + nowMonth.getDate());
-                
-                /*
-                if(arr[10][20] == 0)
-                    document.getElementById("todo").innerText = "0입니다";
-                else
-                    document.getElementById("todo").innerText = arr[10][20];*/
-            }
-            
-            // 일정 나타내기
-            function showTodo(){
-                document.getElementById("todo").innerText = arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()];
-                //alert(arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()]);
             }
         </script>
 
@@ -194,8 +149,6 @@
             </td>
             <td><table><tr>
                 <div id="date"></div>
-                <input type="text" id="input_todo" size="10">
-                <button onclick="addTodo();">button</button>
                 <div id="todo">일정이 없습니다.</div></tr><tr><div></div></tr></table>
             </td>
         </tr>
