@@ -1,55 +1,37 @@
-<!DOCTYPE html>
+{% extends 'prensend/base.html' %}
 {% load static %}
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
+
+    {% block head_styles %}
     <title>결과페이지</title>
-
-    <!--navbar 추가할 때 유의점: css+img+div+fontaweasome 같이 옮기기-->
-	<!--nav&foot css-->
-    <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}?after">
-    <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}?after">
-
-    <!--font awesome-->
-    <script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
 
     <!--recommend css-->
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
-</head>
-<body>
-
-	<!--navbar-->
-	<img id="list" src="{% static 'prensend/images/로고.png' %}" style="width:300px;height:200px;" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;">
-		{% include 'prensend/navbar.html' %}
-	</div>
-
+    {% endblock %}
+   	
+    {% block main %}
     <div class="t1">추천 선물 결과입니다.</div>
     <div class="box">
-    {% for f in filtered_items %}
-    <div class="rec_box">
-        <div class="rec_image">
-            <!--가져온 이미지 링크 src 속성으로 넣으면 이미지 보임-->
-            <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
+        {% for f in filtered_items %}
+        <div class="rec_box">
+            <div class="rec_image">
+                <!--가져온 이미지 링크 src 속성으로 넣으면 이미지 보임-->
+                <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
+            </div>
+            <div class="rec_name1">
+                <p class="name1">조말론 런던</p>
+            </div>
+            <div class="rec_name2">
+                <p class="name2">{{f.title}}</p>
+            </div>
+            <div class="rec_price">
+                <p class="price">{{f.price}}</p>
+            </div>
+            <div class="rec_button">
+                <button class="button" type="button" onclick="location.href='{{f.link}}'">
+                    상품 보러가기
+                </button>
+            </div>
         </div>
-        <div class="rec_name1">
-            <p class="name1">조말론 런던</p>
-        </div>
-        <div class="rec_name2">
-            <p class="name2">{{f.title}}</p>
-        </div>
-        <div class="rec_price">
-            <p class="price">{{f.price}}</p>
-        </div>
-        <div class="rec_button">
-            <button class="button" type="button" onclick="location.href='{{f.link}}'">
-                상품 보러가기
-            </button>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-
-
-    </div>
-</body>
-</html>
+    {% endblock %}

@@ -1,22 +1,13 @@
-<!DOCTYPE html>
+{% extends 'prensend/base.html' %}
 {% load static %}
-<html lang="ko">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>대문페이지</title>
-
-		<!--nav&foot css-->
-        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
-
-		<!--font awesome-->
-		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
-
+		{% block head_styles %}
 		<!--friends,animation css-->
         <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/animations.css">
+
+		<title>대문페이지</title>
 
         <style>
 			/* 나브바의 로고 CSS 추가 */
@@ -64,55 +55,37 @@
 	            }	
             }
 
-@-webkit-keyframes slideUp {
-	0% {
-		-webkit-transform: translateY(100%);
-	}
-	50%{
-		-webkit-transform: translateY(-8%);
-	}
-	65%{
-		-webkit-transform: translateY(4%);
-	}
-	80%{
-		-webkit-transform: translateY(-4%);
-	}
-	95%{
-		-webkit-transform: translateY(2%);
-	}			
-	100% {
-		-webkit-transform: translateY(0%);
-	}	
-}
+			@-webkit-keyframes slideUp {
+				0% {
+					-webkit-transform: translateY(100%);
+				}
+				50%{
+					-webkit-transform: translateY(-8%);
+				}
+				65%{
+					-webkit-transform: translateY(4%);
+				}
+				80%{
+					-webkit-transform: translateY(-4%);
+				}
+				95%{
+					-webkit-transform: translateY(2%);
+				}			
+				100% {
+					-webkit-transform: translateY(0%);
+				}	
+			}
         </style>
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    </head>
+        {% endblock %}
 
-<body>
-	<!--navbar-->
-	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;">
-		{% include 'prensend/navbar.html' %}
-	</div>
-	
-
-    <div id="object" class="slideUp" style="width: 600px; margin: auto;">
-        <img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" style="width: 600px;" onclick="location.href='/quiz/'">
-    </div>
-    
-    <script>
-        $('#animatedElement').click(function() {
-            $(this).addClass("slideUp");
-        });
-    </script>
-
-	<!--footer-->
-	<footer style="bottom:0; height:100px; text-align:center;">
-		<div>
-			<div> Copyright @ DRAKE </div>
+	{% block main %}
+		<div id="object" class="slideUp" style="width: 600px; margin: auto;">
+			<img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" style="width: 600px;" onclick="location.href='/quiz/'">
 		</div>
-	</footer>
-</body>
-
-
-</html>
+		
+		<script>
+			$('#animatedElement').click(function() {
+				$(this).addClass("slideUp");
+			});
+		</script>
+	{% endblock %}

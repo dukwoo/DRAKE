@@ -1,28 +1,14 @@
-<!DOCTYPE html>
+{% extends 'prensend/base.html' %}
 {% load static %}
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
+
+{% block head_styles %}
     <title>퀴즈</title>
+
     <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
 
-    <!--nav&foot css-->
-    <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}?after">
-    <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}?after">
-
     <!--recommend.css-->
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
-
-    <!--font awesome-->
-    <script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
-
-    <!--jQuery-->
-    <!--적용방법 1
-    <script src="js/jquery.js"></script>
-    적용방법 2 : cdn-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
     <style>
         /* 나브바의 로고 CSS 추가 */
@@ -44,17 +30,9 @@
             appearance: none;
         }
     </style>
- 
-</head>
-<body>
-    <script src="https://kit.fontawesome.com/cbcad42a26.js" crossorigin="anonymous"></script>
-    
-    <!--navbar-->
-	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;">
-		{% include 'prensend/navbar.html' %}
-	</div>
-    
+{% endblock %}
+
+{% block main %}
     <div id="quiz">
         <div class="information" style="background-color: #8EC6C9; border-radius: 40px; padding: 40px; margin: auto; width: 700px;">
             <div>
@@ -99,6 +77,4 @@
 
         </div>
     </div>
-
-</body>
-</html>
+{% endblock %}

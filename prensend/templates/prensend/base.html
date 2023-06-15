@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+		<meta name="keywords" content="선물 추천, 맞춤형 선물 추천, 선물 찾기 게임">
+		<meta name="description" content="선물 추천 사이트, 맟춤형 선물 추천, 선물 단서 찾기 게임">
+
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="맞춤형 선물 단서 찾기 게임 사이트">
+		<meta property="og:description" content="친구가 원하는 선물이 무엇일까?">
+		
+		<meta property="og:image" content="{% static 'prensend/images/로고.png' %}">
+		<meta property="og:url" content="#">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<link rel="shortcut icon" type="text/css" href="{% static 'prensend/images/title로고.png' %}">
+		<link rel="appel-touch-icon-precomposed" href="{% static 'prensend/images/title로고.png' %}">
+
+		<!--nav&foot css-->
+        <!--navbar 추가할 때 유의점: css+img+div+fontaweasome 같이 옮기기-->
+        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+
+		<!--font awesome-->
+		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
+
+		<style>
+            /* 나브바의 로고 CSS 추가 */
+            #list { 
+                display: block;
+                width:300px;
+                height:200px;
+            }
+        </style>
+
+        {% block head_styles %}
+        {% endblock %}
+
+    </head>
+
+<body>
+	<!--navbar-->
+	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
+	<div id="list2" style="width:300px; height:200px; display:none;">
+		{% include 'prensend/navbar.html' %}
+	</div>
+	
+    {% block main %}
+    {% endblock %}
+
+	<!--footer-->
+	<footer style="bottom:0; height:100px; text-align:center;">
+		<div>
+			<div> Copyright @ DRAKE </div>
+		</div>
+	</footer>
+</body>
+</html>

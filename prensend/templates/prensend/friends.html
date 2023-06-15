@@ -1,86 +1,64 @@
-<!DOCTYPE html>
+{% extends 'prensend/base.html' %}
 {% load static %}
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>친구목록</title>
-    <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}?after">
 
-    <!--nav&foot css-->
-    <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+    {% block head_styles %}
+        <title>친구목록</title>
+        <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}?after">
+    {% endblock %}
 
-    <!--font awesome-->
-		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
+    {% block main %}
+        <div class="t1">친구목록</div>
 
-    <style>
-        /* 나브바의 로고 CSS 추가 */
-		#list { 
-			display: block;
-    		width:300px;
-    		height:200px;
-		}
-    </style>
-</head>
-<body>
-    <!--navbar-->
-	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;"></div>
-	{% include 'prensend/navbar.html' %}
-
-    <div class="t1">친구목록</div>
-
-    <div class="friend_box">
-        <div class="friend_image">
-            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+        <div class="friend_box">
+            <div class="friend_image">
+                <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+            </div>
+            <div class="friend_name">
+                <p class="name">임예진 (20200694)</p>
+            </div>
+            <div class="friend_button">
+                <button class="button" type="button">
+                    방 단서 찾기
+                </button>
+            </div>
         </div>
-        <div class="friend_name">
-            <p class="name">임예진 (20200694)</p>
+        <div class="friend_box">
+            <div class="friend_image">
+                <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+            </div>
+            <div class="friend_name">
+                <p class="name">김지현 (20200711)</p>
+            </div>
+            <div class="friend_button">
+                <button class="button" type="button">
+                    방 단서 찾기
+                </button>
+            </div>
         </div>
-        <div class="friend_button">
-            <button class="button" type="button">
-                방 단서 찾기
-            </button>
+        <div class="friend_box">
+            <div class="friend_image">
+                <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+            </div>
+            <div class="friend_name">
+                <p class="name">이수민 (20200885)</p>
+            </div>
+            <div class="friend_button">
+                <button class="button" type="button">
+                    방 단서 찾기
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="friend_box">
-        <div class="friend_image">
-            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+        <div class="friend_box">
+            <div class="friend_image">
+                <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
+            </div>
+            <div class="friend_name">
+                <p class="name">조수인 (20200747)</p>
+            </div>
+            <div class="friend_button">
+                <button class="button" type="button">
+                    방 단서 찾기
+                </button>
+            </div>
         </div>
-        <div class="friend_name">
-            <p class="name">김지현 (20200711)</p>
-        </div>
-        <div class="friend_button">
-            <button class="button" type="button">
-                방 단서 찾기
-            </button>
-        </div>
-    </div>
-    <div class="friend_box">
-        <div class="friend_image">
-            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
-        </div>
-        <div class="friend_name">
-            <p class="name">이수민 (20200885)</p>
-        </div>
-        <div class="friend_button">
-            <button class="button" type="button">
-                방 단서 찾기
-            </button>
-        </div>
-    </div>
-    <div class="friend_box">
-        <div class="friend_image">
-            <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
-        </div>
-        <div class="friend_name">
-            <p class="name">조수인 (20200747)</p>
-        </div>
-        <div class="friend_button">
-            <button class="button" type="button">
-                방 단서 찾기
-            </button>
-        </div>
-    </div>
-</body>
-</html>
+    {% endblock %}

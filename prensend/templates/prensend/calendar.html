@@ -1,25 +1,8 @@
-<!DOCTYPE html>
+{% extends 'prensend/base.html' %}
 {% load static %}
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <title>Calendar</title>
 
-        <!--nav&foot css-->
-        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
-        
-        <!--font awesome-->
-        <script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
-    
-        <style>
-            /* 나브바의 로고 CSS 추가 */
-            #list { 
-                display: block;
-                width:300px;
-                height:200px;
-            }
-        </style>
+    {% block head_styles %}
+        <title>Calendar</title>
 
         <script>
             window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
@@ -155,52 +138,46 @@
         </script>
 
         <link rel="stylesheet" href="{% static 'prensend/css/calendar.css' %}">
-        
-    </head>
-<body>
-    <!--navbar-->
-    <img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-    <div id="list2" style="width:300px; height:200px; display:none;"></div>
-    {% include 'prensend/navbar.html' %}
+    {% endblock %}
 
-    <table>
-        <tr>
-            <td>
-                <div class="div">
-                    <table class="Calendar">
-                        <thead>
-                            <tr>
-                                <td onClick="prevCalendar();" style="cursor:pointer; width: 50px;height: 50px;">&#60;</td>
-                                <td colspan="5" style="width: 50px; height: 50px;">
-                                    <span id="calYear"></span>년
-                                    <span id="calMonth"></span>월
-                                </td>
-                                <td onClick="nextCalendar();" style="cursor:pointer;width: 50px; height: 50px;">&#62;</td>
-                            </tr>
-                            <tr>
-                                <td style="width: 50px; height: 50px;">일</td>
-                                <td style="width: 50px; height: 50px;">월</td>
-                                <td style="width: 50px; height: 50px;">화</td>
-                                <td style="width: 50px; height: 50px;">수</td>
-                                <td style="width: 50px; height: 50px;">목</td>
-                                <td style="width: 50px; height: 50px;">금</td>
-                                <td style="width: 50px; height: 50px;">토</td>
-                            </tr>
-                        </thead>
+    {% block main %}
+        <table>
+            <tr>
+                <td>
+                    <div class="div">
+                        <table class="Calendar">
+                            <thead>
+                                <tr>
+                                    <td onClick="prevCalendar();" style="cursor:pointer; width: 50px;height: 50px;">&#60;</td>
+                                    <td colspan="5" style="width: 50px; height: 50px;">
+                                        <span id="calYear"></span>년
+                                        <span id="calMonth"></span>월
+                                    </td>
+                                    <td onClick="nextCalendar();" style="cursor:pointer;width: 50px; height: 50px;">&#62;</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px; height: 50px;">일</td>
+                                    <td style="width: 50px; height: 50px;">월</td>
+                                    <td style="width: 50px; height: 50px;">화</td>
+                                    <td style="width: 50px; height: 50px;">수</td>
+                                    <td style="width: 50px; height: 50px;">목</td>
+                                    <td style="width: 50px; height: 50px;">금</td>
+                                    <td style="width: 50px; height: 50px;">토</td>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </td>
-            <td><table><tr>
-                <div id="date"></div>
-                <input type="text" id="input_todo" size="10">
-                <button onclick="addTodo();">button</button>
-                <div id="todo">일정이 없습니다.</div></tr><tr><div></div></tr></table>
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td><table><tr>
+                    <div id="date"></div>
+                    <input type="text" id="input_todo" size="10">
+                    <button onclick="addTodo();">button</button>
+                    <div id="todo">일정이 없습니다.</div></tr><tr><div></div></tr></table>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
 

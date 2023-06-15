@@ -1,63 +1,41 @@
-<!DOCTYPE html>
+{% extends 'prensend/base.html' %}
 {% load static %}
-<html lang="ko">
-    <head>
-        <!--nav&foot css-->
-        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
 
-		<!--font awesome-->
-		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
-
-        <meta charset="UTF-8">
+    {% block head_styles %}
         <title>Mypage</title>
         <link rel="stylesheet" href="{% static 'prensend/css/mypage.css' %}">
+    {% endblock %}    
 
-        <style>
-            /* 나브바의 로고 CSS 추가 */
-			#list { 
-				display: block;
-    			width:300px;
-    			height:200px;
-			}
-        </style>
-    </head>
-<body>
-    <!--navbar-->
-	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;"></div>
-	{% include 'prensend/navbar.html' %}
-
-    <table>
-        <tr>
-            <td>
-                <a style="margin-left:40px;"><img src={% static "prensend/images/프로필1.png" %} width="120px"></a>
-                <div style="font-size:1.5em;">{{ user.username }}</div>
-                <div style="font-size:1.5em;">{{ user.email }}</div>
-            </td>
-            <td>
-                <div style="margin-left:120px;">
-                    <div>
-                        <span class="let">나의 단서</span>
-                        <button class="favorite styled" type="button">수정</button>
+    {% block main %}
+        <table>
+            <tr>
+                <td>
+                    <a style="margin-left:40px;"><img src={% static "prensend/images/프로필1.png" %} width="120px"></a>
+                    <div style="font-size:1.5em;">{{ user.username }}</div>
+                    <div style="font-size:1.5em;">{{ user.email }}</div>
+                </td>
+                <td>
+                    <div style="margin-left:120px;">
+                        <div>
+                            <span class="let">나의 단서</span>
+                            <button class="favorite styled" type="button">수정</button>
+                        </div>
+                        <div class="box" style="margin-top: 30px;">여성</div>
+                        <div class="box" style="margin-top: 20px;">23세</div>
+                        <div class="box" style="margin-top: 20px;">대학생</div>
                     </div>
-                    <div class="box" style="margin-top: 30px;">여성</div>
-                    <div class="box" style="margin-top: 20px;">23세</div>
-                    <div class="box" style="margin-top: 20px;">대학생</div>
-                </div>
-            </td>
-            <td>
-                <div style="margin-left:150px;">
-                    <div>
-                        <span class="let">마이룸 단서</span>
-                        <button class="favorite styled" type="button">수정</button>
+                </td>
+                <td>
+                    <div style="margin-left:150px;">
+                        <div>
+                            <span class="let">마이룸 단서</span>
+                            <button class="favorite styled" type="button">수정</button>
+                        </div>
+                        <div class="box" style="margin-top: 30px;">컴퓨터 모니터</div>
+                        <div class="box" style="margin-top: 20px;">책</div>
+                        <div class="box" style="margin-top: 20px;">곰돌이 인형</div>
                     </div>
-                    <div class="box" style="margin-top: 30px;">컴퓨터 모니터</div>
-                    <div class="box" style="margin-top: 20px;">책</div>
-                    <div class="box" style="margin-top: 20px;">곰돌이 인형</div>
-                </div>
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
