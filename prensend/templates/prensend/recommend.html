@@ -4,9 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>결과페이지</title>
+
+    <!--navbar 추가할 때 유의점: css+img+div+fontaweasome 같이 옮기기-->
+	<!--nav&foot css-->
+    <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}?after">
+    <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}?after">
+
+    <!--font awesome-->
+    <script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
+
+    <!--recommend css-->
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
 </head>
 <body>
+
+	<!--navbar-->
+	<img id="list" src="{% static 'prensend/images/로고.png' %}" style="width:300px;height:200px;" onclick="javascript:navbar()" alt="PRENSEND">
+	<div id="list2" style="width:300px; height:200px; display:none;">
+		{% include 'prensend/navbar.html' %}
+	</div>
 
     <div class="t1">추천 선물 결과입니다.</div>
     <div class="box">

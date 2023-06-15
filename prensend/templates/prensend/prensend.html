@@ -91,8 +91,10 @@
 <body>
 	<!--navbar-->
 	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;"></div>
-	{% include 'prensend/navbar.html' %}
+	<div id="list2" style="width:300px; height:200px; display:none;">
+		{% include 'prensend/navbar.html' %}
+	</div>
+	
 
     <div id="object" class="slideUp" style="width: 600px; margin: auto;">
         <img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" style="width: 600px;" onclick="location.href='/quiz/'">

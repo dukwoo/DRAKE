@@ -8,8 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
 
     <!--nav&foot css-->
-    <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}?after">
+    <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}?after">
 
     <!--recommend.css-->
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
@@ -44,23 +44,17 @@
             appearance: none;
         }
     </style>
-    
-    <script>
-        window.onload = function(){
-            document.getElementById('btn').onclick = function(){    
-                document.getElementById('quiz').style.display = "none";
-                document.getElementById('res').style.display = "block";
-            };
-        };            
-    </script>     
+ 
 </head>
 <body>
     <script src="https://kit.fontawesome.com/cbcad42a26.js" crossorigin="anonymous"></script>
     
     <!--navbar-->
 	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	{% include 'prensend/navbar.html' %}
-
+	<div id="list2" style="width:300px; height:200px; display:none;">
+		{% include 'prensend/navbar.html' %}
+	</div>
+    
     <div id="quiz">
         <div class="information" style="background-color: #8EC6C9; border-radius: 40px; padding: 40px; margin: auto; width: 700px;">
             <div>
