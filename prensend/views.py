@@ -80,6 +80,7 @@ def quizinfo_index(request):
         price = request.POST.get('search_mode_price')
 
         filtered_items = get_filtered_items(age, gender, price)
+        #3개만 출력하기 위해서는 여기에 head(3)을 해주어야하는데 하면 오류남ㅠㅠ
 
         context = {
             'filtered_items': filtered_items,
