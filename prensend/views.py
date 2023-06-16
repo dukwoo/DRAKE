@@ -66,11 +66,16 @@ def get_filtered_items(age, gender, price):
         result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 50000)).order_by('rank'))
 
     return result_list
+    # 이 리스트에는 필터링된 아이템들이 모두 담겨있음, 3개 X
 
-    #현재 문제점 : 추천 알고리즘 완성, 이부분은 교수님 피셜 문제없다고 확인받음 -> 문제는 필터링된 데이터 리스트에서 상위 3개를 뽑는 것 (head쓰면 오류남), 리스트에는 필터링된 아이템들이 다 담겨있음.
-    # 앞선 상위 3개 뽑는 것이 되지 않아서 상위 3개 데이터를 recommend 페이지에서 보이게 하는 것이 안됨 -> 이부분에서 아이템을 읽어오지 못하는 것 같음
+    # 현재 문제점 : 추천 알고리즘 완성, 이 부분은 교수님 피셜 문제없다고 확인받음
+
+    # 문제는 필터링된 데이터 리스트에서 상위 3개를 뽑는 것 (head쓰면 오류남)
+    # 앞선 상위 3개 뽑는 것이 되지 않아서(추정) 상위 3개 데이터를 recommend 페이지에서 보이게 하는 것이 안됨
+    # 앞서 quiz에서 선택한 데이터는 읽어오지만, 아이템을 읽어오지 못하는 것 같음
+
     # 모델에서 Char 형식으로 rank를 입력받아 order by를 rank로 하지 못하는 것이 의심됨 -> 그러나 Int 형식으로 모델 수정하면 오류남.
-    # result_list의 내용을 확인해보고 싶은데 print 작동안함
+    # 그래서 result_list의 내용을 확인해보고 싶은데 print는 작동안함
 
 def quizinfo_index(request):
     if request.method == 'POST':
