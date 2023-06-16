@@ -17,14 +17,11 @@
                 <!--가져온 이미지 링크 src 속성으로 넣으면 이미지 보임-->
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
-            <div class="rec_name1">
-                <p class="name1">조말론 런던</p>
-            </div>
-            <div class="rec_name2">
-                <p class="name2">{{f.title}}</p>
+            <div class="rec_title">
+                <p class="name1">상품명 : {{f.title}}</p>
             </div>
             <div class="rec_price">
-                <p class="price">{{f.price}}</p>
+                <p class="price">{{f.price}} 원</p>
             </div>
             <div class="rec_button">
                 <button class="button" type="button" onclick="location.href='{{f.link}}'">
