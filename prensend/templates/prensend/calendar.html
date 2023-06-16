@@ -26,7 +26,7 @@
 
             // 달력 생성 : 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣는다.
             function buildCalendar() {
-    
+                //alert(arr.length);
                 let firstDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth(), 1);     // 이번달 1일
                 let lastDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, 0);  // 이번달 마지막날
     
@@ -72,7 +72,7 @@
                 var a = document.getElementById("date");
                 a.innerHTML = (nowMonth.getMonth() + 1) + "월 " + nowMonth.getDate() + "일";
 
-                document.getElementById("todo").innerText = arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()];
+                document.getElementById("todo").innerText = arr[(nowMonth.getMonth())][nowMonth.getDate()-1];
             }
     
             // 날짜 선택
@@ -84,7 +84,7 @@
                 var x = document.getElementById("date"); // 날짜가 선택되면 선택된 날짜로 숫자 변경
                 x.innerHTML = (nowMonth.getMonth()+1) + "월 " + newDIV.innerHTML + "일";
                 
-                showTodo(nowMonth.getMonth()+1, newDIV.innerHTML);
+                showTodo(nowMonth.getMonth(), Number(newDIV.innerHTML)-1);
                 //document.getElementById("todo").innerText = "일정이 없습니다.";
                 document.getElementById("input_todo").value = null;
             }
@@ -119,10 +119,16 @@
                 Number(ttt);
                 //alert(typeof(Number(ttt)));
 
-                arr[(nowMonth.getMonth() + 1)][Number(ttt)] = inputTodo;
-                showTodo(nowMonth.getMonth() + 1, Number(ttt));
+                arr[(nowMonth.getMonth())][Number(ttt)-1] = inputTodo;
+                showTodo(nowMonth.getMonth(), Number(ttt)-1);
                 //var dd = ((nowMonth.getMonth() + 1) + nowMonth.getDate());
                 
+                /*
+                var btn = document.getElementById('addBtn');
+                var box = document.getElementById('input_todo');
+                box.style.display = 'none';
+                btn.style.display = 'none';*/
+
                 /*
                 if(arr[10][20] == 0)
                     document.getElementById("todo").innerText = "0입니다";
@@ -130,6 +136,11 @@
                     document.getElementById("todo").innerText = arr[10][20];*/
             }
             
+            // 일정 삭제하기
+            function minTodo(){
+                document.getElementById("todo").innerText = "일정이 없습니다.";
+            }
+
             // 일정 나타내기
             function showTodo(m, d){
                 document.getElementById("todo").innerText = arr[m][d];
@@ -145,7 +156,7 @@
             <tr>
                 <td>
                     <div class="div">
-                        <table class="Calendar">
+                        <table class="Calendar" style="margin-left: 100px">
                             <thead>
                                 <tr>
                                     <td onClick="prevCalendar();" style="cursor:pointer; width: 50px;height: 50px;">&#60;</td>
@@ -156,26 +167,35 @@
                                     <td onClick="nextCalendar();" style="cursor:pointer;width: 50px; height: 50px;">&#62;</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50px; height: 50px;">일</td>
+                                    <td style="width: 50px; height: 50px; color: red;">일</td>
                                     <td style="width: 50px; height: 50px;">월</td>
                                     <td style="width: 50px; height: 50px;">화</td>
                                     <td style="width: 50px; height: 50px;">수</td>
                                     <td style="width: 50px; height: 50px;">목</td>
                                     <td style="width: 50px; height: 50px;">금</td>
-                                    <td style="width: 50px; height: 50px;">토</td>
+                                    <td style="width: 50px; height: 50px; color: blue;">토</td>
                                 </tr>
                             </thead>
-
                             <tbody>
                             </tbody>
                         </table>
                     </div>
                 </td>
-                <td><table><tr>
-                    <div id="date"></div>
-                    <input type="text" id="input_todo" size="10">
-                    <button onclick="addTodo();">button</button>
-                    <div id="todo">일정이 없습니다.</div></tr><tr><div></div></tr></table>
+                <td>
+                    <table>
+                        <tr>
+                            <td><div id="date"></div></td>
+                            <td><button id="addBtn" onclick="addTodo();" style="border-radius: 45px;">+</button></td>
+                            <td><button id="minBtn" onclick="minTodo();">-</button></td>
+                            <td><input type="text" id="input_todo" size="10"></td>
+                        </tr>
+                        <tr>
+                            <td><div id="todo">일정이 없습니다.</div><td>
+                        </tr>
+                        <tr><td><div>&nbsp;</div></td></tr>
+                        <tr><td><div>&nbsp;</div></td></tr>
+                        <tr><td><div>&nbsp;</div></td></tr>
+                    </table>
                 </td>
             </tr>
         </table>
