@@ -54,6 +54,7 @@ def get_top_n(list_a, num):
 def get_filtered_items(age, gender, price):
     items = Item.objects.all()
     result_list = []
+    result_list2 = []
 
     s_age = '20M'
     if(age == '1020') & (gender == 'man'):
@@ -86,11 +87,11 @@ def get_filtered_items(age, gender, price):
     elif price == '5':
         result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 50000)))
 
-    print("[0][0]: ", result_list[0][0], "\n")
-    print("[0][1]: ", result_list[0][1], "\n")
-    print("[0][2]: ", result_list[0][2], "\n")
+    result_list2.append(result_list[0][0])
+    result_list2.append(result_list[0][1])
+    result_list2.append(result_list[0][2])
     
-    return result_list
+    return result_list2
     # 이 리스트에는 필터링된 아이템들이 모두 담겨있음, 3개 X
 
     # 현재 문제점 : 추천 알고리즘 완성, 이 부분은 교수님 피셜 문제없다고 확인받음
@@ -109,9 +110,9 @@ def quizinfo_index(request):
         gender = request.POST.get('search_mode_gender')
         price = request.POST.get('search_mode_price')
 
-        filtered_item = get_filtered_items(age, gender, price)
+        filtered_items = get_filtered_items(age, gender, price)
 
-        filtered_items = get_top_n(filtered_item, 3)
+        #filtered_items = get_top_n(filtered_item, 3)
 
         #3개만 출력하기 위해서는 여기에 head(3)을 해주어야하는데 하면 오류나서 함수 추가하여 사용하는 방향으로 바꿈
 
