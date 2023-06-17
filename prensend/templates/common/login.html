@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="ko">
@@ -126,18 +127,18 @@
 					style="height: 30px; width: 495px; margin-top: 5px; border-radius: 5px;">
 				</div>
 				<button type="submit" class="btn btn-primary" 
-				style="width: 150px;
+				style="
 				height: 40px;
 				margin-top: 30px;
-				margin-left: 170px;
+				margin-left: 150px;
 				border-radius: 10px;
 				border: 3px solid #199172;
 				background-color: white;
 				color: #199172;
 				font-weight: bold;
 				font-size: 20px;
-				padding-left: 15px;
-				padding-right: 15px;
+				padding-left: 67px;
+				padding-right: 67px;
 				padding-top: 5px;
 				padding-bottom: 5px;">
 				로그인</button>
@@ -145,11 +146,11 @@
 		</div>
 		<div class="box_signup" style="margin-top: 10px;">
 			<span>
-				<button type="button" onclick="location.href='{%url 'common:signup' %}'"
-				style="width: 150px;
+				<button type="button" onclick="location.href='{% provider_login_url 'google' %}'"
+				style="width: 200px;
 				height: 40px;
 				margin-top: 15px;
-				margin-left: 170px;
+				margin-left: 150px;
 				border-radius: 10px;
 				border: 3px solid #199172;
 				background-color: white;
@@ -160,8 +161,48 @@
 				padding-right: 15px;
 				padding-top: 5px;
 				padding-bottom: 5px;">
+				Google 로그인</button>
+			</span>
+		</div>
+		<div class="box_signup" style="margin-top: 10px;">
+			<span>
+				<button type="button" onclick="location.href='/accounts/signup/'"
+				style="
+				height: 40px;
+				margin-top: 15px;
+				margin-left: 150px;
+				border-radius: 10px;
+				border: 3px solid #199172;
+				background-color: white;
+				color: #199172;
+				font-weight: bold;
+				font-size: 20px;
+				padding-left: 58px;
+				padding-right: 58px;
+				padding-top: 5px;
+				padding-bottom: 5px;">
 				회원가입</button>
 			</span>
+			<div class="box_signup" style="margin-top: 10px;">
+				<span>
+					<button type="button" onclick="location.href='{%url 'common:signup' %}'"
+					style="
+					height: 40px;
+					margin-top: 15px;
+					margin-left: 150px;
+					border-radius: 10px;
+					border: 3px solid #199172;
+					background-color: white;
+					color: #199172;
+					font-weight: bold;
+					font-size: 20px;
+					padding-left: 54px;
+					padding-right: 54px;
+					padding-top: 5px;
+					padding-bottom: 5px;">
+					회원가입2</button>
+				</span>
+			</div>
 		</div>
     </div>
     

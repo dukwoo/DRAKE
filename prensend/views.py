@@ -27,6 +27,12 @@ def mypage(request):
         request,
         'prensend/mypage.html'
 )
+    
+def login(request):
+    return render(
+        request,
+        'prensend/login.html'
+    )
 
 #head가 안되어서 상위 3개만 읽어오는 함수 만들어봄
 def get_top_n(list_a, num):

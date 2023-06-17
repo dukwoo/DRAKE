@@ -1,0 +1,77 @@
+{% extends 'prensend/base.html' %}
+{% load socialaccount %}
+{% load static %}
+
+    {% block head_styles %}
+        <title>Mypage</title>
+        <link rel="stylesheet" href="{% static 'prensend/css/mypage.css' %}">
+    {% endblock %}    
+
+    {% block main %}
+        <!--로그인-->
+    <div style="margin: 30px auto; color: #636260; border: 3px solid; border-radius: 30px; width: 500px; padding: 40px; background: white;">
+		<div class="box_login" style="font-size: 40px; text-align: center;">
+			Log In / Sign Up
+
+            <div class="box_mid" style="margin-top: 30px;">
+				<a role="button" href="{% provider_login_url 'google' %}" 
+				style="width: 150px;
+				height: 40px;
+				margin-top: 30px;
+				border-radius: 10px;
+				border: 3px solid #199172;
+				background-color: white;
+				color: #199172;
+				font-weight: bold;
+				font-size: 20px;
+				padding-left: 17px;
+				padding-right: 17px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+                text-decoration:none;">
+				<i class="fab fa-google"></i>&nbsp;&nbsp;Log in with Google</a>
+			</form>
+		</div>
+		<div class="box_signup" style="margin-top: 10px;">
+			<span>
+				<a role="button" href="/accounts/login/"
+				style="width: 150px;
+				height: 40px;
+				margin-top: 15px;
+				border-radius: 10px;
+				border: 3px solid #199172;
+				background-color: white;
+				color: #199172;
+				font-weight: bold;
+				font-size: 20px;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+                text-decoration:none;">
+				<i class="far fa-envelope"></i>&nbsp;&nbsp;Log in with E-mail</a>
+			</span>
+		</div>
+        <div class="box_signup" style="margin-top: 10px;">
+			<span>
+				<a role="button" href="/accounts/signup/"
+				style="width: 150px;
+				height: 40px;
+				margin-top: 15px;
+				border-radius: 10px;
+				border: 3px solid #199172;
+				background-color: white;
+				color: #199172;
+				font-weight: bold;
+				font-size: 20px;
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+                text-decoration:none;">
+				<i class="far fa-envelope"></i>&nbsp;&nbsp;Sign Up with E-mail</a>
+			</span>
+		</div>
+		</div>		
+    </div>
+    {% endblock %}

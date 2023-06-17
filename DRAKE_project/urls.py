@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('prensend.urls')),
     path('admin/', admin.site.urls),
     path('common/', include('common.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

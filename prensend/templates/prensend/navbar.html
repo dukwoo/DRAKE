@@ -1,3 +1,4 @@
+{% load socialaccount %}
 {% load static %}
 <script>
     var num = 0;
@@ -38,7 +39,7 @@
             <li>
                 <h3>
                     {% if user.is_authenticated %}
-                    <a href="{% url 'common:logout' %}">
+                    <a href="{% url 'common:logout' %}" style="text-decoration:none;">
                         로그아웃
                     </a>
                     {% else %}

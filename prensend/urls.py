@@ -10,4 +10,5 @@ urlpatterns = [
     path('quiz/', views.quiz),
     path('calendar/', views.calendar),
     path('mypage/', views.mypage),
+    path('login/', views.login),
 ]
