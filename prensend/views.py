@@ -46,8 +46,7 @@ def get_top_n(list_a, num):
     top_num = tmp[-num:]  # 뒤에서부터 추출
     top_idx = [list_a.index(x) for x in top_num]
 
-    
-    print(tmp)
+
     return top_idx
 
 
@@ -76,18 +75,19 @@ def get_filtered_items(age, gender, price):
 
 
     if price == '1':
-        result_list.append(items.filter(Q(category=s_age) & Q(price__lte = 10000)).order_by('rank'))
+        result_list.append(items.filter(Q(category=s_age) & Q(price__lte = 10000)))
         #카테고리가 20M 이어야하고 price가 10000이하
 
     elif price == '12':
-        result_list.append(items.filter(Q(category=s_age) & Q(price__gt = 10000) & Q(price__lt = 30000)).order_by('rank'))
+        result_list.append(items.filter(Q(category=s_age) & Q(price__gt = 10000) & Q(price__lt = 30000)))
 
     elif price == '34':
-        result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 30000) & Q(price__lt = 50000)).order_by('rank'))
+        result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 30000) & Q(price__lt = 50000)))
 
     elif price == '5':
-        result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 50000)).order_by('rank'))
+        result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 50000)))
 
+    print(result_list)
     return result_list
     # 이 리스트에는 필터링된 아이템들이 모두 담겨있음, 3개 X
 
