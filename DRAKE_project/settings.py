@@ -107,7 +107,7 @@ DATABASES = {
 # MySQL db 연동: sqlite3(vscode), mysql(ubuntu);
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'frensend',
         'USER': 'root',
         'PASSWORD': 'Drake12!@',
