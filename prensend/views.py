@@ -86,10 +86,10 @@ def get_filtered_items(age, gender, price):
     elif price == '5':
         result_list.append(items.filter(Q(category=s_age) & Q(price__gte = 50000)))
 
-    print("[0][0]: " + result_list[0][0] + "\n")
-    print("[0][1]: " + result_list[0][1] + "\n")
-    print("[0][2]: " + result_list[0][2] + "\n")
-    print("[1][0]: " + result_list[1][0] + "\n")
+    print("[0][0]: ", result_list[0][0], "\n")
+    print("[0][1]: ", result_list[0][1], "\n")
+    print("[0][2]: ", result_list[0][2], "\n")
+    print("[1][0]: ", result_list[1][0], "\n")
     
     return result_list
     # 이 리스트에는 필터링된 아이템들이 모두 담겨있음, 3개 X
