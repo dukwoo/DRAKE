@@ -19,18 +19,18 @@
             }
 
             .Calendar>thead>tr:first-child>td {
-                font-family: 'Questrial', sans-serif;
+                /*font-family: 'Questrial', sans-serif;*/
                 font-size: 1.1em;
                 font-weight: bold;
             }
     
             .Calendar>thead>tr:last-child>td {
-                font-family: 'Questrial', sans-serif;
+                /*font-family: 'Questrial', sans-serif;*/
                 font-weight: 600;     
             }
     
             .Calendar>tbody>tr>td>p {
-                font-family: 'Montserrat', sans-serif;
+                /*font-family: 'Montserrat', sans-serif;*/
                 height: 45px;
                 width: 45px;
                 border-radius: 45px;
@@ -68,7 +68,7 @@
                 cursor: pointer;
             }
             #date {
-                font-family: 'Questrial', sans-serif;
+                /*font-family: 'Questrial', sans-serif;*/
                 font-size: 1.2em;
                 font-weight: bold;
             }

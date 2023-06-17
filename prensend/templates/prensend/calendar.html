@@ -72,6 +72,8 @@
                 var a = document.getElementById("date");
                 a.innerHTML = (nowMonth.getMonth() + 1) + "월 " + nowMonth.getDate() + "일";
 
+                //var box = document.getElementById('input_todo');
+                //box.style.display = 'none';
                 document.getElementById("todo").innerText = arr[(nowMonth.getMonth())][nowMonth.getDate()-1];
             }
     
@@ -112,6 +114,9 @@
             // 일정 추가하고 나타내기
             function addTodo(){
                 //alert("버튼 클릭")
+                var box = document.getElementById('input_todo');
+                box.style.display = 'block';
+
                 var inputTodo = document.getElementById('input_todo').value;
                 var tt = document.getElementById('date').innerText;
                 var ttt = tt.slice(-3, tt.length-1);
@@ -139,6 +144,7 @@
             // 일정 삭제하기
             function minTodo(){
                 document.getElementById("todo").innerText = "일정이 없습니다.";
+                document.getElementById("input_todo").value = null;
             }
 
             // 일정 나타내기
@@ -185,8 +191,13 @@
                     <table>
                         <tr>
                             <td><div id="date"></div></td>
-                            <td><button id="addBtn" onclick="addTodo();" style="border-radius: 45px;">+</button></td>
-                            <td><button id="minBtn" onclick="minTodo();">-</button></td>
+                            <td><button id="addBtn" onclick="addTodo();" style="border-radius: 10px; border: 0; background-color: #7DC8CA;">등록</button></td>
+                            <td><button id="minBtn" onclick="minTodo();" style="border-radius: 10px; border: 0; background-color: #7DC8CA;">삭제</button></td>
+                        </tr>
+                        <tr>
+                            
+                        </tr>
+                        <tr>
                             <td><input type="text" id="input_todo" size="10"></td>
                         </tr>
                         <tr>
@@ -199,6 +210,6 @@
                 </td>
             </tr>
         </table>
-        
+
     {% endblock %}
 
