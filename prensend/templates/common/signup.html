@@ -16,7 +16,6 @@
 		<!--friends,animation css-->
         <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/animations.css">
 
         <style>
 			/* 나브바의 로고 CSS 추가 */
@@ -102,6 +101,7 @@
             </div>
             <form methon="post" class="post-form" style="margin-top: 30px;">
                 {% csrf_token %}
+				{% include "form_errors.html" %}
                 <div class="form-group" style="font-size: 20px;">
                     <label for="username">사용자 이름</label><br>
                     <input type="text" class="form-control" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}"
