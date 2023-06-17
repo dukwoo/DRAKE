@@ -106,9 +106,9 @@ def quizinfo_index(request):
         gender = request.POST.get('search_mode_gender')
         price = request.POST.get('search_mode_price')
 
-        filtered_items = get_filtered_items(age, gender, price)
+        filtered_item = get_filtered_items(age, gender, price)
 
-        filtered_items = get_top_n(filtered_items, 3)
+        filtered_items = get_top_n(filtered_item, 3)
 
         #3개만 출력하기 위해서는 여기에 head(3)을 해주어야하는데 하면 오류나서 함수 추가하여 사용하는 방향으로 바꿈
 
