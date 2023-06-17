@@ -46,7 +46,7 @@ def get_top_n(list_a, num):
     top_num = tmp[-num:]  # 뒤에서부터 추출
     top_idx = [list_a.index(x) for x in top_num]
 
-    print(top_idx)
+    print(tmp)
     return top_idx
 
 
@@ -109,8 +109,6 @@ def quizinfo_index(request):
         filtered_item = get_filtered_items(age, gender, price)
         filtered_items = get_top_n(filtered_item, 3)
         
-        print(filtered_item)
-        print(filtered_items)
 
         #3개만 출력하기 위해서는 여기에 head(3)을 해주어야하는데 하면 오류나서 함수 추가하여 사용하는 방향으로 바꿈
 
