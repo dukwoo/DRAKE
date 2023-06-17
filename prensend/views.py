@@ -43,11 +43,10 @@ def get_top_n(list_a, num):
     tmp = list_a.copy()
     tmp.sort()
 
+    print(tmp)
     top_num = tmp[-num:]  # 뒤에서부터 추출
     top_idx = [list_a.index(x) for x in top_num]
 
-    print("top_num: \n" + top_num)
-    print('top_idx: \n' + top_idx)
     return top_idx
 
 
