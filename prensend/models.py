@@ -6,11 +6,12 @@ import os
 
 class Item(models.Model):
     #순위
-    rank = models.CharField(max_length=10, blank=True)
+    #rank = models.CharField(max_length=10, blank=True)
+    rank = models.IntegerField(default=0)
     #상품명
     title = models.CharField(max_length=100)
     #가격
-    price = models.CharField(max_length=30, blank=True)
+    price = models.IntegerField(default=0)
     #이미지 (frensend)
     image = models.ImageField(upload_to='prensend/images/%Y/%m/%d/', blank=True)
     #링크

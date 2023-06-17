@@ -72,8 +72,7 @@ def get_filtered_items(age, gender, price):
         s_age = '50M'
     elif (age == '50') & (gender == 'woman'):
         s_age = '50W'
-
-
+    
     if price == '1':
         result_list.append(items.filter(Q(category=s_age) & Q(price__lte = 10000)))
         #카테고리가 20M 이어야하고 price가 10000이하
