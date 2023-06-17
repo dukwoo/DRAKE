@@ -33,7 +33,7 @@ class Item_csv(models.Model):
     # 가격
     price = models.CharField(max_length=30, blank=True)
     # 이미지 (frensend)
-    image = models.ImageField(upload_to='prensend/images/%Y/%m/%d/', blank=True)
+    image = models.CharField(max_length=300, blank=True)
     # 링크
     link = models.CharField(max_length=300, blank=True)
     # 카테고리
