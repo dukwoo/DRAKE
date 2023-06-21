@@ -57,7 +57,7 @@ def get_top_n(list_a, num):
 
 def find_sim_name(df, sorted_ind, product_name, top_n=3):
         #인자로 입력된 products_df DataFrame에서 'name' 칼럼이 입력된 product_name 값인 DataFrame 추출
-        title_product = df[df['name'] == product_name]
+        title_product = df[df['title'] == product_name]
 
         #product_name을 가진 DataFrame의 index 객체를 ndarray로 반환하고
         #sorted_ind 인자로 입력된 name_sim_sorted_ind 객체에서 유사도 순으로 top_n개의 index 추출
