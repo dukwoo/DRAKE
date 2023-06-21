@@ -103,21 +103,21 @@ def get_filtered_items(price):
     print(similar_products[['title', 'price', 'category']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    similar_list = similar_products.values.tolist()
     result_list = []
 
     if price == '1':
-        result_list.append(similar_list.filter(Q(price__lte = 10000)))
+        result_list.append(similar_products.query("price < 10000").tolist())
 
     elif price == '12':
         #result_list = np.append(result_list, similar_products[similar_products['price'] < 30000])
-        result_list.append(similar_list.filter(Q(price__gt = 10000) & Q(price__lt = 30000)))
+        #result_list.append(similar_list.filter(Q(price__gt = 10000) & Q(price__lt = 30000)))
+        result_list.append(similar_products.query("price < 30000").tolist())
 
     elif price == '34':
-        result_list.append(similar_list.filter(Q(price__gte = 30000) & Q(price__lt = 50000)))
+        result_list.append(similar_products.query("price < 50000").tolist())
 
     elif price == '5':
-        result_list.append(similar_list.filter(Q(price__gte = 50000)))
+        result_list.append(similar_products.query("price < 100000").tolist())
 
     print("result_list: ", result_list)
 
