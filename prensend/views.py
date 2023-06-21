@@ -135,7 +135,7 @@ def get_filtered_items(price):
     
 
     #dataframe을 queryset으로 변환해야함.
-    return similar_products
+    return queryset
 
 def quizinfo_index(request):
     if request.method == 'POST':
