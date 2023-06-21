@@ -137,10 +137,15 @@ def quizinfo_index(request):
         filtered_items = get_filtered_items(price)
         #filtered_items = get_top_n(filtered_item, 3)
         print("filtered_items: ", filtered_items)
-        
+
+        items = Item.objects.all(pk=1)
         context = {
-            'filtered_items': filtered_items,
+            'items': items,
         }
+
+        #context = {
+        #    'filtered_items': filtered_items,
+        #}
         print("context: ", context)
         return render(request, 'prensend/recommend.html', context)
 
