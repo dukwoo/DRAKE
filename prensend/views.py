@@ -56,7 +56,7 @@ def get_top_n(list_a, num):
     return top_idx
 
 def find_sim_name(df, sorted_ind, product_name, top_n=3):
-        #인자로 입력된 products_df DataFrame에서 'name' 칼럼이 입력된 product_name 값인 DataFrame 추출
+        #인자로 입력된 products_df DataFrame에서 'title' 칼럼이 입력된 product_name 값인 DataFrame 추출
         title_product = df[df['title'] == product_name]
 
         #product_name을 가진 DataFrame의 index 객체를 ndarray로 반환하고
@@ -106,21 +106,22 @@ def get_filtered_items(price):
     result_list = []
 
     if price == '1':
-        result_list.append(similar_products.filter(Q(price__lte = 10000)))
+        result_list.append(similar_products[similar_products['price'] < 10000])
         #카테고리가 20M 이어야하고 price가 10000이하
 
     elif price == '12':
-        result_list.append(similar_products.filter(Q(price__gt = 10000) & Q(price__lt = 30000)))
+        result_list.append(similar_products[similar_products['price'] < 30000])
 
     elif price == '34':
-        result_list.append(similar_products.filter(Q(price__gte = 30000) & Q(price__lt = 50000)))
+        result_list.append(similar_products[similar_products['price'] < 50000])
 
     elif price == '5':
-        result_list.append(similar_products.filter(Q(price__gte = 50000)))
+        result_list.append(similar_products[similar_products['price'] < 100000])
 
     print("result_list: ", result_list)
 
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
+    #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
     
     return result_list
 
