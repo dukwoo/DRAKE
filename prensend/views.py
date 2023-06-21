@@ -106,18 +106,18 @@ def get_filtered_items(price):
     result_list = []
 
     if price == '1':
-        result_list.append(similar_products.query("price < 10000").tolist())
+        result_list.append(similar_products.query("price < 10000").values.tolist())
 
     elif price == '12':
         #result_list = np.append(result_list, similar_products[similar_products['price'] < 30000])
         #result_list.append(similar_list.filter(Q(price__gt = 10000) & Q(price__lt = 30000)))
-        result_list.append(similar_products.query("price < 30000").tolist())
+        result_list.append(similar_products.query("price < 30000").values.tolist())
 
     elif price == '34':
-        result_list.append(similar_products.query("price < 50000").tolist())
+        result_list.append(similar_products.query("price < 50000").values.tolist())
 
     elif price == '5':
-        result_list.append(similar_products.query("price < 100000").tolist())
+        result_list.append(similar_products.query("price < 100000").values.tolist())
 
     print("result_list: ", result_list)
 
