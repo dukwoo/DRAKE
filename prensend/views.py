@@ -72,7 +72,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
 
         return df.iloc[similar_indexes]
 
-#추천 알고리즘
+#추천 알고리즘 (상품명, 가격 입력받음)
 def get_filtered_items(price):
     #2
     warnings.filterwarnings('ignore')
@@ -101,7 +101,7 @@ def get_filtered_items(price):
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
     print(similar_products[['name', 'price', 'category']])
 
-    # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (평점과 가격)
+    # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     result_list = []
 
     if price == '1':
@@ -118,6 +118,8 @@ def get_filtered_items(price):
         result_list.append(similar_products.filter(Q(price__gte = 50000)))
 
     print("result_list: ", result_list)
+
+    #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     
     return result_list
 
@@ -126,6 +128,7 @@ def quizinfo_index(request):
         # age = request.POST['search_mode_age']
         price = request.POST.get('search_mode_price')
 
+        # 사진에 대한 상품명, 콤보박스 로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
         #filtered_items = get_top_n(filtered_item, 3)
 

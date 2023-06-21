@@ -18,6 +18,8 @@ class Item(models.Model):
     link = models.CharField(max_length=300, blank=True)
     #카테고리
     category = models.CharField(max_length=10, blank=True)
+    #별점
+    rate = models.IntegerField(default=0)
 
 
     def __str__(self):
