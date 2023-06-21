@@ -16,14 +16,12 @@ class Item(models.Model):
     image = models.ImageField(upload_to='prensend/images/%Y/%m/%d/', blank=True)
     #링크
     link = models.CharField(max_length=300, blank=True)
-    #카테고리
-    category = models.CharField(max_length=10, blank=True)
     #별점
     rate = models.FloatField(default=0.0)
 
 
     def __str__(self):
-        return f'[{self.pk}] [{self.rank}위] 상품명 :{self.title} \n 가격 :{self.price} \n 이미지 링크 :{self.image} \n 링크 :{self.link} \n 카테고리 :{self.category} \n \n'
+        return f'[{self.pk}] [{self.rank}위] 상품명 :{self.title} \n 가격 :{self.price} \n 이미지 링크 :{self.image} \n 링크 :{self.link} \n 카테고리 :{self.category} \n 평점: {self.rate} \n\n'
 
     def get_absolute_url(self):
         return f'/prensend/{self.pk}/'
