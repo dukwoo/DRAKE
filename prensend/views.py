@@ -79,7 +79,7 @@ def get_filtered_items(price):
 
     #items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
     items = Item.objects.all()
-    products_df = pd.DataFrame(items.values('title', 'price', 'link', 'image'))
+    products_df = pd.DataFrame(items.values('rank', 'title', 'price', 'image', 'link', 'category', 'rate'))
     #products_df = items[['title', 'price', 'category']]
 
     #매트릭스의 형태를 상품수, 상품명
@@ -100,7 +100,7 @@ def get_filtered_items(price):
 
     #유사한 상품들 가져옴
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
-    print(similar_products[['title', 'price', 'link', 'image']])
+    print(similar_products[['rank', 'title', 'price', 'image', 'link', 'category', 'rate']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     result_list = []; result_list2 = []
@@ -124,6 +124,7 @@ def get_filtered_items(price):
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
 
+    print(result_list[0][1])
     return result_list[0][1]
     #return result_list2
 
@@ -135,10 +136,12 @@ def quizinfo_index(request):
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
         #filtered_items = get_top_n(filtered_item, 3)
-
+        print("filtered_items: ", filtered_items)
+        
         context = {
             'filtered_items': filtered_items,
         }
+        print("context: ", context)
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
