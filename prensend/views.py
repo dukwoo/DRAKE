@@ -77,11 +77,10 @@ def get_filtered_items(price):
     #2
     warnings.filterwarnings('ignore')
 
-    items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
-    #items = Item.objects.all()
-    #print(items)
-
-    products_df = items[['title', 'price', 'category']]
+    #items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
+    items = Item.objects.all()
+    products_df = pd.DataFrame(items.values('name', 'price', 'category'))
+    #products_df = items[['title', 'price', 'category']]
 
     #매트릭스의 형태를 상품수, 상품명
     #CountVectorizer를 적용하기 위해 공백문자로 word 단위가 구분되는 문자열로 반환
