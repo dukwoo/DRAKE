@@ -19,7 +19,7 @@ class Item(models.Model):
     #카테고리
     category = models.CharField(max_length=10, blank=True)
     #별점
-    rate = models.IntegerField(default=0)
+    rate = models.FloatField(default=0.0)
 
 
     def __str__(self):

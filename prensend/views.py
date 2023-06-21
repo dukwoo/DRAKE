@@ -8,6 +8,7 @@ import numpy as np
 import warnings
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from django.db.models.query import QuerySet
 
 # Create your views here.
 def prensend(request):
@@ -102,31 +103,33 @@ def get_filtered_items(price):
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
     print(similar_products[['rank', 'title', 'price', 'image', 'link', 'category', 'rate']])
 
+    #DataFrame을 querySet으로 변환
+    queryset = QuerySet(model=None, query=None)
+    queryset = queryset.model.from_records(similar_products.to_records())
+
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    result_list = []; result_list2 = []
 
-    if price == '1':
-        result_list.append(similar_products.query("price < 10000").values.tolist()) 
+    #if price == '1':
+    #    result_list.append(similar_products.query("price < 10000").values.tolist()) 
 
-    elif price == '12':
-        result_list.append(similar_products.query("price < 30000").values.tolist())
+    #elif price == '12':
+    #    result_list.append(similar_products.query("price < 30000").values.tolist())
 
-    elif price == '34':
-        result_list.append(similar_products.query("price < 50000").values.tolist())
+    #elif price == '34':
+    #    result_list.append(similar_products.query("price < 50000").values.tolist())
 
-    elif price == '5':
-        result_list.append(similar_products.query("price < 100000").values.tolist())
+    #elif price == '5':
+    #    result_list.append(similar_products.query("price < 100000").values.tolist())
 
     #print(result_list[0][1])
     #result_list2.append(result_list[0][1])
     #print(result_list2)
-
+ 
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
 
-    print(result_list[0][1])
-    return result_list[0][1]
-    #return result_list2
+    #dataframe을 queryset으로 변환해야함.
+    return queryset
 
 def quizinfo_index(request):
     if request.method == 'POST':
@@ -136,17 +139,11 @@ def quizinfo_index(request):
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
         #filtered_items = get_top_n(filtered_item, 3)
-        print("filtered_items: ", filtered_items)
 
-        items = Item.objects.all()
         context = {
-            'items': items,
+            'filtered_items': filtered_items,
         }
 
-        #context = {
-        #    'filtered_items': filtered_items,
-        #}
-        print("context: ", context)
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
