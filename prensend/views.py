@@ -135,6 +135,7 @@ def get_filtered_items(price):
     
 
     #dataframe을 queryset으로 변환해야함.
+    print(queryset)
     return queryset
 
 def quizinfo_index(request):
