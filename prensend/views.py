@@ -79,16 +79,16 @@ def get_filtered_items(price):
 
     #items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
     items = Item.objects.all()
-    products_df = pd.DataFrame(items.values('name', 'price', 'category'))
+    products_df = pd.DataFrame(items.values('title', 'price', 'category'))
     #products_df = items[['title', 'price', 'category']]
 
     #매트릭스의 형태를 상품수, 상품명
     #CountVectorizer를 적용하기 위해 공백문자로 word 단위가 구분되는 문자열로 반환
     #상품명을 공백으로 나눠서 각각의 단어의 개수를 추출.
     #3
-    products_df['name_literal'] = products_df['name'].apply(lambda x:('').join(x))
+    products_df['title_literal'] = products_df['title'].apply(lambda x:('').join(x))
     count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
-    name_mat = count_vect.fit_transform(products_df['name_literal'])
+    name_mat = count_vect.fit_transform(products_df['title_literal'])
     print(name_mat.shape)
 
     name_sim = cosine_similarity(name_mat, name_mat)
@@ -100,7 +100,7 @@ def get_filtered_items(price):
 
     #유사한 상품들 가져옴
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
-    print(similar_products[['name', 'price', 'category']])
+    print(similar_products[['title', 'price', 'category']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     result_list = []
