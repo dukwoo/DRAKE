@@ -100,8 +100,8 @@ def get_filtered_items(price):
     print(name_sim_sorted_ind[:1])
 
     #유사한 상품들 가져옴
-    similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
-    print(similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']])
+    similar_products = find_sim_name(products_df, name_sim_sorted_ind, '나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션', 3)
+    print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
 
