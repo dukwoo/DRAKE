@@ -138,7 +138,7 @@ def quizinfo_index(request):
         #filtered_items = get_top_n(filtered_item, 3)
         print("filtered_items: ", filtered_items)
 
-        items = Item.objects.all(pk=1)
+        items = Item.objects.all()
         context = {
             'items': items,
         }
