@@ -103,34 +103,33 @@ def get_filtered_items(price):
     print(similar_products[['title', 'price', 'link', 'image']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
+    result_list = []; result_list2 = []
 
-    #if price == '1':
-    #    result_list.append(similar_products.query("price < 10000").values.tolist()) 
+    if price == '1':
+        result_list.append(similar_products.query("price < 10000").values.tolist()) 
 
-    #elif price == '12':
-        #result_list = np.append(result_list, similar_products[similar_products['price'] < 30000])
-        #result_list.append(similar_list.filter(Q(price__gt = 10000) & Q(price__lt = 30000)))
-    #    result_list.append(similar_products.query("price < 30000").values.tolist())
+    elif price == '12':
+        result_list.append(similar_products.query("price < 30000").values.tolist())
 
-    #elif price == '34':
-    #    result_list.append(similar_products.query("price < 50000").values.tolist())
+    elif price == '34':
+        result_list.append(similar_products.query("price < 50000").values.tolist())
 
-    #elif price == '5':
-    #    result_list.append(similar_products.query("price < 100000").values.tolist())
+    elif price == '5':
+        result_list.append(similar_products.query("price < 100000").values.tolist())
 
-    #print("result_list: ", result_list)
+    result_list2.append(result_list[0][0])
 
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
     
-    return similar_products
+    return result_list2
 
 def quizinfo_index(request):
     if request.method == 'POST':
         # age = request.POST['search_mode_age']
         price = request.POST.get('search_mode_price')
 
-        # 사진에 대한 상품명, 콤보박스 로부터 가격 가져옴.
+        # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
         #filtered_items = get_top_n(filtered_item, 3)
 
