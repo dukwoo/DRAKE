@@ -41,24 +41,6 @@
 
             <form action="{% url 'prensend:quizinfo_index' %}" method="post">
                 {% csrf_token %}
-                <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
-                    <select name="search_mode_age" id="search_mode_age">
-                        <option value="" selected>연령</option>
-                        <option value="1020">10-20대</option>
-                        <option value="30">30대</option>
-                        <option value="40">40대</option>
-                        <option value="50">50대 이상</option>
-                    </select>
-                </div>
-
-                <div class="gender" style="margin: auto; text-align: center; margin-top: 20px;">
-                    <select name="search_mode_gender" id="search_mode_gender">
-                        <option value="" selected>성별</option>
-                        <option value="man">남성</option>
-                        <option value="woman">여성</option>
-                    </select>
-                </div>
-
                 <div class="price" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_price" id="search_mode_price">
                         <option value="" selected>가격대</option>
