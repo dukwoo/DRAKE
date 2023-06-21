@@ -103,7 +103,9 @@ def get_filtered_items(price):
     print(similar_products[['title', 'price', 'category']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    result_list = []
+    result_list = similar_products.to_dict('title')
+    result_list.append(similar_products.to_dict('price'))
+    result_list.append(similar_products.to_dict('category'))
 
     #if price == '1':
     #    result_list.append(similar_products.query("price < 10000").values.tolist()) 
@@ -124,7 +126,7 @@ def get_filtered_items(price):
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
     
-    return similar_products
+    return result_list
 
 def quizinfo_index(request):
     if request.method == 'POST':
