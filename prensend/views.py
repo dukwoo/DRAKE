@@ -77,7 +77,7 @@ def get_filtered_items(price):
     #2
     warnings.filterwarnings('ignore')
 
-    items = pd.read_csv('./product.csv', engine = 'python', encoding='cp949') #'euc-kr'
+    items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
     #items = Item.objects.all()
     #print(items)
 
