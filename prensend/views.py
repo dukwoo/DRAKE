@@ -130,14 +130,9 @@ def get_filtered_items(price):
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     #result_list.sort_values('rate', ascending=False) #값에 평점 높은 순으로 정렬 적용.
 
-    #데이터프레임을 json으로 변환
-    #json_data = result_list.to_json(orient='records')
-    
-    #json을 쿼리셋으로 변환
-    #queryset = serializers.deserialize('json', json_data)
 
     #dataframe을 queryset으로 변환해야함.
-    return result_list
+    return similar_products
 
 def quizinfo_index(request):
     if request.method == 'POST':
