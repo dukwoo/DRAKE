@@ -108,7 +108,8 @@ def get_filtered_items(price):
 
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    result_list=[];
+    """
+    #result_list=[];
     
     if price == '1':
         result_list.append(similar_products.query("price < 10000").values.tolist()) 
@@ -121,15 +122,17 @@ def get_filtered_items(price):
 
     elif price == '5':
         result_list.append(similar_products.query("price < 100000").values.tolist())
+"""
 
-    print("2차원: ", result_list[0][1])
-    print("3차원: ", result_list[0][1][1])
     #result_list2.append(result_list[0][1])
     #print(result_list2)
 
-    #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
-    #result_list.sort_values('rate', ascending=False) #값에 평점 높은 순으로 정렬 적용.
-
+    #데이터프레임을 json으로 변환
+    json_data = similar_products.to_json(orient='records')
+    
+    #json을 쿼리셋으로 변환
+    queryset = serializers.deserialize('json', json_data)
+    
 
     #dataframe을 queryset으로 변환해야함.
     return similar_products
