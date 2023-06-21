@@ -106,17 +106,17 @@ def get_filtered_items(price):
     result_list = []
 
     if price == '1':
-        result_list.append(similar_products[similar_products['price'] < 10000].values())
+        result_list = np.append(result_list, similar_products[similar_products['price'] < 10000].values())
         #카테고리가 20M 이어야하고 price가 10000이하
 
     elif price == '12':
-        result_list.append(similar_products[similar_products['price'] < 30000].values())
+        result_list = np.append(result_list, similar_products[similar_products['price'] < 30000].values())
 
     elif price == '34':
-        result_list.append(similar_products[similar_products['price'] < 50000].values())
+        result_list = np.append(result_list, similar_products[similar_products['price'] < 50000].values())
 
     elif price == '5':
-        result_list.append(similar_products[similar_products['price'] < 100000].values())
+        result_list = np.append(result_list, similar_products[similar_products['price'] < 100000].values())
 
     print("result_list: ", result_list)
 
