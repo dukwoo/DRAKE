@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Item
 from .models import Item_csv
 
+from django.core import serializers
+
 import pandas as pd
 import numpy as np
 import warnings
@@ -82,6 +84,7 @@ def get_filtered_items(price):
     items = Item.objects.all()
     products_df = pd.DataFrame(items.values('rank', 'title', 'price', 'image', 'link', 'rate'))
     #products_df = items[['title', 'price', 'category']]
+    
 
     #매트릭스의 형태를 상품수, 상품명
     #CountVectorizer를 적용하기 위해 공백문자로 word 단위가 구분되는 문자열로 반환
@@ -103,29 +106,37 @@ def get_filtered_items(price):
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션', 3)
     print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']])
 
+
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
+    result_list=[];
+    
+    if price == '1':
+        result_list.append(similar_products.query("price < 10000").values.tolist()) 
 
-    #if price == '1':
-    #    result_list.append(similar_products.query("price < 10000").values.tolist()) 
+    elif price == '12':
+        result_list.append(similar_products.query("price < 30000").values.tolist())
 
-    #elif price == '12':
-    #    result_list.append(similar_products.query("price < 30000").values.tolist())
+    elif price == '34':
+        result_list.append(similar_products.query("price < 50000").values.tolist())
 
-    #elif price == '34':
-    #    result_list.append(similar_products.query("price < 50000").values.tolist())
-
-    #elif price == '5':
-    #    result_list.append(similar_products.query("price < 100000").values.tolist())
+    elif price == '5':
+        result_list.append(similar_products.query("price < 100000").values.tolist())
 
     #print(result_list[0][1])
     #result_list2.append(result_list[0][1])
     #print(result_list2)
  
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
-    #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
+    result_list.sort_values('rate', ascending=False) #값에 평점 높은 순으로 정렬 적용.
+
+    #데이터프레임을 json으로 변환
+    json_data = result_list.to_json(orient='records')
+    
+    #json을 쿼리셋으로 변환
+    queryset = serializers.deserialize('json', json_data)
 
     #dataframe을 queryset으로 변환해야함.
-    return similar_products
+    return queryset
 
 def quizinfo_index(request):
     if request.method == 'POST':
