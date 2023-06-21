@@ -104,9 +104,13 @@ def get_filtered_items(price):
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     result_list = []
+    list2 = []
 
     if price == '1':
-        result_list.append(similar_products.query("price < 10000").values.tolist())
+        list2 = similar_products.query("price < 10000").values.tolist()
+        print("list2: ", list2)
+        result_list.append(similar_products.query("price < 10000").values.tolist()) 
+        
 
     elif price == '12':
         #result_list = np.append(result_list, similar_products[similar_products['price'] < 30000])
