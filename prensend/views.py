@@ -103,10 +103,6 @@ def get_filtered_items(price):
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
     print(similar_products[['rank', 'title', 'price', 'image', 'link', 'category', 'rate']])
 
-    #DataFrame을 querySet으로 변환
-    queryset = QuerySet(model=None, query=None)
-    queryset = queryset.model.from_records(similar_products.to_records())
-
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
 
     #if price == '1':
@@ -129,7 +125,7 @@ def get_filtered_items(price):
     #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
 
     #dataframe을 queryset으로 변환해야함.
-    return queryset
+    return similar_products
 
 def quizinfo_index(request):
     if request.method == 'POST':
@@ -138,7 +134,6 @@ def quizinfo_index(request):
 
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
-        #filtered_items = get_top_n(filtered_item, 3)
 
         context = {
             'filtered_items': filtered_items,
