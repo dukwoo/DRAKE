@@ -77,8 +77,10 @@ def get_filtered_items(price):
     #2
     warnings.filterwarnings('ignore')
 
-    #products = pd.read_csv('./product.csv', engine = 'python', encoding='cp949') #'euc-kr'
-    items = Item.objects.all()
+    items = pd.read_csv('./product.csv', engine = 'python', encoding='cp949') #'euc-kr'
+    #items = Item.objects.all()
+    #print(items)
+
     products_df = items[['title', 'price', 'category']]
 
     #매트릭스의 형태를 상품수, 상품명
