@@ -103,7 +103,7 @@ def get_filtered_items(price):
     print(similar_products[['title', 'price', 'category']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    similar_list = similar_products.tolist()
+    similar_list = similar_products.values.tolist()
     result_list = []
 
     if price == '1':
