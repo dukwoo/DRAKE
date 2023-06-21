@@ -117,6 +117,7 @@ def get_filtered_items(price):
     elif price == '5':
         result_list.append(similar_products.query("price < 100000").values.tolist())
 
+    print(result_list[0][1])
     result_list2.append(result_list[0][1])
 
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
