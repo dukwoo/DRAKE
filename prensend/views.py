@@ -125,9 +125,9 @@ def get_filtered_items(price):
     #print(result_list[0][1])
     #result_list2.append(result_list[0][1])
     #print(result_list2)
- 
+
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
-    result_list.sort_values('rate', ascending=False) #값에 평점 높은 순으로 정렬 적용.
+    #result_list.sort_values('rate', ascending=False) #값에 평점 높은 순으로 정렬 적용.
 
     #데이터프레임을 json으로 변환
     json_data = result_list.to_json(orient='records')
