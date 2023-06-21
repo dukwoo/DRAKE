@@ -122,7 +122,8 @@ def get_filtered_items(price):
     elif price == '5':
         result_list.append(similar_products.query("price < 100000").values.tolist())
 
-    #print(result_list[0][1])
+    print("2차원: ", result_list[0][1])
+    print("3차원: ", result_list[0][1][1])
     #result_list2.append(result_list[0][1])
     #print(result_list2)
 
@@ -130,13 +131,13 @@ def get_filtered_items(price):
     #result_list.sort_values('rate', ascending=False) #값에 평점 높은 순으로 정렬 적용.
 
     #데이터프레임을 json으로 변환
-    json_data = result_list.to_json(orient='records')
+    #json_data = result_list.to_json(orient='records')
     
     #json을 쿼리셋으로 변환
-    queryset = serializers.deserialize('json', json_data)
+    #queryset = serializers.deserialize('json', json_data)
 
     #dataframe을 queryset으로 변환해야함.
-    return queryset
+    return result_list
 
 def quizinfo_index(request):
     if request.method == 'POST':
