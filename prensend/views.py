@@ -79,7 +79,7 @@ def get_filtered_items(price):
 
     #items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
     items = Item.objects.all()
-    products_df = pd.DataFrame(items.values('title', 'price', 'category'))
+    products_df = pd.DataFrame(items.values('title', 'price', 'link', 'image'))
     #products_df = items[['title', 'price', 'category']]
 
     #매트릭스의 형태를 상품수, 상품명
@@ -100,12 +100,9 @@ def get_filtered_items(price):
 
     #유사한 상품들 가져옴
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '[즉시배송]MAGNETA mini(마그네타 미니) - 반려동물용 항산화 영양제', 3)
-    print(similar_products[['title', 'price', 'category']])
+    print(similar_products[['title', 'price', 'link', 'image']])
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    result_list = similar_products.to_dict('title')
-    result_list.append(similar_products.to_dict('price'))
-    result_list.append(similar_products.to_dict('category'))
 
     #if price == '1':
     #    result_list.append(similar_products.query("price < 10000").values.tolist()) 
@@ -126,7 +123,7 @@ def get_filtered_items(price):
     #필터링된 결과에서 최종적으로 별점순으로 정렬 후 추출.
     #.sort_values('rate', ascending=False) 값에 평점 높은 순으로 정렬 적용.
     
-    return result_list
+    return similar_products
 
 def quizinfo_index(request):
     if request.method == 'POST':
