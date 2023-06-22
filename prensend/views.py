@@ -141,7 +141,8 @@ def quizinfo_index(request):
     if request.method == 'POST':
         # age = request.POST['search_mode_age']
         price = request.POST.get('search_mode_price')
-
+        titleArray = request.POST.getlist('cb[]')
+        print("titleArray: ", titleArray)
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
 

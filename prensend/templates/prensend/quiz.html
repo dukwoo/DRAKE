@@ -109,7 +109,7 @@
                 
                 {% for i in items %}
                 <div class="products" style="margin: auto; display: inline-block;">
-                    <input type="checkbox" id="{{i.id}}" value="{{i.title}}" />
+                    <input type="checkbox" name="cb[]" id="{{i.id}}" value="{{i.title}}" />
                     <label for="{{i.id}}"><img src="{{i.image}}" /></label>
                 </div>
                 {% endfor %}
