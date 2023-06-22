@@ -58,7 +58,7 @@ body {
 
 input[type="checkbox"]{
     display: none;
-  }
+}
 
 label {
     border: 1px solid #fff;
@@ -73,9 +73,9 @@ label {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  label::before {
+}
+
+label::before {
     background-color: white;
     color: white;
     content: " ";
@@ -91,27 +91,27 @@ label {
     line-height: 28px;
     transition-duration: 0.4s;
     transform: scale(0);
-  }
-  
-  label img {
+}
+
+label img {
     height: 100px;
     width: 100px;
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
-  }
-  
-  :checked+label {
+}
+
+:checked+label {
     border-color: #ddd;
-  }
-  
-  :checked+label::before {
+}
+
+:checked+label::before {
     content: "✓";
     background-color: grey;
     transform: scale(1);
-  }
-  
-  :checked+label img {
+}
+
+:checked+label img {
     transform: scale(0.9);
     box-shadow: 0 0 5px #333;
     z-index: -1;
-  }
+}
