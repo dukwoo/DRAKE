@@ -110,24 +110,8 @@ def get_filtered_items(price):
     print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
     result_list = []
-    result_list.append(similar_products.query("price < 100000").values.tolist())
 
-    print("title: ", result_list[0][1][0])
-    
-    result_list2 = [{
-        "title": str(result_list[0][1][1]),
-        "price": str(result_list[0][1][2]),
-        "image": str(result_list[0][1][3]),
-        "link": str(result_list[0][1][4]) 
-        }
-    ]
-
-    return result_list2
-
-    # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    """
-    #result_list=[];
-    
+    #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     if price == '1':
         result_list.append(similar_products.query("price < 10000").values.tolist()) 
 
@@ -139,43 +123,19 @@ def get_filtered_items(price):
 
     elif price == '5':
         result_list.append(similar_products.query("price < 100000").values.tolist())
-    """
 
-    #numpy_ba = similar_products.to_numpy()
+    print("title: ", result_list[0][1][0])
+    res_dic = {}; res_list = []
+    
+    for i in range(1,len(result_list[0])):
+        res_dic["title"] = str(result_list[0][i][1])
+        res_dic["price"] = str(result_list[0][i][2])
+        res_dic["image"] = str(result_list[0][i][3])
+        res_dic["link"] = str(result_list[0][i][4])
+        res_list.append(res_dic)
 
-    #result_list2.append(result_list[0][1])
-    #print(result_list2)
-
-    """
-    #데이터프레임을 json으로 변환
-    json_data = similar_products.to_json(orient='records')
-
-    print("json_data : " , json_data , "\n")
-    #여기까진 잘됨
-    """
-
-
-
-    """
-    retItems = {}
-    i = 0
-    for item in json_data["items"]["item"]:
-        item = dict(item.items())
-        retItems['item' + str(i)] = (json.dumps(item, ensure_ascii=False))
-        i += 1
-        # make dict_items type Objects to list type objects
-
-        # return datas to json data
-    """
-
-
-
-    #json을 쿼리셋으로 변환
-    #queryset = serializers.deserialize('json', json_data)
-    #mylist = list(queryset)
-    #dataframe을 queryset으로 변환해야함.
-    #print("넘피배열 : ", numpy_ba, "\n")
-    #return numpy_ba
+    print(res_list)
+    return res_list
 
 def quizinfo_index(request):
     if request.method == 'POST':
