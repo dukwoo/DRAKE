@@ -17,15 +17,16 @@
     </details>
 
     {% for f in filtered_items %}
+        {% for i in f %}
         <div class="rec_box" style="margin=10px;">
             <div class="rec_image">
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
             <div class="rec_title">
-                <p class="title">{{f.title}}</p>
+                <p class="title">{{i.title}} // {{i.title.0}} // {{i.title}}</p>
             </div>
             <div class="rec_price">
-                <p class="price">{{f.price}}원</p>
+                <p class="price">{{i.price}}원</p>
             </div>
             <div class="rec_button">
                 <button class="button" type="button" onclick="location.href='{{f.link}}'">
