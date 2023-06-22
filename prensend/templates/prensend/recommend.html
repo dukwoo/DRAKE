@@ -11,42 +11,21 @@
     {% block main %}
     <div class="t1">추천 선물 결과입니다.</div>
 
-    <p>filtered_items 내용 : </p>
-    <p>{{filtered_items}}</p>
-
-
-    <!--<div class="box">
-    {% for i in filtered_items %}
-        {% for k in filtered_items %}
-        <div class="rec_box">
-            <div class="rec_image">
-                <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
-            </div>
-            <div class="rec_title">
-                <p class="title">{{f.title}} / {{items.0.1.}} / {{title.0}} / </p>
-            </div>
-            <div class="rec_price">
-                <p class="price">{{f.price}} 원 / {{price.0}}</p>
-            </div>
-            <div class="rec_button">
-                <button class="button" type="button" onclick="location.href='{{f.link}}'">
-                    상품 보러가기
-                </button>
-            </div>
-        </div>
-        {% endfor %}
-    {% endfor %}-->
+    <details>
+        <summary>filtered_items 내용</summary>
+        <p>{{filtered_items}}</p>
+    </details>
 
     {% for f in filtered_items %}
-        <div class="rec_box">
+        <div class="rec_box" style="margin=10px;">
             <div class="rec_image">
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
             <div class="rec_title">
-                <p class="title">{{f.title}} / {{f.title.0}} / {{f.title.0.1}}</p>
+                <p class="title">{{f.title}}</p>
             </div>
             <div class="rec_price">
-                <p class="price">{{f.price}}원 / {{f.price.0}} / {{f.price.0.1}}</p>
+                <p class="price">{{f.price}}원</p>
             </div>
             <div class="rec_button">
                 <button class="button" type="button" onclick="location.href='{{f.link}}'">
