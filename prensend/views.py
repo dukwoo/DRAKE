@@ -65,7 +65,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
         #product_name을 가진 DataFrame의 index 객체를 ndarray로 반환하고
         #sorted_ind 인자로 입력된 name_sim_sorted_ind 객체에서 유사도 순으로 top_n개의 index 추출
         title_index = title_product.index.values
-        print("title_index: ", title_index)
+        print("title_index: ", title_index, "\n")
         similar_indexes = sorted_ind[title_index, :(top_n)]
 
         #추출된 top_n index 출력. top_n idnex는 2차원 데이터.
