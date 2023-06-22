@@ -79,7 +79,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
         return df.iloc[similar_indexes]
 
 #추천 알고리즘 (상품명, 가격 입력받음)
-def get_filtered_items(titleArray, price):
+def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     #2
     warnings.filterwarnings('ignore')
 
@@ -107,13 +107,13 @@ def get_filtered_items(titleArray, price):
 
     #유사한 상품들 가져옴
     similar_products=[]
-    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray[0], 3)
+    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 3)
     print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
     
-    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray[1], 3)
+    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 3)
     print("similar_products2: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
     
-    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray[2], 3)
+    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 3)
     print("similar_products3: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
     for i in range(len(similar_products1)):
@@ -163,7 +163,7 @@ def quizinfo_index(request):
         titleArray = request.POST.getlist('cb[]')
         
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
-        filtered_items = get_filtered_items(titleArray, price)
+        filtered_items = get_filtered_items(titleArray[0], titleArray[1], titleArray[2], price)
 
         context = {
             'filtered_items': filtered_items,
