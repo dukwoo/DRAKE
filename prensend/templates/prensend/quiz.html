@@ -47,8 +47,9 @@
                 </br>
                 
                 <div class="products" style="margin: auto; display: inline-block;">
-                    <input type="checkbox" id="myCheckbox" />
                     {% for i in items %}
+                    <input type="checkbox" id="myCheckbox" />
+                    
                     <label for="myCheckbox"><img src="{{i.image}}" /></label>
                     {% endfor %}
                 </div>
