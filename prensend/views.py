@@ -120,6 +120,10 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 3)
     print("similar_products3: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
+    print("similar_products1[0]: ", similar_products1[0])
+    print("similar_products1[0][1]: ", similar_products1[0][1])
+    print("similar_products1[0][1][1]: ", similar_products1[0][1][1])
+    
     for i in range(3):
         similar_products[i].append(similar_products1[i])
     
