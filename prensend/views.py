@@ -1,4 +1,5 @@
 import json
+import random
 
 from django.db.models import Q
 from django.shortcuts import render, redirect
@@ -194,7 +195,9 @@ def quizinfo_index(request):
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
-    items = Item.objects.all()
+    itemsAll = list(Item.objects.all())
+    items = random.sample(itemsAll, 12)
+    
     context = {'items':items}
     
     
