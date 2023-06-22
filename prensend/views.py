@@ -100,7 +100,7 @@ def get_filtered_items(price):
     print("name_sim[:1] : ", name_sim[:1], "\n")
 
     name_sim_sorted_ind = name_sim.argsort()[:, ::-1]
-    print("name_sim_sorted_ind[:1] : "name_sim_sorted_ind[:1], "\n")
+    print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션', 3)
