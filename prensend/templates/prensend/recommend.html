@@ -10,22 +10,17 @@
    	
     {% block main %}
     <div class="t1">추천 선물 결과입니다.</div>
-
-    <details style="margin=10px;">
-        <summary>filtered_items 내용</summary>
-        <p>{{filtered_items}}</p>
-    </details>
-
+    <div style="margin: 10px 200px;">
     {% for f in filtered_items %}
-        <div class="rec_box" style="margin=10px;">
+        <div class="rec_box" style="margin: 20px;">
             <div class="rec_image">
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
             <div class="rec_title">
-                <p class="title">{{i.title}}</p>
+                <p class="title" style="font-size: 20px;">{{f.title}}</p>
             </div>
             <div class="rec_price">
-                <p class="price">{{i.price}}원</p>
+                <p class="price">{{f.price}}원</p>
             </div>
             <div class="rec_button">
                 <button class="button" type="button" onclick="location.href='{{f.link}}'">
@@ -34,6 +29,7 @@
             </div>
         </div>
     {% endfor %}
+    </div>
 
     </div>
     {% endblock %}
