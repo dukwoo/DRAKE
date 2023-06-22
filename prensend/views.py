@@ -79,7 +79,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
         return df.iloc[similar_indexes]
 
 #추천 알고리즘 (상품명, 가격 입력받음)
-def get_filtered_items(price):
+def get_filtered_items(titleArray, price):
     #2
     warnings.filterwarnings('ignore')
 
@@ -106,9 +106,25 @@ def get_filtered_items(price):
     print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
-    similar_products = find_sim_name(products_df, name_sim_sorted_ind, '나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션', 3)
-    print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+    similar_products=[]
+    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray[0], 3)
+    print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+    
+    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray[1], 3)
+    print("similar_products2: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+    
+    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray[2], 3)
+    print("similar_products3: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
+    for i in range(len(similar_products1)):
+        similar_products.append(similar_products1[i])
+    
+    for i in range(len(similar_products2)):
+        similar_products.append(similar_products2[i])
+        
+    for i in range(len(similar_products3)):
+        similar_products.append(similar_products3[i])
+    
     result_list = []
 
     #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
@@ -139,13 +155,15 @@ def get_filtered_items(price):
     return res_list
 
 def quizinfo_index(request):
+    titleArray=[]
     if request.method == 'POST':
         # age = request.POST['search_mode_age']
         price = request.POST.get('search_mode_price')
-        print("====>>>> POST DATA: ", request.POST.getlist('cb[]'))
+        #print("====>>>> POST DATA: ", request.POST.getlist('cb[]'))
+        titleArray = request.POST.getlist('cb[]')
         
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
-        filtered_items = get_filtered_items(price)
+        filtered_items = get_filtered_items(titleArray, price)
 
         context = {
             'filtered_items': filtered_items,
