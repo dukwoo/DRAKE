@@ -180,7 +180,12 @@ def quizinfo_index(request):
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
+    items = Item.objects.all()
+    context = {'items':items}
+    
+    
     return render(
         request,
         'prensend/quiz.html',
+        context
     )
