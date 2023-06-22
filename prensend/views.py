@@ -133,6 +133,7 @@ def get_filtered_items(price):
         res_dic["image"] = str(result_list[0][i][3])
         res_dic["link"] = str(result_list[0][i][4])
         res_list.append(res_dic)
+        res_dic = {}
 
     print(res_list)
     return res_list
