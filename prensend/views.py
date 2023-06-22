@@ -171,10 +171,10 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     
     for i in range(len(result_list[0])):
         for k in range(len(result_list[0])):
-            res_dic["title"] = str(result_list[i][k][0])
-            res_dic["price"] = str(result_list[i][k][1])
-            res_dic["image"] = str(result_list[i][k][2])
-            res_dic["link"] = str(result_list[i][k][3])
+            res_dic["title"] = str(result_list[i][k][1])
+            res_dic["price"] = str(result_list[i][k][2])
+            res_dic["image"] = str(result_list[i][k][3])
+            res_dic["link"] = str(result_list[i][k][4])
             res_list.append(res_dic)
             res_dic = {}
 
