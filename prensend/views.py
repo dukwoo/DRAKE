@@ -172,6 +172,7 @@ def quizinfo_index(request):
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
 
+        print("filtered_items : ", filtered_items, "\n")
         context = {
             'filtered_items': filtered_items,
         }
