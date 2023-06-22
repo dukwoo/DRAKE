@@ -105,13 +105,13 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
-    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 20)
+    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 10)
     print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 20)
+    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 10)
     print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 20)
+    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 10)
     print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
     """
@@ -172,7 +172,7 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     print("len(result_list[0]: ", len(result_list[0]))
 
     for i in range(3):
-        for k in range(5):
+        for k in range(3):
             res_dic["title"] = str(result_list[i][k][1])
             res_dic["price"] = str(result_list[i][k][2])
             res_dic["image"] = str(result_list[i][k][3])
