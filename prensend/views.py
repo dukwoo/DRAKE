@@ -105,13 +105,13 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
-    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 50)
+    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 20)
     print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 50)
+    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 20)
     print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 50)
+    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 20)
     print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
     """
