@@ -70,7 +70,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
 
         #추출된 top_n index 출력. top_n idnex는 2차원 데이터.
         #DataFrame 에서 index로 사용하기 위해선 1차원 array로 변경
-        print(similar_indexes)
+        print("similar_indexes : ", similar_indexes, "\n")
         similar_indexes = similar_indexes.reshape(-1)
 
         return df.iloc[similar_indexes]
@@ -93,18 +93,18 @@ def get_filtered_items(price):
     products_df['title_literal'] = products_df['title'].apply(lambda x:('').join(x))
     count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
     name_mat = count_vect.fit_transform(products_df['title_literal'])
-    print(name_mat.shape)
+    print("name_mat.shape : ", name_mat.shape, "\n")
 
     name_sim = cosine_similarity(name_mat, name_mat)
-    print(name_sim.shape)
-    print(name_sim[:1])
+    print("name_sim.shape :", name_sim.shape, "\n")
+    print("name_sim[:1] : ", name_sim[:1], "\n")
 
     name_sim_sorted_ind = name_sim.argsort()[:, ::-1]
-    print(name_sim_sorted_ind[:1])
+    print("name_sim_sorted_ind[:1] : "name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션', 3)
-    print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']])
+    print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
@@ -135,7 +135,7 @@ def get_filtered_items(price):
     
 
     #dataframe을 queryset으로 변환해야함.
-    print(queryset)
+    print(queryset, "\n")
     return queryset
 
 def quizinfo_index(request):
