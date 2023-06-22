@@ -131,13 +131,14 @@ def get_filtered_items(price):
     json_data = similar_products.to_json(orient='records')
 
     print("json_data : " , json_data , "\n")
+    #여기까진 잘됨
 
     #json을 쿼리셋으로 변환
     queryset = serializers.deserialize('json', json_data)
-
+    mylist = list(queryset)
     #dataframe을 queryset으로 변환해야함.
-    print("queryset : ",queryset, "\n")
-    return queryset
+    print("queryset 인데 리스트로 바꾼거 : ", mylist, "\n")
+    return mylist
 
 def quizinfo_index(request):
     if request.method == 'POST':
