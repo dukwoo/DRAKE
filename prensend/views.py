@@ -1,3 +1,5 @@
+import json
+
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from .models import Item
@@ -133,12 +135,22 @@ def get_filtered_items(price):
     print("json_data : " , json_data , "\n")
     #여기까진 잘됨
 
+    retItems = {}
+    i = 0
+    for item in json_data["items"]["item"]:
+        item = dict(item.items())
+        retItems['item' + str(i)] = (json.dumps(item, ensure_ascii=False))
+        i += 1
+        # make dict_items type Objects to list type objects
+
+        # return datas to json data
+
     #json을 쿼리셋으로 변환
-    queryset = serializers.deserialize('json', json_data)
-    mylist = list(queryset)
+    #queryset = serializers.deserialize('json', json_data)
+    #mylist = list(queryset)
     #dataframe을 queryset으로 변환해야함.
-    print("queryset 인데 리스트로 바꾼거 : ", mylist, "\n")
-    return mylist
+    print("제이슨데이터 : ", retItems, "\n")
+    return retItems
 
 def quizinfo_index(request):
     if request.method == 'POST':
