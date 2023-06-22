@@ -45,30 +45,21 @@
                     <img src="{% static 'prensend/images/새로고침.png' %}" style="width: 50px;">
                 </button>
                 </br>
-
+                <!--
                 {% for i in items %}
                 <div class="products" style="margin: auto; display: inline-block;">
                     <input type="checkbox" id="myCheckbox" />
                     <label for="myCheckbox"><img src="{{i.image}}" /></label>
                 </div>
-                {% endfor %}
+                {% endfor %}-->
 
-                <div class="products" style="margin: auto; display: inline-block;">
-                    <input type="checkbox" id="myCheckbox" />
-                    <label for="myCheckbox"><img src="{{i.image}}" /></label>
-                </div>
-                <div class="products" style="margin: auto; display: inline-block;">
-                    <input type="checkbox" id="myCheckbox" />
-                    <label for="myCheckbox"><img src="{{i.image}}" /></label>
-                </div>
-                <div class="products" style="margin: auto; display: inline-block;">
-                    <input type="checkbox" id="myCheckbox" />
-                    <label for="myCheckbox"><img src="{{i.image}}" /></label>
-                </div>
-                <div class="products" style="margin: auto; display: inline-block;">
-                    <input type="checkbox" id="myCheckbox" />
-                    <label for="myCheckbox"><img src="{{i.image}}" /></label>
-                </div>
+                <ul>
+                    {% for i in items %}
+                    <li><input type="checkbox" id="myCheckbox" />
+                        <label for="myCheckbox"><img src="{{i.image}}" /></label>
+                    </li>
+                    {% endfor %}
+                </ul>
     
     
                 <div>
