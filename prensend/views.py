@@ -193,7 +193,7 @@ def quizinfo_index(request):
 
 def quiz(request):
     itemsAll = list(Item.objects.all())
-    items = random.sample(itemsAll, 10)
+    items = random.sample(itemsAll, 12)
     
     context = {'items':items}
     
