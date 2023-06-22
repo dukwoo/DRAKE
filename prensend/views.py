@@ -130,14 +130,13 @@ def get_filtered_items(price):
     #데이터프레임을 json으로 변환
     json_data = similar_products.to_json(orient='records')
 
-    print(json_data)
-    
+    print("json_data : " , json_data , "\n")
+
     #json을 쿼리셋으로 변환
     queryset = serializers.deserialize('json', json_data)
-    
 
     #dataframe을 queryset으로 변환해야함.
-    print(queryset, "\n")
+    print("queryset : ",queryset, "\n")
     return queryset
 
 def quizinfo_index(request):
