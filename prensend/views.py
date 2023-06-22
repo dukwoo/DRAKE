@@ -106,7 +106,11 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
-    similar_products=[]
+    rows = 9
+    cols = 7
+    similar_products = [[0] * cols] * rows
+    
+
     similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 3)
     print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
     
@@ -116,14 +120,14 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 3)
     print("similar_products3: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    for i in range(len(similar_products1)):
-        similar_products.append(similar_products1[i])
+    for i in range(3):
+        similar_products[i].append(similar_products1[i])
     
-    for i in range(len(similar_products2)):
-        similar_products.append(similar_products2[i])
+    for i in range(3):
+        similar_products[i+3].append(similar_products2[i])
         
-    for i in range(len(similar_products3)):
-        similar_products.append(similar_products3[i])
+    for i in range(3):
+        similar_products[i+6].append(similar_products3[i])
     
     result_list = []
 
