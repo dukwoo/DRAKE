@@ -191,7 +191,7 @@ def quizinfo_index(request):
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
-    items = Item.objects.all()
+    items = Item.objects.all()[10]
     context = {'items':items}
     
     
