@@ -10,9 +10,9 @@
    	
     {% block main %}
     <div class="t1">추천 선물 결과입니다.</div>
-
+    <div style="margin: 10px auto;">
     {% for f in filtered_items %}
-        <div class="rec_box" style="margin:10px;">
+        <div class="rec_box" style="margin: 20px;">
             <div class="rec_image">
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
@@ -29,6 +29,7 @@
             </div>
         </div>
     {% endfor %}
+    </<div>
 
     </div>
     {% endblock %}
