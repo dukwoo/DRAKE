@@ -79,7 +79,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
         return df.iloc[similar_indexes]
 
 #추천 알고리즘 (상품명, 가격 입력받음)def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
-def get_filtered_items(price):
+def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     #2
     warnings.filterwarnings('ignore')
 
@@ -88,7 +88,6 @@ def get_filtered_items(price):
     products_df = pd.DataFrame(items.values('rank', 'title', 'price', 'image', 'link', 'rate'))
     #products_df = items[['title', 'price', 'category']]
     
-
     #매트릭스의 형태를 상품수, 상품명
     #CountVectorizer를 적용하기 위해 공백문자로 word 단위가 구분되는 문자열로 반환
     #상품명을 공백으로 나눠서 각각의 단어의 개수를 추출.
@@ -106,9 +105,15 @@ def get_filtered_items(price):
     print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
 
     #유사한 상품들 가져옴
-    similar_products = find_sim_name(products_df, name_sim_sorted_ind, "탠디본사 소가죽 샌들, 9122039 2color 택1 (2.5cm)", 3)
-    print("similar_products1: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
-    
+    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 3)
+    print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 3)
+    print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 3)
+    print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
     """
     rows = 9
     cols = 7
@@ -137,34 +142,43 @@ def get_filtered_items(price):
     for i in range(3):
         similar_products[i+6].append(similar_products3[i])
     """
-    
+
     result_list = []
 
     #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     if price == '1':
-        result_list.append(similar_products.query("price < 10000").values.tolist()) 
+        result_list.append(similar_products1.query("price < 10000").values.tolist()) 
+        result_list.append(similar_products2.query("price < 10000").values.tolist()) 
+        result_list.append(similar_products3.query("price < 10000").values.tolist()) 
 
     elif price == '12':
-        result_list.append(similar_products.query("price < 30000").values.tolist())
+        result_list.append(similar_products1.query("price < 30000").values.tolist())
+        result_list.append(similar_products2.query("price < 30000").values.tolist())
+        result_list.append(similar_products3.query("price < 30000").values.tolist())
 
     elif price == '34':
-        result_list.append(similar_products.query("price < 50000").values.tolist())
+        result_list.append(similar_products1.query("price < 50000").values.tolist())
+        result_list.append(similar_products2.query("price < 50000").values.tolist())
+        result_list.append(similar_products3.query("price < 50000").values.tolist())
 
     elif price == '5':
-        result_list.append(similar_products.query("price < 100000").values.tolist())
+        result_list.append(similar_products1.query("price < 100000").values.tolist())
+        result_list.append(similar_products2.query("price < 100000").values.tolist())
+        result_list.append(similar_products3.query("price < 100000").values.tolist())
 
     print("title: ", result_list[0][1][0])
     res_dic = {}; res_list = []
     
-    for i in range(1,len(result_list[0])):
-        res_dic["title"] = str(result_list[0][i][1])
-        res_dic["price"] = str(result_list[0][i][2])
-        res_dic["image"] = str(result_list[0][i][3])
-        res_dic["link"] = str(result_list[0][i][4])
-        res_list.append(res_dic)
-        res_dic = {}
+    for i in range(len(result_list[0])):
+        for k in range(len(result_list[0])):
+            res_dic["title"] = str(result_list[i][k][0])
+            res_dic["price"] = str(result_list[i][k][1])
+            res_dic["image"] = str(result_list[i][k][2])
+            res_dic["link"] = str(result_list[i][k][3])
+            res_list.append(res_dic)
+            res_dic = {}
 
-    print(res_list)
+    print("\n최종 결과: ", res_list, "\n")
     return res_list
 
 def quizinfo_index(request):
@@ -174,11 +188,11 @@ def quizinfo_index(request):
         price = request.POST.get('search_mode_price')
         #print("====>>>> POST DATA: ", request.POST.getlist('cb[]'))
         
-        #titleArray = request.POST.getlist('cb[]')
+        titleArray = request.POST.getlist('cb[]')
         
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
-        #filtered_items = get_filtered_items(titleArray[0], titleArray[1], titleArray[2], price)
-        filtered_items = get_filtered_items(price)
+        filtered_items = get_filtered_items(titleArray[0], titleArray[1], titleArray[2], price)
+        #filtered_items = get_filtered_items(price)
 
         context = {
             'filtered_items': filtered_items,
