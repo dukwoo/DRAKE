@@ -114,14 +114,17 @@ def get_filtered_items(price):
     print("title: ", result_list[0][1][0])
 
     result_dic = {}
-
+    
     result_dic["title"] = str(result_list[0][1][1])
     result_dic["price"] = str(result_list[0][1][2])
     result_dic["image"] = str(result_list[0][1][3])
     result_dic["link"] = str(result_list[0][1][4])
 
-    print(result_dic)
-    return result_dic
+    print("rd: ", result_dic)
+    query_dic = QuerySet(result_dic)
+    print("qd: ", query_dic)
+
+    return query_dic
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     """
