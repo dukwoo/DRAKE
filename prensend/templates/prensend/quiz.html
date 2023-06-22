@@ -41,16 +41,18 @@
                 <div>
                     <h1 style="text-align: center;">선물할 상대의 평소 취향인 물건을 선택해주세요.</h1>
                 </div>
+                {% for i in items %}
                 <div class="products" style="margin: auto;">
                     <input type="checkbox" id="myCheckbox" />
-                    <label for="myCheckbox"><img src="https://shop-phinf.pstatic.net/20230525_150/1684995446444GJNuj_JPEG/9662255241691928_277393072.jpg?type=f200" /></label>
+                    <label for="myCheckbox"><img src="{{i.image}}" /></label>
 
                     <input type="checkbox" value="">
                         <div class="rec_image">
-                            <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
+                            <img class="image" src="{{i.image}}" alt="{{i.title}} 이미지">
                         </div>
                     </input>
                 </div>
+                {% endfor %}
     
     
                 <div>
