@@ -129,6 +129,8 @@ def get_filtered_items(price):
 
     #데이터프레임을 json으로 변환
     json_data = similar_products.to_json(orient='records')
+
+    print(json_data)
     
     #json을 쿼리셋으로 변환
     queryset = serializers.deserialize('json', json_data)
