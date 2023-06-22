@@ -124,17 +124,26 @@ def get_filtered_items(price):
 
     elif price == '5':
         result_list.append(similar_products.query("price < 100000").values.tolist())
-"""
+    """
+
+    numpy_ba = similar_products.to_numpy()
 
     #result_list2.append(result_list[0][1])
     #print(result_list2)
 
+
+
+    """
     #데이터프레임을 json으로 변환
     json_data = similar_products.to_json(orient='records')
 
     print("json_data : " , json_data , "\n")
     #여기까진 잘됨
+    """
 
+
+
+    """
     retItems = {}
     i = 0
     for item in json_data["items"]["item"]:
@@ -144,13 +153,16 @@ def get_filtered_items(price):
         # make dict_items type Objects to list type objects
 
         # return datas to json data
+    """
+
+
 
     #json을 쿼리셋으로 변환
     #queryset = serializers.deserialize('json', json_data)
     #mylist = list(queryset)
     #dataframe을 queryset으로 변환해야함.
-    print("제이슨데이터 : ", retItems, "\n")
-    return retItems
+    print("넘피배열 : ", numpy_ba, "\n")
+    return numpy_ba
 
 def quizinfo_index(request):
     if request.method == 'POST':
