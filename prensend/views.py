@@ -147,14 +147,14 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
 
     #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     if price == '13':
-        result_list.append(similar_products1.query("price < 30000").values.tolist())
-        result_list.append(similar_products2.query("price < 30000").values.tolist())
-        result_list.append(similar_products3.query("price < 30000").values.tolist())
+        result_list.append(similar_products1.query("price < 40000").values.tolist())
+        result_list.append(similar_products2.query("price < 40000").values.tolist())
+        result_list.append(similar_products3.query("price < 40000").values.tolist())
 
     elif price == '46':
-        result_list.append(similar_products1.query("price < 70000 and price >= 30000").values.tolist())
-        result_list.append(similar_products2.query("price < 70000 and price >= 30000").values.tolist())
-        result_list.append(similar_products3.query("price < 70000 and price >= 30000").values.tolist())
+        result_list.append(similar_products1.query("price < 70000 and price >= 40000").values.tolist())
+        result_list.append(similar_products2.query("price < 70000 and price >= 40000").values.tolist())
+        result_list.append(similar_products3.query("price < 70000 and price >= 40000").values.tolist())
 
     elif price == '79':
         result_list.append(similar_products1.query("price < 100000 and price >= 70000").values.tolist())
@@ -169,6 +169,8 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     print("title: ", result_list[0][1][0])
     res_dic = {}; res_list = []
     
+    print("len(result_list[0]: ", len(result_list[0]))
+
     for i in range(len(result_list[0])):
         for k in range(len(result_list[0])):
             res_dic["title"] = str(result_list[i][k][1])
