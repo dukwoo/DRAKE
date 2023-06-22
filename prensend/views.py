@@ -1,4 +1,5 @@
 import json
+import random
 
 from django.db.models import Q
 from django.shortcuts import render, redirect
@@ -112,16 +113,16 @@ def get_filtered_items(price):
     result_list.append(similar_products.query("price < 100000").values.tolist())
 
     print("title: ", result_list[0][1][0])
+    
+    result_list2 = [{
+        "title": str(result_list[0][1][1]),
+        "price": str(result_list[0][1][2]),
+        "image": str(result_list[0][1][3]),
+        "link": str(result_list[0][1][4]) 
+        }
+    ]
 
-    result_dic = {}
-
-    result_dic["title"] = str(result_list[0][1][1])
-    result_dic["price"] = str(result_list[0][1][2])
-    result_dic["image"] = str(result_list[0][1][3])
-    result_dic["link"] = str(result_list[0][1][4])
-
-    print(result_dic)
-    return result_dic
+    return result_list2
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     """
@@ -191,7 +192,9 @@ def quizinfo_index(request):
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
-    items = Item.objects.all()
+    itemsAll = list(Item.objects.all())
+    items = random.sample(itemsAll, 1)
+    
     context = {'items':items}
     
     
