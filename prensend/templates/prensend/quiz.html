@@ -45,12 +45,14 @@
                     <img src="{% static 'prensend/images/새로고침.png' %}" style="width: 50px;">
                 </button>
                 </br>
-                {% for i in items %}
+                
                 <div class="products" style="margin: auto; display: inline-block;">
                     <input type="checkbox" id="myCheckbox" />
+                    {% for i in items %}
                     <label for="myCheckbox"><img src="{{i.image}}" /></label>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                
     
     
                 <div>
