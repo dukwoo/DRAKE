@@ -95,7 +95,7 @@
 {% block main %}
 
     <div id="quiz">
-        <div class="information" style="background-color: #8EC6C9; border-radius: 40px; padding: auto; margin: auto; width: 950px;">
+        <div class="information" style="background-color: #8EC6C9; border-radius: 40px; padding: 50px; margin: auto; width: 950px;">
 
             <form action="{% url 'prensend:quizinfo_index' %}" method="post" style="margin: auto;">
                 <div>
@@ -133,7 +133,7 @@
                 <div class="price" style="margin: auto; text-align: center; margin-top: 20px;">
                     <select name="search_mode_price" id="search_mode_price">
                         <option value="" selected>가격대</option>
-                        <option value="13">1-3만원대</option>
+                        <option value="13">4만원 미만</option>
                         <option value="46">4-6만원대</option>
                         <option value="79">7-9만원대</option>
                         <option value="10">10만원 이상</option>
