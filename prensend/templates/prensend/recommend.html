@@ -10,14 +10,14 @@
    	
     {% block main %}
     <div class="t1">추천 선물 결과입니다.</div>
-    <div style="margin: 10px auto;">
+    <div style="margin: 10px 200px;">
     {% for f in filtered_items %}
         <div class="rec_box" style="margin: 20px;">
             <div class="rec_image">
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
             <div class="rec_title">
-                <p class="title">{{f.title}}</p>
+                <p class="title" style="font-size: 20px;">{{f.title}}</p>
             </div>
             <div class="rec_price">
                 <p class="price">{{f.price}}원</p>
