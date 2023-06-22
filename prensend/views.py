@@ -78,8 +78,8 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
 
         return df.iloc[similar_indexes]
 
-#추천 알고리즘 (상품명, 가격 입력받음)
-def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
+#추천 알고리즘 (상품명, 가격 입력받음)def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
+def get_filtered_items(price):
     #2
     warnings.filterwarnings('ignore')
 
@@ -176,7 +176,8 @@ def quizinfo_index(request):
         titleArray = request.POST.getlist('cb[]')
         
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
-        filtered_items = get_filtered_items(titleArray[0], titleArray[1], titleArray[2], price)
+        #filtered_items = get_filtered_items(titleArray[0], titleArray[1], titleArray[2], price)
+        filtered_items = get_filtered_items(price)
 
         context = {
             'filtered_items': filtered_items,
