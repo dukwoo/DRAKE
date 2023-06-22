@@ -108,6 +108,20 @@ def get_filtered_items(price):
     similar_products = find_sim_name(products_df, name_sim_sorted_ind, '나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션', 3)
     print("similar_products: ", similar_products[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
+    result_list = []
+    result_list.append(similar_products.query("price < 100000").values.tolist())
+
+    print("title: ", result_list[0][1][0])
+
+    result_dic = {}
+
+    result_dic["title"] = str(result_list[0][1][0])
+    result_dic["price"] = str(result_list[0][1][1])
+    result_dic["image"] = str(result_list[0][1][2])
+    result_dic["link"] = str(result_list[0][1][3])
+
+    print(result_dic)
+    return result_dic
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     """
@@ -126,12 +140,10 @@ def get_filtered_items(price):
         result_list.append(similar_products.query("price < 100000").values.tolist())
     """
 
-    numpy_ba = similar_products.to_numpy()
+    #numpy_ba = similar_products.to_numpy()
 
     #result_list2.append(result_list[0][1])
     #print(result_list2)
-
-
 
     """
     #데이터프레임을 json으로 변환
@@ -161,8 +173,8 @@ def get_filtered_items(price):
     #queryset = serializers.deserialize('json', json_data)
     #mylist = list(queryset)
     #dataframe을 queryset으로 변환해야함.
-    print("넘피배열 : ", numpy_ba, "\n")
-    return numpy_ba
+    #print("넘피배열 : ", numpy_ba, "\n")
+    #return numpy_ba
 
 def quizinfo_index(request):
     if request.method == 'POST':
@@ -172,7 +184,6 @@ def quizinfo_index(request):
         # 사진에 대한 상품명, 콤보박스로부터 가격 가져옴.
         filtered_items = get_filtered_items(price)
 
-        print("filtered_items : ", filtered_items, "\n")
         context = {
             'filtered_items': filtered_items,
         }
