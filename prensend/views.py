@@ -115,10 +115,10 @@ def get_filtered_items(price):
 
     result_dic = {}
 
-    result_dic["title"] = str(result_list[0][1][0])
-    result_dic["price"] = str(result_list[0][1][1])
-    result_dic["image"] = str(result_list[0][1][2])
-    result_dic["link"] = str(result_list[0][1][3])
+    result_dic["title"] = str(result_list[0][1][1])
+    result_dic["price"] = str(result_list[0][1][2])
+    result_dic["image"] = str(result_list[0][1][3])
+    result_dic["link"] = str(result_list[0][1][4])
 
     print(result_dic)
     return result_dic
