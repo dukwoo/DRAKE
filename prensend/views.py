@@ -113,15 +113,27 @@ def get_filtered_items(price):
 
     print("title: ", result_list[0][1][0])
 
+<<<<<<< HEAD
     query_list = [{
-            "title": str(result_list[0][1][1]),
-            "price": str(result_list[0][1][2]),
-            "image": str(result_list[0][1][3]),
-            "link": str(result_list[0][1][4]) 
+            "title": str(result_list[0][1][0]),
+            "price": str(result_list[0][1][1]),
+            "image": str(result_list[0][1][2]),
+            "link": str(result_list[0][1][3]) 
     }]
     print(query_list)
     
     return query_list
+=======
+    result_dic = {}
+
+    result_dic["title"] = str(result_list[0][1][0])
+    result_dic["price"] = str(result_list[0][1][1])
+    result_dic["image"] = str(result_list[0][1][2])
+    result_dic["link"] = str(result_list[0][1][3])
+
+    print(result_dic)
+    return result_dic
+>>>>>>> b947eb59dfa650e39577b7c5532755c73710ec6a
 
     # 유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
     """
@@ -191,7 +203,7 @@ def quizinfo_index(request):
         return render(request, 'prensend/recommend.html', context)
 
 def quiz(request):
-    items = Item.objects.all()[10]
+    items = Item.objects.all()
     context = {'items':items}
     
     
