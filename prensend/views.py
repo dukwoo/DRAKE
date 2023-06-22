@@ -114,10 +114,10 @@ def get_filtered_items(price):
     print("title: ", result_list[0][1][0])
 
     query_list = [{
-            "title": str(result_list[0][1][0]),
-            "price": str(result_list[0][1][1]),
-            "image": str(result_list[0][1][2]),
-            "link": str(result_list[0][1][3]) 
+            "title": str(result_list[0][1][1]),
+            "price": str(result_list[0][1][2]),
+            "image": str(result_list[0][1][3]),
+            "link": str(result_list[0][1][4]) 
     }]
     print(query_list)
     
