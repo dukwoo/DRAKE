@@ -11,16 +11,14 @@
     {% block main %}
     <div class="t1">추천 선물 결과입니다.</div>
 
-    {% if filtered_items %}
-    <h1>if filtered_items 있음</h1>
-    {% endif %}
 
     {% if filtered_items.exists %}
     <h1>if filtered_items.exists 있음</h1>
     {% endif %}
 
     <div class="box">
-
+    {% for i in filtered_items %}
+        {% for k in filtered_items %}
         <div class="rec_box">
             <div class="rec_image">
                 <!--가져온 이미지 링크 src 속성으로 넣으면 이미지 보임-->
@@ -38,6 +36,8 @@
                 </button>
             </div>
         </div>
+        {% endfor %}
+    {% endfor %}
 
     </div>
     {% endblock %}
