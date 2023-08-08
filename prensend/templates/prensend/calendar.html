@@ -2,214 +2,239 @@
 {% load static %}
 
     {% block head_styles %}
-        <title>Calendar</title>
-
-        <script>
-            window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
-            
-            let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
-            let today = new Date();     // 페이지를 로드한 날짜를 저장
-            today.setHours(0, 0, 0, 0);    // 비교 편의를 위해 today의 시간을 초기화
-    
-            // 달력 배열 생성
-            var arr = new Array(12);
-            for(var i = 0; i < arr.length; i++){
-                arr[i] = new Array(31);
-            }
-
-            //달력 배열 초기화
-            for(var i = 0; i<arr.length; i++)
-                for(var j = 0; j < arr[i].length; j++)
-                    arr[i][j] = "일정이 없습니다.";
-            
-            //arr[10][20] = "이수민";
-
-            // 달력 생성 : 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣는다.
-            function buildCalendar() {
-                //alert(arr.length);
-                let firstDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth(), 1);     // 이번달 1일
-                let lastDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, 0);  // 이번달 마지막날
-    
-                let tbody_Calendar = document.querySelector(".Calendar > tbody");
-                document.getElementById("calYear").innerText = nowMonth.getFullYear();             // 연도 숫자 갱신
-                document.getElementById("calMonth").innerText = leftPad(nowMonth.getMonth() + 1);  // 월 숫자 갱신
-    
-                while (tbody_Calendar.rows.length > 0) {                        // 이전 출력결과가 남아있는 경우 초기화
-                    tbody_Calendar.deleteRow(tbody_Calendar.rows.length - 1);
-                }
-    
-                let nowRow = tbody_Calendar.insertRow();        // 첫번째 행 추가           
-    
-                for (let j = 0; j < firstDate.getDay(); j++) {  // 이번달 1일의 요일만큼
-                    let nowColumn = nowRow.insertCell();        // 열 추가
-                }
-    
-                for (let nowDay = firstDate; nowDay <= lastDate; nowDay.setDate(nowDay.getDate() + 1)) {   // day는 날짜를 저장하는 변수, 이번달 마지막날까지 증가시키며 반복  
-    
-                    let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
-    
-    
-                    let newDIV = document.createElement("p");
-                    newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력
-                    nowColumn.appendChild(newDIV);
-    
-                    if (nowDay.getDay() == 6) {                 // 토요일인 경우
-                        nowRow = tbody_Calendar.insertRow();    // 새로운 행 추가
-                    }
-    
-                    if (nowDay < today) {                       // 지난날인 경우
-                        newDIV.className = "pastDay";
-                    }
-                    else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) { // 오늘인 경우           
-                        newDIV.className = "today";
-                        newDIV.onclick = function () { choiceDate(this); }
-                    }
-                    else {                                      // 미래인 경우
-                        newDIV.className = "futureDay";
-                        newDIV.onclick = function () { choiceDate(this); }
-                    }
-                }
-                var a = document.getElementById("date");
-                a.innerHTML = (nowMonth.getMonth() + 1) + "월 " + nowMonth.getDate() + "일";
-
-                //var box = document.getElementById('input_todo');
-                //box.style.display = 'none';
-                document.getElementById("todo").innerText = arr[(nowMonth.getMonth())][nowMonth.getDate()-1];
-            }
-    
-            // 날짜 선택
-            function choiceDate(newDIV) {
-                if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
-                    document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
-                }
-                newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
-                var x = document.getElementById("date"); // 날짜가 선택되면 선택된 날짜로 숫자 변경
-                x.innerHTML = (nowMonth.getMonth()+1) + "월 " + newDIV.innerHTML + "일";
-                
-                showTodo(nowMonth.getMonth(), Number(newDIV.innerHTML)-1);
-                //document.getElementById("todo").innerText = "일정이 없습니다.";
-                document.getElementById("input_todo").value = null;
-            }
-    
-            // 이전달 버튼 클릭
-            function prevCalendar() {
-                nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() - 1, nowMonth.getDate());   // 현재 달을 1 감소
-                buildCalendar();    // 달력 다시 생성
-            }
-            // 다음달 버튼 클릭
-            function nextCalendar() {
-                nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
-                buildCalendar();    // 달력 다시 생성
-            }
-            
-            // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
-            function leftPad(value) {
-                if (value < 10) {
-                    value = "0" + value;
-                    return value;
-                }
-                return value;
-            }
-
-            // 일정 추가하고 나타내기
-            function addTodo(){
-                //alert("버튼 클릭")
-                var box = document.getElementById('input_todo');
-                box.style.display = 'block';
-
-                var inputTodo = document.getElementById('input_todo').value;
-                var tt = document.getElementById('date').innerText;
-                var ttt = tt.slice(-3, tt.length-1);
-
-                Number(ttt);
-                //alert(typeof(Number(ttt)));
-
-                arr[(nowMonth.getMonth())][Number(ttt)-1] = inputTodo;
-                showTodo(nowMonth.getMonth(), Number(ttt)-1);
-                //var dd = ((nowMonth.getMonth() + 1) + nowMonth.getDate());
-                
-                /*
-                var btn = document.getElementById('addBtn');
-                var box = document.getElementById('input_todo');
-                box.style.display = 'none';
-                btn.style.display = 'none';*/
-
-                /*
-                if(arr[10][20] == 0)
-                    document.getElementById("todo").innerText = "0입니다";
-                else
-                    document.getElementById("todo").innerText = arr[10][20];*/
-            }
-            
-            // 일정 삭제하기
-            function minTodo(){
-                document.getElementById("todo").innerText = "일정이 없습니다.";
-                document.getElementById("input_todo").value = null;
-            }
-
-            // 일정 나타내기
-            function showTodo(m, d){
-                document.getElementById("todo").innerText = arr[m][d];
-                //alert(arr[(nowMonth.getMonth() + 1)][nowMonth.getDate()]);
-            }
-        </script>
-
-        <link rel="stylesheet" href="{% static 'prensend/css/calendar.css' %}">
+    <script src="https://unpkg.com/moment@2.17.1"></script>
+        <script src="https://unpkg.com/interactjs@1"></script>
+        <script src="https://unpkg.com/angular@1.6.6/angular.js"></script>
+        <script src="https://unpkg.com/angular-animate@1.6.6/angular-animate.js"></script>
+        <script src="https://unpkg.com/angular-ui-bootstrap@2/dist/ui-bootstrap-tpls.js"></script>
+        <script src="https://unpkg.com/rrule@2"></script>
+        <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
+        <script src="https://unpkg.com/angular-bootstrap-calendar"></script>
+        <link href="https://unpkg.com/bootstrap@3/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="https://unpkg.com/angular-bootstrap-colorpicker@3/css/colorpicker.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
     {% endblock %}
-
+    
     {% block main %}
-        <table>
-            <tr>
-                <td>
-                    <div class="div">
-                        <table class="Calendar" style="margin-left: 100px">
-                            <thead>
-                                <tr>
-                                    <td onClick="prevCalendar();" style="cursor:pointer; width: 50px;height: 50px;">&#60;</td>
-                                    <td colspan="5" style="width: 50px; height: 50px;">
-                                        <span id="calYear"></span>년
-                                        <span id="calMonth"></span>월
-                                    </td>
-                                    <td onClick="nextCalendar();" style="cursor:pointer;width: 50px; height: 50px;">&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 50px; height: 50px; color: red;">일</td>
-                                    <td style="width: 50px; height: 50px;">월</td>
-                                    <td style="width: 50px; height: 50px;">화</td>
-                                    <td style="width: 50px; height: 50px;">수</td>
-                                    <td style="width: 50px; height: 50px;">목</td>
-                                    <td style="width: 50px; height: 50px;">금</td>
-                                    <td style="width: 50px; height: 50px; color: blue;">토</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+    <div ng-controller="KitchenSinkCtrl as vm">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <h2 class="text-center">{{ vm.calendarTitle }}</h2>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <div class="btn-group">
+                            <button style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" mwl-date-modifier date="vm.viewDate"
+                            decrement="vm.calendarView" ng-click="vm.cellIsOpen = false"><</button>
+                            <button class="btn btn-default" mwl-date-modifier date="vm.viewDate"
+                            set-to-today ng-click="vm.cellIsOpen = false">Today</button>
+                            <button style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" mwl-date-modifier date="vm.viewDate"
+                            increment="vm.calendarView" ng-click="vm.cellIsOpen = false">></button>
+                        </div>
                     </div>
-                </td>
-                <td>
-                    <table>
+                    <br class="visible-xs visible-sm">
+                    <div class="col-md-6 text-center">
+                        <div class="btn-group">
+                            <label style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Year</label>
+                            <label style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Month</label>
+                            <label style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Week</label>
+                            <label style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Day</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <mwl-calendar events="vm.events" view="vm.calendarView" view-title="vm.calendarTitle" view-date="vm.viewDate"
+                    on-event-click="vm.eventClicked(calendarEvent)" on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                    cell-is-open="vm.cellIsOpen" day-view-start="06:00" day-view-end="22:59" day-view-split="30"
+                    cell-modifier="vm.modifyCell(calendarCell)" cell-auto-open-disabled="true" on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
+                </mwl-calendar>
+            
+            <!-- 일정 추가/삭제 기능 -->
+            
+                <br><br><br><br>
+                <h3 id="event-editor">Edit events
+                    <button class="btn btn-primary pull-right" ng-click="vm.addEvent()">Add new</button>
+                    <div class="clearfix"></div>
+                </h3>
+            
+            
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td><div id="date"></div></td>
-                            <td><button id="addBtn" onclick="addTodo();" style="border-radius: 10px; border: 0; background-color: #7DC8CA;">등록</button></td>
-                            <td><button id="minBtn" onclick="minTodo();" style="border-radius: 10px; border: 0; background-color: #7DC8CA;">삭제</button></td>
+                            <th>Title</th>
+                            <th>Primary color</th>
+                            <!--<th>Secondary color</th>-->
+                            <th>Starts at</th>
+                            <th>Ends at</th>
+                            <th>Remove</th>
                         </tr>
-                        <tr>
-                            
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="event in vm.events track by $index">
+                            <td><input type="text" class="form-control" ng-model="event.title"></td>
+                            <td><input class="form-control" colorpicker type="text" ng-model="event.color.primary"></td>
+                            <!--<td><input class="form-control" colorpicker type="text" ng-model="event.color.secondary"></td>-->
+                            <td>
+                                <p class="input-group" style="max-width: 250px">
+                                    <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy"
+                                    ng-model="event.startsAt" is-open="event.startOpen" close-text="Close" >
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.toggle($event, 'startOpen', event)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+                                <div uib-timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true"></div>
+                            </td>
+                            <td>
+                                <p class="input-group" style="max-width: 250px">
+                                    <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy"
+                                    ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.toggle($event, 'endOpen', event)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+                                <div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true"></div>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="vm.events.splice($index, 1)">Delete</button>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><input type="text" id="input_todo" size="10"></td>
-                        </tr>
-                        <tr>
-                            <td><div id="todo">일정이 없습니다.</div><td>
-                        </tr>
-                        <tr><td><div>&nbsp;</div></td></tr>
-                        <tr><td><div>&nbsp;</div></td></tr>
-                        <tr><td><div>&nbsp;</div></td></tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+    <script>
+        angular.module('mwl.calendar.docs', ['mwl.calendar', 'ngAnimate', 'ui.bootstrap', 'colorpicker.module']);
+angular
+  .module('mwl.calendar.docs') //you will need to declare your module with the dependencies ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']
+  .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig) {
 
+    var vm = this;
+
+    //These variables MUST be set as a minimum for the calendar to work
+    vm.calendarView = 'month';
+    vm.viewDate = new Date();
+    var actions = [{
+      //label: '<i class=\'glyphicon glyphicon-pencil\'></i>',
+      onClick: function(args) {
+        alert.show('Edited', args.calendarEvent);
+      }
+    }, {
+      //label: '<i class=\'glyphicon glyphicon-remove\'></i>',
+      onClick: function(args) {
+        alert.show('Deleted', args.calendarEvent);
+      }
+    }];
+    vm.events = [
+      {
+        title: 'An event',
+        color: calendarConfig.colorTypes.warning,
+        startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
+        endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+        draggable: true,
+        resizable: true,
+        actions: actions
+      }, {
+        title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
+        color: calendarConfig.colorTypes.info,
+        startsAt: moment().subtract(1, 'day').toDate(),
+        endsAt: moment().add(5, 'days').toDate(),
+        draggable: true,
+        resizable: true,
+        actions: actions
+      }, {
+        title: 'This is a really long event title that occurs on every year',
+        color: calendarConfig.colorTypes.important,
+        startsAt: moment().startOf('day').add(7, 'hours').toDate(),
+        endsAt: moment().startOf('day').add(19, 'hours').toDate(),
+        recursOn: 'year',
+        draggable: true,
+        resizable: true,
+        actions: actions
+      }
+    ];
+
+    vm.cellIsOpen = true;
+
+    vm.addEvent = function() {
+      vm.events.push({
+        title: '',
+        startsAt: moment().startOf('day').toDate(),
+        endsAt: moment().endOf('day').toDate(),
+        //color: calendarConfig.colorTypes.important,
+        draggable: true,
+        resizable: true
+      });
+    };
+
+    vm.eventClicked = function(event) {
+      alert.show('Clicked', event);
+    };
+
+    vm.eventEdited = function(event) {
+      alert.show('Edited', event);
+    };
+
+    vm.eventDeleted = function(event) {
+      alert.show('Deleted', event);
+    };
+
+    vm.eventTimesChanged = function(event) {
+      alert.show('Dropped or resized', event);
+    };
+
+    vm.toggle = function($event, field, event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      event[field] = !event[field];
+    };
+
+    vm.timespanClicked = function(date, cell) {
+
+      if (vm.calendarView === 'month') {
+        if ((vm.cellIsOpen && moment(date).startOf('day').isSame(moment(vm.viewDate).startOf('day'))) || cell.events.length === 0 || !cell.inMonth) {
+          vm.cellIsOpen = false;
+        } else {
+          vm.cellIsOpen = true;
+          vm.viewDate = date;
+        }
+      } else if (vm.calendarView === 'year') {
+        if ((vm.cellIsOpen && moment(date).startOf('month').isSame(moment(vm.viewDate).startOf('month'))) || cell.events.length === 0) {
+          vm.cellIsOpen = false;
+        } else {
+          vm.cellIsOpen = true;
+          vm.viewDate = date;
+        }
+      }
+
+    };
+
+  });
+  angular
+.module('mwl.calendar.docs').factory('alert', function($uibModal) {
+
+    function show(action, event) {
+      return $uibModal.open({
+        templateUrl: 'modalContent.html',
+        controller: function() {
+          var vm = this;
+          vm.action = action;
+          vm.event = event;
+        },
+        controllerAs: 'vm'
+      });
+    }
+
+    return {
+      show: show
+    };
+
+  });
+</script>
     {% endblock %}
 
