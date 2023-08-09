@@ -20,8 +20,8 @@
 
 		<!--nav&foot css-->
         <!--navbar 추가할 때 유의점: css+img+div+fontaweasome 같이 옮기기-->
-        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'prensend/css/navbar.css' %}?after">
+        <link rel="stylesheet" href="{% static 'prensend/css/footer.css' %}?after">
 
 		<!--font awesome-->
 		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 			body, table, div, p {font-family: 'Jeju Gothic';}
 
             /* 나브바의 로고 CSS 추가 */
-            .list { 
+            #list { 
                 display: block;
                 width:300px;
                 height:200px;
@@ -49,10 +49,10 @@
 		<div id="darkside"></div>
 
 		<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-		<div id="list2" style="width:300px; height:200px; display:none;">
+		<div id="list2">
 			{% include 'prensend/navbar.html' %}
 		</div>
-		
+
 		{% block main %}
 		{% endblock %}
 
