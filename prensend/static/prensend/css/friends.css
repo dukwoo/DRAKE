@@ -7,13 +7,15 @@ body {
     margin-bottom: 70px;
 }
 
+
+
 .friend_box {
     display: flex;
     align-items: center;
     margin: 30px auto;
     background-color: white;
-    width: 1100px;
-    height: 80px;
+    width: 900px;
+    height: 70px;
     border-radius: 30px;
     padding: 20px;
 }
@@ -21,8 +23,8 @@ body {
 .friend_image {
     margin-left: 30px;
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50px;
     overflow: hidden;
 }
@@ -41,14 +43,14 @@ body {
 }
 .name {
     margin-left: 30px;
-    font-size: 30px;
+    font-size: 25px;
 }
 .button {
     margin-left: 500px;
     border-radius: 20px;
     background-color: rgb(30, 30, 58);
     color: white;
-    font-size: 28px;
+    font-size: 20px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
@@ -57,8 +59,8 @@ body {
 
 
 label img {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
 }
