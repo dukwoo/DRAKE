@@ -3,7 +3,6 @@
 <script>
     var num = 0;
     const navbar = () => {
-        
         if (num%2==0){
             document.getElementById("list").style.display = "none";
             document.getElementById("list2").style.display = "block";
@@ -20,8 +19,58 @@
     }
 </script>
 
-<div class="navBox"
-
+<nav id="menu">
+    <br><br>
+    <ul style="list-style: none;">
+        <li>
+            <h3>
+                <a href="/" style="text-decoration:none;">
+                    PRENSEND
+                </a> 
+                <span id="exit" onclick="javascript:navbar()">
+                    <i class="fas fa-sign-out"></i>
+                </span>
+            </h3> 
+        </li><br>
+        <li>
+            <h3>
+                {% if user.is_authenticated %}
+                <a href="{% url 'common:logout' %}" style="text-decoration:none;">
+                    로그아웃
+                </a>
+                {% else %}
+                <a href="{% url 'common:login' %}" style="text-decoration:none;">
+                    로그인
+                </a> 
+                {% endif %}
+            </h3> 
+        </li><br>
+        {% if user.is_authenticated %}
+        <li>
+            <h3>
+                <a href="/mypage" style="text-decoration:none;">
+                    마이페이지
+                </a> 
+            </h3> 
+        </li><br>
+        <li>
+            <h3>
+                <a href="/friends" style="text-decoration:none; ">
+                    친구목록
+                </a>
+            </h3>
+        </li>
+        <br>
+        <li>
+            <h3>
+                <a href="/calendar" style="text-decoration:none;">
+                    달력확인
+                </a>
+            </h3> 
+        </li>
+        {% endif %}
+    </ul>
+</nav>
 
 <!--
 <div id="darkside"></div>

@@ -32,7 +32,7 @@
 			body, table, div, p {font-family: 'Jeju Gothic';}
 
             /* 나브바의 로고 CSS 추가 */
-            #list { 
+            .list { 
                 display: block;
                 width:300px;
                 height:200px;
@@ -46,18 +46,12 @@
 
 	<body style="background-color:#CAE9E0">
 		<!--navbar-->
-		<div class="navBox">
-			<img id="list" src="{% static 'prensend/images/로고.png' %}" alt="PRENSEND">
-		</div>
-		<div class="menuWrap">
-			{% include 'prensend/navbar.html' %}
-		</div>
+		<div id="darkside"></div>
 
-		<!--
 		<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
 		<div id="list2" style="width:300px; height:200px; display:none;">
 			{% include 'prensend/navbar.html' %}
-		</div>-->
+		</div>
 		
 		{% block main %}
 		{% endblock %}
