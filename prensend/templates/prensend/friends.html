@@ -4,58 +4,219 @@
     {% block head_styles %}
         <title>친구목록</title>
         <link rel="stylesheet" href="{% static 'prensend/css/friends.css' %}?after">
+
+        <style>
+            body {
+                background-color: #CAE9E0;
+            }
+            .t1 {
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 70px;
+            }
+            
+            .friend_box {
+                display: flex;
+                align-items: center;
+                margin: 30px auto;
+                background-color: white;
+                width: 870px;
+                height: 60px;
+                border-radius: 30px;
+                padding: 15px;
+            }
+            
+            .friend_image {
+                margin-left: 20px;
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                border-radius: 50px;
+                overflow: hidden;
+            }
+            .friend_name {
+                display: inline-block;
+            }
+            .friend_button {
+                display: inline-block;
+            }
+            
+            .image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .name {
+                margin-left: 30px;
+                font-size: 25px;
+            }
+            .button {
+                margin-left: 540px;
+                border-radius: 20px;
+                background-color: rgb(30, 30, 58);
+                color: white;
+                font-size: 18px;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                cursor: pointer; 
+                transition:all 0.9s, color 0.3;
+            }
+            .custom-btn {
+                margin-left: 370px;
+                width: 130px;
+                height: 40px;
+                color: #fff;
+                border-radius: 5px;
+                padding: 10px 25px;
+                font-family: 'Lato', sans-serif;
+                font-weight: 500;
+                background: transparent;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                display: inline-block;
+                box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.1),
+                4px 4px 5px 0px rgba(0,0,0,.1);
+                outline: none;
+            }
+            .btn-13 {
+                background-color: #89d8d3;
+                background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+                border: none;
+                z-index: 1;
+            }
+            .btn-13:after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: 5px;
+                background-color: #4dccc6;
+                background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+                box-shadow:
+                -7px -7px 20px 0px #fff9,
+                -4px -4px 5px 0px #fff9,
+                7px 7px 20px 0px #0002,
+                4px 4px 5px 0px #0001;
+                transition: all 0.3s ease;
+            }
+                .btn-13:hover {
+                color: #fff;
+            }
+            .btn-13:hover:after {
+                top: 0;
+                height: 100%;
+            }
+                .btn-13:active {
+                top: 2px;
+            }
+
+            
+            label img {
+                height: 80px;
+                width: 80px;
+                transition-duration: 0.2s;
+                transform-origin: 50% 50%;
+            }
+            
+            .freind_box2 {
+                display: flex;
+                align-items: center;
+                margin: 30px auto;
+                background-color: white;
+                width: 700px;
+                height: 60px;
+                padding: 15px;
+                border-left-style: solid;
+                border-left-width: 15px;
+                border-right-style: solid;
+                border-right-width: 2px;
+                border-left-color: #46cfb0;
+                border-right-color: #34bc9d;
+            }
+            
+            hr.divider {
+                padding: 20px;
+                border: none;
+                border-top: 5px double gray;
+                border-bottom: 5px double gray;
+                color: black;
+                text-align: center;
+                margin: 30px;
+            }
+                
+            hr.divider:after {
+                content: "친구목록";
+                display: inline-block;
+                position: relative;
+                top: -0.1em;
+                font-size: 1.75em;
+                padding: 0 0.5em;
+                font-weight: normal;
+            }          
+        </style>
     {% endblock %}
 
     {% block main %}
-        <div class="t1">친구목록</div>
-        <div class="friend_box">
+
+        <div class="green-bg" style="margin-bottom: 60px;">
+            <hr class="divider">
+        </div>
+
+        <div class="freind_box2">
             <div class="friend_image">
                 <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
             </div>
             <div class="friend_name">
-                <p class="name">임예진 (20200694)</p>
+                <p class="name">임예진</p>
             </div>
             <div class="friend_button">
-                <button class="button" type="button">
+                <button class="custom-btn btn-13" type="button">
                     방 단서 찾기
                 </button>
             </div>
         </div>
-        <div class="friend_box">
+        <div class="freind_box2">
             <div class="friend_image">
                 <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
             </div>
             <div class="friend_name">
-                <p class="name">김지현 (20200711)</p>
+                <p class="name">김지현</p>
             </div>
             <div class="friend_button">
-                <button class="button" type="button">
+                <button class="custom-btn btn-13" type="button">
                     방 단서 찾기
                 </button>
             </div>
         </div>
-        <div class="friend_box">
+        <div class="freind_box2">
             <div class="friend_image">
                 <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
             </div>
             <div class="friend_name">
-                <p class="name">이수민 (20200885)</p>
+                <p class="name">이수민</p>
             </div>
             <div class="friend_button">
-                <button class="button" type="button">
+                <button class="custom-btn btn-13" type="button">
                     방 단서 찾기
                 </button>
             </div>
         </div>
-        <div class="friend_box">
+        <div class="freind_box2">
             <div class="friend_image">
                 <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
             </div>
             <div class="friend_name">
-                <p class="name">조수인 (20200747)</p>
+                <p class="name">조수인</p>
             </div>
             <div class="friend_button">
-                <button class="button" type="button">
+                <button class="custom-btn btn-13" type="button">
                     방 단서 찾기
                 </button>
             </div>
