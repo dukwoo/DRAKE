@@ -44,21 +44,29 @@
 
     </head>
 
-<body>
-	<!--navbar-->
-	<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
-	<div id="list2" style="width:300px; height:200px; display:none;">
-		{% include 'prensend/navbar.html' %}
-	</div>
-	
-    {% block main %}
-    {% endblock %}
-
-	<!--footer-->
-	<footer style="bottom:0; height:100px; text-align:center;">
-		<div>
-			<div> Copyright @ DRAKE </div>
+	<body style="background-color:#CAE9E0">
+		<!--navbar-->
+		<div class="navBox">
+			<img id="list" src="{% static 'prensend/images/로고.png' %}" alt="PRENSEND">
 		</div>
-	</footer>
-</body>
+		<div class="menuWrap">
+			{% include 'prensend/navbar.html' %}
+		</div>
+
+		<!--
+		<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
+		<div id="list2" style="width:300px; height:200px; display:none;">
+			{% include 'prensend/navbar.html' %}
+		</div>-->
+		
+		{% block main %}
+		{% endblock %}
+
+		<!--footer-->
+		<footer style="bottom:0; height:100px; text-align:center;">
+			<div>
+				<div> Copyright @ DRAKE </div>
+			</div>
+		</footer>
+	</body>
 </html>

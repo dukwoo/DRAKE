@@ -1,6 +1,6 @@
 /* navbar 넣을 때, css, js 파일도 같이 작성, footer도 마찬가지로 */
 
-#nav{
+.nav{
     display:none;
     position:fixed;
     background-color: #aadccd;

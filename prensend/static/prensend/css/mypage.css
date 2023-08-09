@@ -1,39 +1,23 @@
-body {
+html {
+    font-size: 14px;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  .container {
+    max-width: 960px;
+  }
+  
+  .pricing-header {
+    max-width: 700px;
+  }
+  
+  .card-deck .card {
+    min-width: 220px;
+  }
+  body {
     background-color: #CAE9E0;
-}
-table{
-    width:auto;
-    margin-left: 200px;
-}
-
-.styled {
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    border-radius: 10px;
-    background-color: #7DC8CA;
-}
-
-.styled:hover {
-    background-color: darkgray;
-}
-
-.styled:active {
-    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-}
-
-.let{
-    font-size: 1.4em;
-    font-weight: bold;
-}
-
-.box{
-    background-color: white;
-    height:40px;
-    font-size: 1.1em;
-    border-radius: 20px;
-    text-align: center;
 }
