@@ -3,9 +3,8 @@
 {% load static %}
 
     {% block head_styles %}
-        <title>Mypage</title>
-        <link rel="stylesheet" href="{% static 'prensend/css/mypage.css' %}">
-
+        <title>Log In</title>
+        
 		<style>
 			* {
 				box-sizing: border-box;
@@ -14,20 +13,21 @@
 				font-family: "Montserrat", sans-serif;
 				margin: 0;
 				padding: 0;
-				background-color: #CAE9E0;
+				
 			  }
 			  .wrapper {
 				width: 100%;
-				height: 60vh;
+				height: 100vh;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				background-color: #CAE9E0;
+				
 				overflow: hidden;
 			  }
 			  .container {
+				margin-left: 20px;
 				border-radius: 10px;
-				box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babebc;
+				
 				position: absolute;
 				width: 768px;
 				min-height: 480px;
@@ -74,7 +74,7 @@
 			  .overlay_btn {
 				background-color: #CAE9E0;
 				color: black;
-				box-shadow: -5px -5px 10px #CAE9E0, 5px 5px 8px #CAE9E0;
+				
 			  }
 			  .sign-in-container {
 				position: absolute;
@@ -116,7 +116,7 @@
 				right: 0;
 				width: 50%;
 				height: 100%;
-				background-color: #46cfb0;
+				background-color: #00264B;
 				color: #fff;
 				transition: all 0.5s;
 			  }
@@ -176,6 +176,7 @@
 			  .social-links div:active {
 				box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
 			  }
+			
 		</style>
     {% endblock %}    
 
