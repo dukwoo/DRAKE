@@ -1,35 +1,44 @@
 {% load socialaccount %}
 {% load static %}
 <script>
-    var num = 0;
     const navbar = () => {
-        document.querySelector("#list2").classList.toggle('is-active');
-        document.querySelector("#darkside").classList.toggle('is-active');
-        
-        /*if (num%2==0){
-            document.getElementById("list").style.display = "none";
-            document.getElementById("list2").style.display = "block";
-            //document.getElementById("menu").style.display = "block";
-            document.getElementById("darkside").style.display = "block";
-        }
-        else {
-            document.getElementById("list").style.display = "block";
-            document.getElementById("list2").style.display = "none";
-            //document.getElementById("menu").style.display = "none";
-            document.getElementById("darkside").style.display = "none";
-        }
-        num += 1;
-        */
+        document.querySelector('#list2').classList.toggle('nav-open');
+        document.querySelector('nav .nav-links').classList.toggle('fade-in');
+        document.querySelector('#exit').classList.toggle('nav-open');
+        document.querySelector('#list').classList.toggle('is-active');
     }
 </script>
 
 <nav id="menu">
-    <br><br>
-    <ul style="list-style: none;">
+    <div class="nav-links">
+        <div>
+            <a href="/" class="link">FREN:SEND</a>
+            <span id="exit" onclick="javascript:navbar()">
+                <i class="fas fa-sign-out"></i>
+            </span>
+        </div>
+        {% if user.is_authenticated %}
+        <a class="link-li" href="{% url 'common:logout' %}">
+            로그아웃
+        </a>
+        {% else %}
+        <a class="link-li" href="{% url 'common:login' %}">
+            로그인
+        </a> 
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="/mypage" class="link">MyPage</a>
+        <a href="/friends" class="link">Friends</a>
+        <a href="/calendar" class="link">Calendar</a>
+        {% endif %}
+    </div>
+
+<!--
+    <ul class="link" style="list-style: none;">
         <li>
             <h3>
-                <a href="/" style="text-decoration:none;">
-                    PRENSEND
+                <a class="link-li" href="/" style="text-decoration:none;">
+                    FREN:SEND
                 </a> 
                 <span id="exit" onclick="javascript:navbar()">
                     <i class="fas fa-sign-out"></i>
@@ -39,11 +48,11 @@
         <li>
             <h3>
                 {% if user.is_authenticated %}
-                <a href="{% url 'common:logout' %}" style="text-decoration:none;">
+                <a class="link-li" href="{% url 'common:logout' %}" style="text-decoration:none;">
                     로그아웃
                 </a>
                 {% else %}
-                <a href="{% url 'common:login' %}" style="text-decoration:none;">
+                <a class="link-li" href="{% url 'common:login' %}" style="text-decoration:none;">
                     로그인
                 </a> 
                 {% endif %}
@@ -52,14 +61,14 @@
         {% if user.is_authenticated %}
         <li>
             <h3>
-                <a href="/mypage" style="text-decoration:none;">
+                <a class="link-li" href="/mypage" style="text-decoration:none;">
                     마이페이지
                 </a> 
             </h3> 
         </li><br>
         <li>
             <h3>
-                <a href="/friends" style="text-decoration:none; ">
+                <a class="link-li" href="/friends" style="text-decoration:none; ">
                     친구목록
                 </a>
             </h3>
@@ -67,15 +76,14 @@
         <br>
         <li>
             <h3>
-                <a href="/calendar" style="text-decoration:none;">
+                <a class="link-li" href="/calendar" style="text-decoration:none;">
                     달력확인
                 </a>
             </h3> 
         </li>
         {% endif %}
-    </ul>
+    </ul>-->
 </nav>
-
 <!--
 <div id="darkside"></div>
 

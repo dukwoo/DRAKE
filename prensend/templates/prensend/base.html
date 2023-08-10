@@ -33,10 +33,23 @@
 
             /* 나브바의 로고 CSS 추가 */
             #list { 
-                display: block;
+				visibility: visible;
                 width:300px;
                 height:200px;
             }
+			#list.is-active {
+				visibility: hidden;
+			}
+			#exit {
+				overflow: hidden;
+				position:absolute;
+				transform: translateX(-300px);
+				right: 10%;
+				font-size: 25px;
+			}
+			#exit.nav-open{
+				transform: translateX(0px);
+			}
         </style>
 
         {% block head_styles %}
@@ -46,8 +59,6 @@
 
 	<body style="background-color:#CAE9E0">
 		<!--navbar-->
-		<div id="darkside"></div>
-
 		<img id="list" src="{% static 'prensend/images/로고.png' %}" onclick="javascript:navbar()" alt="PRENSEND">
 		<div id="list2">
 			{% include 'prensend/navbar.html' %}
