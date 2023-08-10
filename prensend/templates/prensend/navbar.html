@@ -18,11 +18,11 @@
             </span>
         </div>
         {% if user.is_authenticated %}
-        <a class="link-li" href="{% url 'common:logout' %}">
+        <a class="link" href="{% url 'common:logout' %}">
             로그아웃
         </a>
         {% else %}
-        <a class="link-li" href="{% url 'common:login' %}">
+        <a class="link" href="{% url 'common:login' %}">
             로그인
         </a> 
         {% endif %}

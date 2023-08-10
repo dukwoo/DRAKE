@@ -1,4 +1,8 @@
 /* navbar 넣을 때, css, js 파일도 같이 작성, footer도 마찬가지로 */
+html, body {
+    height: 100vh;
+    width: 100%;
+}
 #list2{
     overflow: hidden;
     position: fixed;
@@ -43,6 +47,15 @@ nav .nav-links .link {
 }
 nav .nav-links .link:hover {
     color: rgba(0,0,0,0.5);
+}
+a{
+    margin: 0 20px;
+    color: #fff;
+    font-size: 2rem;
+    transition: all 400ms ease;
+}
+a:hover{
+    color: #222;
 }
 #exit {
     overflow: hidden;
