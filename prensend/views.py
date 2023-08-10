@@ -171,7 +171,7 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     
     print("len(result_list[0]: ", len(result_list[0]))
 
-    for i in range(3):
+    for i in range(2):
         for k in range(3):
             res_dic["title"] = str(result_list[i][k][1])
             res_dic["price"] = str(result_list[i][k][2])
