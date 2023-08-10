@@ -1,6 +1,5 @@
 {% extends 'prensend/base.html' %}
 {% load static %}
-
     {% block head_styles %}
         <title>Mypage</title>
         <link rel="stylesheet" href="{% static 'prensend/css/mypage.css' %}">
@@ -23,7 +22,6 @@
             }
           </style>
     {% endblock %}    
-
     {% block main %}
     <div style="background-color: #CAE9E0;">
     <div class="px-3 pb-md-4 mx-auto text-center">
@@ -53,11 +51,14 @@
             <h3>내 계정</h3>
             <a style="font-size:1.1em">아래에서 개인 정보를 확인 및 편집하세요.</a>
             <br><br>
+            <div style="font-size:1.1em">&nbsp;아래에서 개인 정보를 확인 및 편집하세요.</div>
+            <br>
             <hr>
             <br>
             <h4>표시 정보</h4>
             <div>
                 <span style="margin-top: 5px; font-size:1.2em">표시 이름 *</span><br>
+                <span style="margin-top: 5px; font-size:1.2em">&nbsp;표시 이름 *</span><br>&nbsp;
                 <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 0px;">{{user.username}}</div>
             </div>
             <br><hr>
@@ -67,6 +68,9 @@
             <a><span style="margin-top: 5px; font-size:1.2em">로그인 이메일:</span> {{ user.email }}</a><br>
             <a style="color: gray;">(로그인 이메일은 변경할 수 없습니다.)</a><br><br>
             <a>
+            <span style="margin-top: 5px; font-size:1.2em">로그인 이메일:</span> {{ user.email }}<br>
+            <div style="color: gray;">(로그인 이메일은 변경할 수 없습니다.)</div><br><br>
+            <div>
                 <span style="margin-top: 5px; font-size:1.2em">이름</span><br>
                 <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">{{user.username}}</div>
                 <span style="margin-top: 5px; font-size:1.2em">이메일 *</span><br>
@@ -74,6 +78,7 @@
                 <span style="margin-top: 5px; font-size:1.2em">전화번호</span><br>
                 <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">010-5168-4851</div>
             </a>
+            </div>
             <br>
             <hr>
             <br>
