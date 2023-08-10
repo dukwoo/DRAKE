@@ -21,7 +21,7 @@
         }
             
         hr.divider:after {
-            content: "친구목록";
+            content: "선물 추천 결과";
             display: inline-block;
             position: relative;
             top: -0.1em;
@@ -34,7 +34,6 @@
     {% endblock %}
    	
     {% block main %}
-    <div class="t1">추천 선물 결과입니다.</div>
 
     <br>
         <br>
@@ -43,11 +42,7 @@
             <hr class="divider">
         </div>
     <div style="margin: 10px 350px;">
-
-        
     {% for f in filtered_items %}
-    
-
         <div class="rec_box" style="margin: 20px;">
             <div class="rec_image">
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
@@ -59,7 +54,7 @@
                 <p class="price">{{f.price}}원</p>
             </div>
             <div class="rec_button">
-                <button class="button" type="button" onclick="location.href='{{f.link}}'">
+                <button class="custom-btn2 btn-13" type="button" onclick="location.href='{{f.link}}'">
                     상품 보러가기
                 </button>
             </div>

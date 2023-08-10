@@ -186,14 +186,12 @@
                     <img src="{% static 'prensend/images/새로고침.png' %}" style="width: 50px;">
                 </button>
                 </br>-->
-                <div style="background:white;">
                 {% for i in items %}
                 <div class="products" style="margin: auto; display: inline-block;">
                     <input type="checkbox" name="cb[]" id="{{i.id}}" value="{{i.title}}" />
                     <label for="{{i.id}}"><img src="{{i.image}}" /></label>
                 </div>
                 {% endfor %}
-                </div>
 
                 <!--
                 <ul>
