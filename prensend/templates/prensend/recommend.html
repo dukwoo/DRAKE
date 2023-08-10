@@ -144,6 +144,9 @@
             .btn-13:active {
             top: 2px;
         }
+        .multi-layout {
+            column-width: 120px;
+        }
     </style>
 
     {% endblock %}
@@ -156,7 +159,7 @@
         <div class="green-bg" style="margin-bottom: 60px;">
             <hr class="divider">
         </div>
-    <div style="margin: 10px 350px;">
+    <div class="multi-layout" style="margin: 10px 350px;">
     {% for f in filtered_items %}
         <div class="rec_box" style="margin: 20px;">
             <div class="rec_image">
