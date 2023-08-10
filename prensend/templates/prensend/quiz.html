@@ -158,7 +158,28 @@
     transform: translateX(-600px);
   }
 }
-    </style>
+
+.custom-btn2 {
+            margin: 0px auto;
+            width: 260px;
+            height: 40px;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 25px;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+            7px 7px 20px 0px rgba(0,0,0,.1),
+            4px 4px 5px 0px rgba(0,0,0,.1);
+            outline: none;
+        }
+
+</style>
 {% endblock %}
 
 {% block main %}
@@ -242,7 +263,7 @@
 
                     <br><br><br>
 
-                    <button class="button" type="submit" id="btn" style="color:white; background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
+                    <button class="custom-btn2 btn-13" type="submit" id="btn" style="color:white; background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
                         추천 선물 보기
                     </button>
             </form>
