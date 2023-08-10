@@ -7,6 +7,7 @@
     <!--recommend css-->
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
     <style>
+        
         hr.divider {
             padding: 20px;
             border: none;
@@ -37,29 +38,28 @@
         }
         .rec_box {
             display: inline-block;
-            width: 250px;
+            width: 300px; height: 450px;
             margin-left: 50px;
             margin-right: 50px;
-            background-color: white;
-            border-radius: 20px;
-            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            padding: 10px;
         }
         .rec_box:hover{
-            box-shadow: 5px 5px 5px 5px #808080;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
         
         .rec_image {
-            margin: 0px auto;
-            background-color: white;
-            width: 250px;
-            height: 250px;
+            margin: 10px auto 0px auto; background-color: white;
+            width: 270px;
+            height: 270px;
             text-align: center;
             border-radius: 20px;
         }
         .rec_title {
             width: 250px;
             height: 60px;
-            font-size: 19px;
+            font-size: 10px; margin: 0px auto;
         }
         
         .image {
@@ -82,7 +82,7 @@
             color: black;
         }
         .rec_price {
-            margin-left: 20px;
+            margin: 0 auto;
             width: 250px;
             height: 25px;
             font-size: 17px;
@@ -92,11 +92,11 @@
         
         
         .custom-btn2 {
-            margin-left: 0px auto;
-            width: 170px;
+            margin: 0px auto;
+            width: 260px;
             height: 40px;
             color: #fff;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 10px 25px;
             font-family: 'Lato', sans-serif;
             font-weight: bold;
@@ -163,7 +163,7 @@
                 <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
             </div>
             <div class="rec_title">
-                <p class="title" style="font-size: 20px;">{{f.title}}</p>
+                <p class="title" style="font-size: 17px;">{{f.title}}</p>
             </div>
             <div class="rec_price">
                 <p class="price">{{f.price}}원</p>
