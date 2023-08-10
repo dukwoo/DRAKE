@@ -94,12 +94,18 @@
 
 {% block main %}
 
+    <div>
+        <img src="{% static 'prensend/static/prensend/images/banner.jpeg' %}" alt="배너이미지" id="banner">
+        <img src="{% static 'prensend/images/선물.png' %}" alt="선물 아이콘" style="width: 600px;" onclick="location.href='/quiz/'">
+        <a>Find Your Present</a>
+    </div>
     <div id="quiz">
-        <div class="information" style="background-color: #8EC6C9; border-radius: 40px; padding: 50px; margin: auto; width: 950px;">
+        <div class="information" style="padding: 50px; margin: auto; width: 950px;">
+            <!-- background-color: #8EC6C9; border-radius: 40px;  -->
 
             <form action="{% url 'prensend:quizinfo_index' %}" method="post" style="margin: auto;">
                 <div>
-                    <h1 style="text-align: center;">선물할 상대의 평소 취향인 물건 3개를 선택해주세요.</h1>
+                    <h2 style="text-align: center;">상대방이 평소 좋아하는 물건 3개를 선택해주세요.</h2>
                 </div>
                 <!--
                 <button onClick="window.location.reload()" style="background-color:transparent; border:none; margin-left: 300px; margin-bottom: 10px;">
@@ -123,9 +129,9 @@
                     {% endfor %}
                 </ul>-->
     
-    
+                <br><br><br><br><br><br>
                 <div>
-                    <h1 style="text-align: center;">선물의 가격대를 선택해주세요.</h1>
+                    <h2 style="text-align: center; margin-top: 50px;">상대방과 선물의 정보를 입력해주세요.</h2>
                 </div>
 
 
@@ -138,12 +144,31 @@
                         <option value="69">6-9만원대</option>
                         <option value="10">10만원 이상</option>
                     </select>
+                </div>
+
+                <div class="age" style="margin: auto; text-align: center; margin-top: 20px;">
+                    <select name="search_mode_age" id="search_mode_age">
+                        <option value="" selected>연령</option>
+                        <option value="1020">10-20대</option>
+                        <option value="30">30대</option>
+                        <option value="40">40대</option>
+                        <option value="50">50대 이상</option>
+                    </select>
+                </div>
+
+                <div class="gender" style="margin: auto; text-align: center; margin-top: 20px;">
+                    <select name="search_mode_gender" id="search_mode_gender">
+                        <option value="" selected>성별</option>
+                        <option value="man">남성</option>
+                        <option value="woman">여성</option>
+                    </select>
+                </div>
+
                     <br><br><br>
-                        
+
                     <button class="button" type="submit" id="btn" style="color:white; background-color: #448F74; border: 0px; margin-top: 40px; margin: auto;">
                         추천 선물 보기
                     </button>
-                </div>
             </form>
 
         </div>
