@@ -17,7 +17,24 @@
 
 		<link rel="shortcut icon" type="text/css" href="{% static 'prensend/images/title로고.png' %}">
 		<link rel="appel-touch-icon-precomposed" href="{% static 'prensend/images/title로고.png' %}">
-    
+    <script>
+      let nowMonth = new Date();
+
+      document.getElementById('calMonth').innerText = nowMonth.getMonth() + 1 + "월 " + nowMonth.getFullYear();
+      // 이전달 버튼 클릭
+      function prevCalendar() {
+        let nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() - 1, nowMonth.getDate());
+
+        document.getElementById('calMonth').innerText = nowMonth.getMonth() + 1 + "월 " + nowMonth.getFullYear();
+        
+    }
+    // 다음달 버튼 클릭
+    function nextCalendar() {
+        let nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
+        
+        document.getElementById('calMonth').innerText = nowMonth.getMonth() + 1 + "월 " + nowMonth.getFullYear();
+    }
+    </script>
 		<!--font awesome-->
 		<script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
 
@@ -73,16 +90,16 @@
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8"  style="background: white; border-radius: 20px; margin-bottom: 50px;">
-                    <h2 class="text-center" id="calMonth">{{ vm.calendarTitle}}</h2>
+                    <h2 class="text-center" id="calMonth"></h2>
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <div class="btn-group">
                                 <button style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" mwl-date-modifier date="vm.viewDate"
-                                decrement="vm.calendarView" ng-click="vm.cellIsOpen = false"><</button>
+                                decrement="vm.calendarView" ng-click="vm.cellIsOpen = false" onClick="prevCalendar();">&#60;</button>
                                 <button class="btn btn-default" mwl-date-modifier date="vm.viewDate"
                                 set-to-today ng-click="vm.cellIsOpen = false">Today</button>
                                 <button style="background-color: #7DC8CA; border-color: #7DC8CA" class="btn btn-primary" mwl-date-modifier date="vm.viewDate"
-                                increment="vm.calendarView" ng-click="vm.cellIsOpen = false">></button>
+                                increment="vm.calendarView" ng-click="vm.cellIsOpen = false" onClick="nextCalendar();">&#62;</button>
                             </div>
                         </div>
                         <br class="visible-xs visible-sm">
@@ -168,11 +185,23 @@
       .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig) {
     
         var vm = this;
-        
+
         let nowMonth = new Date();
 
-        document.getElementById('calMonth').innerText = nowMonth.getMonth() + 1 + "월 " + nowMonth.getFullYear();
+      document.getElementById('calMonth').innerText = nowMonth.getMonth() + 1 + "월 " + nowMonth.getFullYear();
+      // 이전달 버튼 클릭
+      function prevCalendar() {
+        let nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() - 1, nowMonth.getDate());
 
+        document.getElementById('calMonth').innerText = nowMonth;
+        
+    }
+    // 다음달 버튼 클릭
+    function nextCalendar() {
+        let nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
+        
+        document.getElementById('calMonth').innerText = nowMonth.getMonth() + 1 + "월 " + nowMonth.getFullYear();
+    }
         //These variables MUST be set as a minimum for the calendar to work
         vm.calendarView = 'month';
         vm.viewDate = new Date();

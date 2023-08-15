@@ -38,104 +38,251 @@
                background-position: 0% 50%;
               }
             }
+            hr.divider {
+              padding: 20px;
+              border: none;
+              border-top: 5px double gray;
+              border-bottom: 5px double gray;
+              color: black;
+              text-align: center;
+              margin-top: 0px;
+              margin-bottom: 30px;
+              margin-right: 350px;
+              margin-left: 350px;
+          }
+              
+          hr.divider:after {
+              content: "My Profile";
+              display: inline-block;
+              position: relative;
+              top: -0.1em;
+              font-size: 1.75em;
+              padding: 0 0.5em;
+              font-weight: normal;
+          }
+          hr {
+            padding: 0;
+            margin: 40px;
+          }
+          
+          hr.hr-1 {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+          }
+
+          hr.hr-8 {
+            border: 0;
+            
+            border-top: 2px dotted #8c8c8c;
+          }
+          div.dc {
+            margin-left: 300px;
+          }
+          input::placeholder {
+            color: black;
+            font-size:1.2em;
+          }
+          .button {
+            
+            border-radius: 20px;
+            background-color: rgb(30, 30, 58);
+            color: white;
+            font-size: 18px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            cursor: pointer; 
+            transition:all 0.9s, color 0.3;
+        }
+        .custom-btn {
+            width: 130px;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+            7px 7px 20px 0px rgba(0,0,0,.1),
+            4px 4px 5px 0px rgba(0,0,0,.1);
+            outline: none;
+        }
+        .btn-13 {
+            background-color: #f192f0;
+            background-image: linear-gradient(315deg, #f192f0 0%, #A28DCE 74%);
+            border: none;
+            z-index: 1;
+        }
+        .btn-13:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 5px;
+            background-color: #D4f2f0;
+            background-image: linear-gradient(315deg, #d4f2f0 0%, #e989cf 74%);
+            box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+            transition: all 0.3s ease;
+        }
+            .btn-13:hover {
+            color: #fff;
+        }
+        .btn-13:hover:after {
+            top: 0;
+            height: 100%;
+        }
+            .btn-13:active {
+            top: 2px;
+        }
+        
+          .card{position:relative;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;min-width:0;word-wrap:break-word;background-color:rgba(255, 255, 255, 0.5);background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:.25rem}
+          .card>hr{margin-right:0;margin-left:0}
+          .card>.list-group{border-top:inherit;border-bottom:inherit}
+          .card>.list-group:first-child{border-top-width:0;border-top-left-radius:calc(.25rem - 1px);border-top-right-radius:calc(.25rem - 1px)}
+          .card>.list-group:last-child{border-bottom-width:0;border-bottom-right-radius:calc(.25rem - 1px);border-bottom-left-radius:calc(.25rem - 1px)}
+          .card>.card-header+.list-group,.card>.list-group+.card-footer{border-top:0}
+          .card-body{-ms-flex:1 1 auto;flex:1 1 auto;min-height:1px;padding:1.25rem}
+          .card-title{margin-bottom:.75rem}
+          .card-subtitle{margin-top:-.375rem;margin-bottom:0}
+          .card-text:last-child{margin-bottom:0}
+          .card-link:hover{text-decoration:none}
+          .card-link+.card-link{margin-left:1.25rem}
+          .card-header{padding:.75rem 1.25rem;margin-bottom:0;background-color:rgba(0,0,0,.03);border-bottom:1px solid rgba(0,0,0,.125)}
+          .card-header:first-child{border-radius:calc(.25rem - 1px) calc(.25rem - 1px) 0 0}
+          .card-footer{padding:.75rem 1.25rem;background-color:rgba(0,0,0,.03);border-top:1px solid rgba(0,0,0,.125)}
+          .card-footer:last-child{border-radius:0 0 calc(.25rem - 1px) calc(.25rem - 1px)}
+          .card-header-tabs{margin-right:-.625rem;margin-bottom:-.75rem;margin-left:-.625rem;border-bottom:0}
+          .card-header-pills{margin-right:-.625rem;margin-left:-.625rem}
+          .card-img-overlay{position:absolute;top:0;right:0;bottom:0;left:0;padding:1.25rem;border-radius:calc(.25rem - 1px)}
+          .card-img,.card-img-bottom,.card-img-top{-ms-flex-negative:0;flex-shrink:0;width:100%}.card-img,.card-img-top{border-top-left-radius:calc(.25rem - 1px);border-top-right-radius:calc(.25rem - 1px)}.card-img,.card-img-bottom{border-bottom-right-radius:calc(.25rem - 1px);border-bottom-left-radius:calc(.25rem - 1px)}.card-deck .card{margin-bottom:15px}@media (min-width:576px){.card-deck{display:-ms-flexbox;display:flex;-ms-flex-flow:row wrap;flex-flow:row wrap;margin-right:-15px;margin-left:-15px}.card-deck .card{-ms-flex:1 0 0%;flex:1 0 0%;margin-right:15px;margin-bottom:0;margin-left:15px}}
+          .card-group>.card{margin-bottom:15px}
+          @media (min-width:576px){.card-group{display:-ms-flexbox;display:flex;-ms-flex-flow:row wrap;flex-flow:row wrap}
+          .card-group>.card{-ms-flex:1 0 0%;flex:1 0 0%;margin-bottom:0}
+          .card-group>.card+.card{margin-left:0;border-left:0}
+          .card-group>.card:not(:last-child){border-top-right-radius:0;border-bottom-right-radius:0}
+          .card-group>.card:not(:last-child) .card-header,.card-group>.card:not(:last-child) .card-img-top{border-top-right-radius:0}
+          .card-group>.card:not(:last-child) .card-footer,.card-group>.card:not(:last-child) .card-img-bottom{border-bottom-right-radius:0}
+          .card-group>.card:not(:first-child){border-top-left-radius:0;border-bottom-left-radius:0}
+          .card-group>.card:not(:first-child) .card-header,.card-group>.card:not(:first-child) .card-img-top{border-top-left-radius:0}
+          .card-group>.card:not(:first-child) .card-footer,.card-group>.card:not(:first-child) .card-img-bottom{border-bottom-left-radius:0}}
+          .card-columns .card{margin-bottom:.75rem}@media (min-width:576px){.card-columns{-webkit-column-count:3;-moz-column-count:3;column-count:3;-webkit-column-gap:1.25rem;-moz-column-gap:1.25rem;column-gap:1.25rem;orphans:1;widows:1}
+          .card-columns .card{display:inline-block;width:100%}}
+          .accordion{overflow-anchor:none}.accordion>.card{overflow:hidden}
+          .accordion>.card:not(:last-of-type){border-bottom:0;border-bottom-right-radius:0;border-bottom-left-radius:0}
+          .accordion>.card:not(:first-of-type){border-top-left-radius:0;border-top-right-radius:0}
+          .accordion>.card>.card-header{border-radius:0;margin-bottom:-1px}.
           </style>
     {% endblock %}    
     {% block main %}
-    <div>
-    <div class="px-3 pb-md-4 mx-auto text-center">
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-                <h1 class="display-4">My Profile</h1>
-                <div style="margin-top:30px;">
-                <a>
-                    {% if user.socialaccount_set.all.0.get_avatar_url %}
-                    <img class="rounded-circle" width="120px" src="{{user.socialaccount_set.all.0.get_avatar_url}}">
-                    {% else %}
-                    <img class="rounded-circle" width="120px" src={% static "prensend/images/프로필1.png" %}>
-                    {% endif %}
-                </a>
-                </div>
-                <div style="font-size:1.8em;margin-top:10px;">{{ user.username }}</div>
-                <!--<div style="font-size:1.5em;">{{ user.email }}</div>-->
-            </div>
-            <div class="col-lg-3"></div>
-        </div>
+    <br>
+    <br>
+    <br><br><br>
+    <div class="green-bg" style="margin-bottom: 60px;">
+        <hr class="divider">
     </div>
     
-    <div class="container" style="margin-top: 5px;">
-        <div>
-            <hr><br>
-            <h3>내 계정</h3>
-            <a style="font-size:1.1em">아래에서 개인 정보를 확인 및 편집하세요.</a>
-            <br><br>
-            <div style="font-size:1.1em">&nbsp;아래에서 개인 정보를 확인 및 편집하세요.</div>
-            <br>
-            <hr>
-            <br>
-            <h4>표시 정보</h4>
-            <div>
-                <span style="margin-top: 5px; font-size:1.2em">표시 이름 *</span><br>
-                <span style="margin-top: 5px; font-size:1.2em">&nbsp;표시 이름 *</span><br>&nbsp;
-                <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 0px;">{{user.username}}</div>
-            </div>
-            <br><hr>
-            <br>
-            <h4>계정</h4>
-            <p>개인정보를 업데이트하세요.</p>
-            <a><span style="margin-top: 5px; font-size:1.2em">로그인 이메일:</span> {{ user.email }}</a><br>
-            <a style="color: gray;">(로그인 이메일은 변경할 수 없습니다.)</a><br><br>
-            <a>
-            <span style="margin-top: 5px; font-size:1.2em">로그인 이메일:</span> {{ user.email }}<br>
-            <div style="color: gray;">(로그인 이메일은 변경할 수 없습니다.)</div><br><br>
-            <div>
-                <span style="margin-top: 5px; font-size:1.2em">이름</span><br>
-                <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">{{user.username}}</div>
-                <span style="margin-top: 5px; font-size:1.2em">이메일 *</span><br>
-                <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">{{user.email}}</div>
-                <span style="margin-top: 5px; font-size:1.2em">전화번호</span><br>
-                <div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">010-5168-4851</div>
-            </a>
-            </div>
-            <br>
-            <hr>
-            <br>
-            <h4>단서</h4>
-        </div>
-        <div class="card-deck text-center">
-          <div style="margin-top:20px" class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">첫 번째 단서</h4>
-            </div>
-            <div class="card-body">
-                <h3>🎁</h3>
-                <h3 class="card-title pricing-card-title">곰돌이 인형</h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" style="background-color: #7DC8CA; border-color: #7DC8CA">수정</button>
-            </div>
-          </div>
-          <div style="margin-top:20px" class="card mb-4 shadow-sm">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">두 번째 단서</h4>
-            </div>
-            <div class="card-body">
-                <h3>🎁</h3>
-                <h3 class="card-title pricing-card-title">키보드</h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" style="background-color: #7DC8CA; border-color: #7DC8CA">수정</button>
-            </div>
-          </div>
-          <div style="margin-top:20px" class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">세 번째 단서</h4>
-            </div>
-            <div class="card-body">
-                <h3>🎁</h3>
-                <h3 class="card-title pricing-card-title">모자</h3>
-                <button type="button" class="btn btn-lg btn-block btn-primary" style="background-color: #7DC8CA; border-color: #7DC8CA">수정</button>
-            </div>
-          </div>
-        </div>
+    <div style = "margin-left: 680px">
+      <div style="margin-top:30px;">
+        <a>
+            {% if user.socialaccount_set.all.0.get_avatar_url %}
+            <img class="rounded-circle" width="120px" src="{{user.socialaccount_set.all.0.get_avatar_url}}">
+            {% else %}
+            <img class="rounded-circle" width="120px" src={% static "prensend/images/프로필1.png" %}>
+            {% endif %}
+        </a>
+      </div>
+      <div style="font-size:1.8em;margin-top:10px; margin-left:43px;">{{ user.username }}</div>
+      <!--<div style="font-size:1.5em;">{{ user.email }}</div>-->
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <!--<div style="margin-left: 200px; margin-right: 200px;">
+      <hr class="hr-1">
+    </div>-->
+    <div class="dc">
+      <h2>내 계정</h2>
+      <br>
+      <p style="font-size:1.3em">&nbsp;아래에서 개인 정보를 확인 및 편집하세요.</p>
+    </div>
+    <div style="margin-left: 250px; margin-right: 250px;">
+      <hr class="hr-8">
+    </div>
+    <div class="dc">
+      <h3>표시 정보</h3>
+      <div>
+          <span style="margin-top: 5px; font-size:1.2em">표시 이름 *</span><br><br>
+          <!--<div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 0px;">{{user.username}}</div>-->
+          <input type="text" placeholder="{{user.username}}" style="background-color:rgba(0, 0, 0, 0); border: 1px solid black; width: 300px; padding: 7px; height:20px;">
+      </div>
+    </div>
+    <div style="margin-left: 250px; margin-right: 250px;">
+      <hr class="hr-8">
+    </div>
+    <div class="dc">
+      <h3>계정</h3>
+      <p style="font-size:1.2em">개인정보를 업데이트하세요.</p>
+      <span style="margin-top: 5px; font-size:1.1em">로그인 이메일:</span> {{ user.email }}<br>
+      <div style="color: gray;">(로그인 이메일은 변경할 수 없습니다.)</div><br><br>
+      <div>
+          <span style="margin-top: 5px; font-size:1.2em">이름</span><br>
+          <input type="text" placeholder="{{user.username}}" style="background-color:rgba(0, 0, 0, 0); border: 1px solid black; width: 300px; padding: 7px; height:20px; margin-top: 7px; margin-bottom: 10px;"><br>
+          <!--<div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">{{user.username}}</div>-->
+          <span style="margin-top: 5px; font-size:1.2em">이메일 *</span><br>
+          <input type="text" placeholder="{{user.email}}" style="background-color:rgba(0, 0, 0, 0); border: 1px solid black; width: 300px; padding: 7px; height:20px; margin-top: 7px; margin-bottom: 10px;"><br>
+          <!--<div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">{{user.email}}</div>-->
+          <span style="margin-top: 5px; font-size:1.2em">전화번호</span><br>
+          <input type="text" placeholder="010-5819-5923" style="background-color:rgba(0, 0, 0, 0); border: 1px solid black; width: 300px; padding: 7px; height:20px; margin-top: 7px;"><br>
+          <!--<div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 7px; margin-bottom: 7px;">010-5168-4851</div>-->
+      </div>
+    </div>
+    <div style="margin-left: 250px; margin-right: 250px;">
+      <hr class="hr-8">
+    </div>
+    <div class="dc">
+      <h3>단서</h3>
+      <div class="card-deck" style="width: 970px; text-align:center; font-size:1.1em;">
+        <div style="margin-top:20px" class="card mb-4 shadow-sm">
+          <div class="card-header">
+              <h4 class="my-0 font-weight-normal">첫 번째 단서</h4>
+          </div>
+          <div class="card-body">
+              <h3>🎁</h3>
+              <input type="text" placeholder="곰돌이 인형" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+              <button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>
+          </div>
+        </div>
+        <div style="margin-top:20px" class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">두 번째 단서</h4>
+          </div>
+          <div class="card-body">
+              <h3>🎁</h3>
+              <input type="text" placeholder="키보드" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+              <button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>
+          </div>
+        </div>
+        <div style="margin-top:20px" class="card mb-4 shadow-sm">
+          <div class="card-header">
+              <h4 class="my-0 font-weight-normal">세 번째 단서</h4>
+          </div>
+          <div class="card-body">
+              <h3>🎁</h3>
+              <input type="text" placeholder="모자" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+              <button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+    
     {% endblock %}
