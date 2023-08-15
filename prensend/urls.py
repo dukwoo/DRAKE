@@ -11,4 +11,5 @@ urlpatterns = [
     path('calendar/', views.calendar),
     path('mypage/', views.mypage),
     path('login/', views.login),
+    path('game/', views.game),
 ]
