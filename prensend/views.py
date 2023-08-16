@@ -195,6 +195,61 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     print("\n최종 결과: ", res_list, "\n")
     return res_list
 
+def get_filtered_items_game(clueArray1, clueArray2, clueArray3):
+    #2
+    warnings.filterwarnings('ignore')
+
+    #items = pd.read_csv('product.csv', engine = 'python', encoding='cp949') #'euc-kr'
+    items = Item.objects.all()
+    products_df = pd.DataFrame(items.values('rank', 'title', 'price', 'image', 'link', 'rate'))
+    #products_df = items[['title', 'price', 'category']]
+    
+    #매트릭스의 형태를 상품수, 상품명
+    #CountVectorizer를 적용하기 위해 공백문자로 word 단위가 구분되는 문자열로 반환
+    #상품명을 공백으로 나눠서 각각의 단어의 개수를 추출.
+    #3
+    products_df['title_literal'] = products_df['title'].apply(lambda x:('').join(x))
+    count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
+    name_mat = count_vect.fit_transform(products_df['title_literal'])
+    print("name_mat.shape : ", name_mat.shape, "\n")
+
+    name_sim = cosine_similarity(name_mat, name_mat)
+    print("name_sim.shape :", name_sim.shape, "\n")
+    print("name_sim[:1] : ", name_sim[:1], "\n")
+
+    name_sim_sorted_ind = name_sim.argsort()[:, ::-1]
+    print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
+
+    #유사한 상품들 가져옴
+    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, clueArray1, 10)
+    print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, clueArray2, 10)
+    print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, clueArray3, 10)
+    print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+    result_list = []
+
+
+    print("title: ", result_list[0][1][0])
+    res_dic = {}; res_list = []
+    
+    print("len(result_list[0]: ", len(result_list[0]))
+
+    for i in range(2):
+        for k in range(3):
+            res_dic["title"] = str(result_list[i][k][1])
+            res_dic["price"] = str(result_list[i][k][2])
+            res_dic["image"] = str(result_list[i][k][3])
+            res_dic["link"] = str(result_list[i][k][4])
+            res_list.append(res_dic)
+            res_dic = {}
+
+    print("\n최종 결과: ", res_list, "\n")
+    return res_list
+
 def quizinfo_index(request):
     titleArray=[]
     if request.method == 'POST':
@@ -226,3 +281,19 @@ def quiz(request):
         'prensend/quiz.html',
         context
     )
+
+def quizinfo_index_game(request):
+    #clues = Clue.objects.all()
+    #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
+    
+    clueArray=["곰돌이 인형", "키보드", "모자"]
+    
+    if request.method == 'POST':
+
+        filtered_clues = get_filtered_items_game(clueArray[0], clueArray[1], clueArray[2])
+
+        context = {
+            'filtered_clues': filtered_clues,
+        }
+
+        return render(request, 'prensend/gamerecommend.html', context)

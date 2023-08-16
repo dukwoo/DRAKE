@@ -3,6 +3,17 @@ from django import forms
 from django.contrib.auth.models import User
 import os
 
+class Clue(models.Model):
+    #단서id
+    clueid = models.IntegerField(default=0)
+    #사용자id
+    userid = models.IntegerField(default=0)
+    #단서명
+    cluename = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'단서id :{self.clueid} \n 사용자id :{self.userid} \n 단서명 :{self.cluename} \n'
+    
 
 class Item(models.Model):
     #순위
