@@ -52,12 +52,6 @@ def game(request):
         'prensend/game.html'
     )
     
-def gamerecommend(request):
-    return render(
-        request,
-        'prensend/gamerecommend.html'
-    )
-
 #head가 안되어서 상위 3개만 읽어오는 함수 만들어봄
 def get_top_n(list_a, num):
     '''
@@ -209,7 +203,7 @@ def get_filtered_items_game(clueArray1, clueArray2, clueArray3):
     #상품명을 공백으로 나눠서 각각의 단어의 개수를 추출.
     #3
     products_df['title_literal'] = products_df['title'].apply(lambda x:('').join(x))
-    count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
+    count_vect = CountVectorizer(min_df=0., ngram_range=(1,2))
     name_mat = count_vect.fit_transform(products_df['title_literal'])
     print("name_mat.shape : ", name_mat.shape, "\n")
 

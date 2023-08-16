@@ -12,5 +12,5 @@ urlpatterns = [
     path('mypage/', views.mypage),
     path('login/', views.login),
     path('game/', views.game),
-    path('gamerecommend/', views.gamerecommend),
+    path('gamerecommend/', views.quizinfo_index_game, name='quizinfo_index_game'),
 ]
