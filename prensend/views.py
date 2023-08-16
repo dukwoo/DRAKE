@@ -232,7 +232,7 @@ def get_filtered_items_game(clueArray1, clueArray2, clueArray3):
     
     print("len(result_list[0]: ", len(result_list[0]))
 
-    for i in range(1):
+    for i in range(3):
         for k in range(3):
             res_dic["title"] = str(result_list[i][k][1])
             res_dic["price"] = str(result_list[i][k][2])
