@@ -159,27 +159,6 @@
         <div class="green-bg" style="margin-bottom: 60px;">
             <hr class="divider">
         </div>
-    <div class="multi-layout" style="margin: 0px 220px;">
-    {% for f in filtered_items %}
-        <div class="rec_box" style="margin: 20px;">
-            <div class="rec_image">
-                <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
-            </div>
-            <div class="rec_title">
-                <p class="title" style="font-size: 17px;">{{f.title}}</p>
-            </div>
-            <div class="rec_price">
-                <p class="price">{{f.price}}원</p>
-            </div>
-            <div class="rec_button">
-                <button class="custom-btn2 btn-13" type="button" onclick="location.href='{{f.link}}'">
-                    상품 보러가기
-                </button>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
-
     </div>
     <br><br>
     {% endblock %}
