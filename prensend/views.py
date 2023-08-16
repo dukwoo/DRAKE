@@ -51,6 +51,12 @@ def game(request):
         request,
         'prensend/game.html'
     )
+    
+def gamerecommend(request):
+    return render(
+        request,
+        'prensend/gamerecommend.html'
+    )
 
 #head가 안되어서 상위 3개만 읽어오는 함수 만들어봄
 def get_top_n(list_a, num):
