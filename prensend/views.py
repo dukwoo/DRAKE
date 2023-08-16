@@ -282,7 +282,7 @@ def quizinfo_index_game(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
     
-    clueArray=["곰돌이 인형", "키보드", "반팔"]
+    clueArray=["인형", "운동화", "반팔"]
     
     if request.method == 'POST':
 
