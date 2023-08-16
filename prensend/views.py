@@ -227,7 +227,7 @@ def get_filtered_items_game(clueArray1, clueArray2, clueArray3):
     result_list = []
 
 
-    print("title: ", result_list[0][1][0])
+    
     res_dic = {}; res_list = []
     
     print("len(result_list[0]: ", len(result_list[0]))
