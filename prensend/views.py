@@ -282,7 +282,7 @@ def quizinfo_index_game(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
     
-    clueArray=["보스턴 절개 반팔티", "나이키 기능성 드라이핏 반팔 긴팔티 프로 컴프레션", "남자 반팔 셔츠 남성 남방 여름 옥스포드 체크 스트라이프 하와이안 빅사이즈 4XL까지"]
+    clueArray=["곰돌이 인형", "키보드", "반팔"]
     
     if request.method == 'POST':
 
