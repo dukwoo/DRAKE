@@ -226,7 +226,7 @@
 
     {% csrf_token %}
     <div style="text-align: center;">
-        <form action="{% url 'prensend:quizinfo_index' %}" method="post" 
+        <form action="{% url 'prensend:quizinfo_index_game' %}" method="post" 
         style="margin: auto; margin-right: 450px; margin-left: 450px;">
             <div class="stage1">
                 <div style="text-align: left;">
@@ -303,7 +303,8 @@
                 <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage4()" value="정답 확인">
             </div>
             <br><br><br>
-            <button class="custom-btn2 btn-13" style="width: 550px;" type="submit" id="btn">
+
+            <button class="custom-btn2 btn-13" style="width: 550px;" type="submit" id="g_btn">
                 맞춤형 선물 보기
             </button>
         </form>
