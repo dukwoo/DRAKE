@@ -193,22 +193,6 @@
         <hr class="divider">
     </div>
     
-    <div style = "margin-left: 680px">
-      <div style="margin-top:30px;">
-        <a>
-            {% if user.socialaccount_set.all.0.get_avatar_url %}
-            <img class="rounded-circle" width="120px" src="{{user.socialaccount_set.all.0.get_avatar_url}}">
-            {% else %}
-            <img class="rounded-circle" width="120px" src={% static "prensend/images/프로필1.png" %}>
-            {% endif %}
-        </a>
-      </div>
-      <div style="font-size:1.8em;margin-top:10px; margin-left:43px;">{{ user.username }}</div>
-      <!--<div style="font-size:1.5em;">{{ user.email }}</div>-->
-    </div>
-    <!--<div style="margin-left: 200px; margin-right: 200px;">
-      <hr class="hr-1">
-    </div>-->
     <div class="dc">
       <h2>내 계정</h2>
       <br>
@@ -223,6 +207,14 @@
           <span style="margin-top: 5px; font-size:1.2em">표시 이름 *</span><br><br>
           <!--<div style="border: 1px solid black; width: 300px; padding: 7px; margin-top: 0px;">{{user.username}}</div>-->
           <input type="text" placeholder="{{user.username}}" style="background-color:rgba(0, 0, 0, 0); border: 1px solid black; width: 300px; padding: 7px; height:20px;">
+
+          <a>
+            {% if user.socialaccount_set.all.0.get_avatar_url %}
+            <img class="rounded-circle" width="120px" src="{{user.socialaccount_set.all.0.get_avatar_url}}">
+            {% else %}
+            <img class="rounded-circle" width="120px" src={% static "prensend/images/프로필1.png" %}>
+            {% endif %}
+        </a>
       </div>
     </div>
     <div style="margin-left: 250px; margin-right: 250px;">
