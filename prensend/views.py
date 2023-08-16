@@ -282,7 +282,7 @@ def quizinfo_index_game(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
     
-    clueArray=["인형", "운동화", "반팔"]
+    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "반팔"]
     
     if request.method == 'POST':
 
