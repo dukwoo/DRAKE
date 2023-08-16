@@ -225,12 +225,14 @@ def get_filtered_items_game(clueArray1, clueArray2, clueArray3):
     print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
     result_list = []
-
-
+    
+    result_list.append(similar_products1.query("price >= 0").values.tolist())
+    result_list.append(similar_products2.query("price >= 0").values.tolist())
+    result_list.append(similar_products3.query("price >= 0").values.tolist())
     
     res_dic = {}; res_list = []
     
-    print("len(result_list[0]: ", len(result_list[0]))
+    
 
     for i in range(3):
         for k in range(3):
