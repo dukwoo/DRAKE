@@ -100,7 +100,7 @@
             flex-direction: row;
             width: 100%;
             max-width: 410px;
-            margin: 0 auto;
+            margin: 0;
             border-radius: 5px;
             padding: 1px 0px 1px 0px;
             background: rgba(57, 63, 84, 0.8);
@@ -171,7 +171,7 @@
         }
 
         function stage2() {
-            let answer = document.getElementById('answer').value;
+            let answer = document.getElementById('answer2').value;
             if(answer == ""){
                 alert('답을 기입해 주십시오');
             }
@@ -179,13 +179,13 @@
                 alert('정답입니다');
             }
             else{
-                document.getElementById('answer').value = "";
+                document.getElementById('answer2').value = "";
                 alert('정답이 아닙니다');
             }
         }
 
         function stage3() {
-            let answer = document.getElementById('answer').value;
+            let answer = document.getElementById('answer3').value;
             if(answer == ""){
                 alert('답을 기입해 주십시오');
             }
@@ -193,13 +193,13 @@
                 alert('정답입니다');
             }
             else{
-                document.getElementById('answer').value = "";
+                document.getElementById('answer3').value = "";
                 alert('정답이 아닙니다');
             }
         }
 
         function stage4() {
-            let answer = document.getElementById('answer').value;
+            let answer = document.getElementById('answer4').value;
             if(answer == ""){
                 alert('답을 기입해 주십시오');
             }
@@ -207,7 +207,7 @@
                 alert('정답입니다');
             }
             else{
-                document.getElementById('answer').value = "";
+                document.getElementById('answer4').value = "";
                 alert('정답이 아닙니다');
             }
         }
@@ -235,9 +235,9 @@
                 </div>
 
                 <span style="font-size: 2.3em;">🎁</span>
-                 &nbsp;
+                &nbsp;
                 <div class="webflow-style-input" style="display: inline-block;"> 
-                    <input class="" type="email" placeholder=""></input>
+                    <input class="" type="text" placeholder="" id="answer"></input>
                 </div>
                 &nbsp;
                 <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage1()" value="정답 확인">
@@ -260,7 +260,7 @@
                 <span style="font-size: 2.3em;">🎁</span>
                 &nbsp;
                 <div class="webflow-style-input" style="display: inline-block;"> 
-                    <input class="" type="email" placeholder=""></input>
+                    <input class="" type="text" placeholder="" id="answer2"></input>
                 </div>
                 &nbsp;
                 <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage2()" value="정답 확인">
@@ -278,7 +278,7 @@
 
                 <span style="font-size: 2.3em;">🎁</span> &nbsp;
                 <div class="webflow-style-input" style="display: inline-block;"> 
-                    <input class="" type="email" placeholder=""></input>
+                    <input class="" type="text" placeholder="" id="answer3"></input>
                 </div>
                 &nbsp;
                 <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage3()" value="정답 확인">
@@ -297,7 +297,7 @@
                 <span style="font-size: 2.3em;">🎁</span>
                 &nbsp;
                 <div class="webflow-style-input" style="display: inline-block;"> 
-                    <input class="" type="email" placeholder=""></input>
+                    <input class="" type="text" placeholder="" id="answer4"></input>
                 </div>
                 &nbsp;
                 <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage4()" value="정답 확인">
