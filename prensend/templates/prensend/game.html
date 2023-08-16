@@ -47,7 +47,7 @@
             4px 4px 5px 0px rgba(0,0,0,.1);
             outline: none;
         }
-.btn-13 {
+        .btn-13 {
             background-color: #f192f0;
             background-image: linear-gradient(315deg, #f192f0 0%, #A28DCE 74%);
             border: none;
@@ -82,7 +82,137 @@
             top: 2px;
         }
 
+        /*인풋박스 스타일*/
+        @keyframes gradient { 
+        0%{background-position:0 0}
+        100%{background-position:100% 0}
+        }
+
+        input { 
+            border-style: none; 
+            background: transparent; 
+            outline: none; 
+        }
+
+        .webflow-style-input {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 410px;
+            margin: 0 auto;
+            border-radius: 5px;
+            padding: 1px 0px 1px 0px;
+            background: rgba(57, 63, 84, 0.8);
+            
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: 999;
+                height: 2px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background-position: 0% 0%;
+                background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+                background-size: 500% auto;
+                animation: gradient 3s linear infinite;
+            }
+        }
+
+        .webflow-style-input input {
+            flex-grow: 1;
+            color: #BFD2FF;
+            font-size: 1rem;
+            line-height: 2.4rem;
+            vertical-align: middle;
+            &::-webkit-input-placeholder {
+                color: #7881A1;
+            }
+        }
+
+        .webflow-style-input button {
+            color:  #7881A1;
+            font-size: 1rem;
+            line-height: 2.4rem;
+            vertical-align: middle;
+            transition: color .25s;
+            &:hover {
+                color: #BFD2FF;
+            }
+        }
+
+        hr {
+            padding: 0;
+            margin: 40px 0;
+        }
+
+        hr.hr-8 {
+            border: 0;
+            border-top: 2px dotted #8c8c8c;
+        }
     </style>
+
+    <script type="text/javascript">
+        function stage1() {
+            let answer = document.getElementById('answer').value;
+            if(answer == ""){
+                alert('답을 기입해 주십시오');
+            }
+            else if(answer == "0112"){
+                alert('정답입니다');
+            }
+            else{
+                document.getElementById('answer').value = "";
+                alert('정답이 아닙니다');
+            }
+        }
+
+        function stage2() {
+            let answer = document.getElementById('answer').value;
+            if(answer == ""){
+                alert('답을 기입해 주십시오');
+            }
+            else if(answer == "설인노34"){
+                alert('정답입니다');
+            }
+            else{
+                document.getElementById('answer').value = "";
+                alert('정답이 아닙니다');
+            }
+        }
+
+        function stage3() {
+            let answer = document.getElementById('answer').value;
+            if(answer == ""){
+                alert('답을 기입해 주십시오');
+            }
+            else if(answer == "5359"){
+                alert('정답입니다');
+            }
+            else{
+                document.getElementById('answer').value = "";
+                alert('정답이 아닙니다');
+            }
+        }
+
+        function stage4() {
+            let answer = document.getElementById('answer').value;
+            if(answer == ""){
+                alert('답을 기입해 주십시오');
+            }
+            else if(answer == "0510"){
+                alert('정답입니다');
+            }
+            else{
+                document.getElementById('answer').value = "";
+                alert('정답이 아닙니다');
+            }
+        }
+    </script>
+ 
 
     {% endblock %}
 
@@ -95,31 +225,89 @@
     </div>
 
     {% csrf_token %}
-    <form action="{% url 'prensend:quizinfo_index' %}" method="post" style="margin: auto;">
-  
-        <div class="stage1">
-            <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--0112-->
-            <input type="text">
-        </div>
-        <div class="stage2">
-            <p>
-                동물 친구들이 내는 퀴즈를 맞춰주세요.
-                - 연개구리: 전[], 고양이: 개[]지도, 청개구리: []래, 여우: 숫자 2개 <!--설인노34-->
-            </p>
-            <input type="text">
-        </div>
-        <div class="stage3">
-            <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--5359-->
-            <input type="text">
-        </div>
-        <div class="stage4">
-            <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--0510-->
-            <input type="text">
-        </div>
+    <div style="text-align: center;">
+        <form action="{% url 'prensend:quizinfo_index' %}" method="post" 
+        style="margin: auto; margin-right: 450px; margin-left: 450px;">
+            <div class="stage1">
+                <div style="text-align: left;">
+                    <h3>STAGE1. </h3>
+                    <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--0112-->
+                </div>
 
-        <button class="custom-btn2 btn-13" type="submit" id="btn">
-            맞춤형 선물 보기
-        </button>
-    </form>
+                <span style="font-size: 2.3em;">🎁</span>
+                 &nbsp;
+                <div class="webflow-style-input" style="display: inline-block;"> 
+                    <input class="" type="email" placeholder=""></input>
+                </div>
+                &nbsp;
+                <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage1()" value="정답 확인">
+            </div>
+            
+            <div>
+                <hr class="hr-8">
+            </div>
+            
+            <div class="stage2">
+                <div style="text-align: left;">
+                    <h3>STAGE2. </h3>
+                    <p>
+                        동물 친구들이 내는 퀴즈를 맞춰주세요.
+                        <br><br>
+                        연개구리: 전[ ], 고양이: 개[ ]지도, 청개구리: [ ]래, 여우: 숫자 2개 <!--설인노34-->
+                    </p>
+                </div>
 
+                <span style="font-size: 2.3em;">🎁</span>
+                &nbsp;
+                <div class="webflow-style-input" style="display: inline-block;"> 
+                    <input class="" type="email" placeholder=""></input>
+                </div>
+                &nbsp;
+                <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage2()" value="정답 확인">
+            </div>
+            
+            <div>
+                <hr class="hr-8">
+            </div>
+
+            <div class="stage3">
+                <div style="text-align: left;">
+                    <h3>STAGE3. </h3>
+                    <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--5359-->
+                </div>
+
+                <span style="font-size: 2.3em;">🎁</span> &nbsp;
+                <div class="webflow-style-input" style="display: inline-block;"> 
+                    <input class="" type="email" placeholder=""></input>
+                </div>
+                &nbsp;
+                <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage3()" value="정답 확인">
+            </div>
+            
+            <div>
+                <hr class="hr-8">
+            </div>
+
+            <div class="stage4">
+                <div style="text-align: left;">
+                    <h3>STAGE4. </h3>
+                    <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--0510-->
+                </div>
+
+                <span style="font-size: 2.3em;">🎁</span>
+                &nbsp;
+                <div class="webflow-style-input" style="display: inline-block;"> 
+                    <input class="" type="email" placeholder=""></input>
+                </div>
+                &nbsp;
+                <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage4()" value="정답 확인">
+            </div>
+            <br><br><br>
+            <button class="custom-btn2 btn-13" style="width: 550px;" type="submit" id="btn">
+                맞춤형 선물 보기
+            </button>
+        </form>
+    </div>
+    <br><br><br><br>
+    
     {% endblock %}
