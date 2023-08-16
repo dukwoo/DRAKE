@@ -2,9 +2,12 @@
 {% load static %}
 
     {% block head_styles %}
-    <script type="text/javascript" src="http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject.js"></script>
-    <title>단서 찾기</title>
+    <title>결과페이지</title>
+
+    <!--recommend css-->
+    <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
     <style>
+        
         hr.divider {
             padding: 20px;
             border: none;
@@ -19,24 +22,164 @@
         }
             
         hr.divider:after {
-            content: "추천 결과";
+            content: "선물 추천 결과";
             display: inline-block;
             position: relative;
             top: -0.1em;
             font-size: 1.75em;
             padding: 0 0.5em;
             font-weight: normal;
-        }  
+        } 
+        body {
+            background-color: #CAE9E0;
+        }
+        .box{
+            margin: auto;
+        }
+        .rec_box {
+            display: inline-block;
+            width: 300px; height: 450px;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            padding: 10px;
+        }
+        .rec_box:hover{
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .rec_image {
+            margin: 10px auto 0px auto; background-color: white;
+            width: 270px;
+            height: 270px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .rec_title {
+            width: 250px;
+            height: 60px;
+            font-size: 10px; margin: 0px auto;
+        }
+        
+        .image {
+            height: 100%;
+            border-radius: 20px;
+        }
+        .rec_name1 {
+            margin-left: 20px;
+            width: 180px;
+            height: 20px;
+            font-size: 20px;
+            color: #636260;
+            font-weight: bold;
+        }
+        .rec_name2 {
+            margin-left: 20px;
+            width: 180px;
+            height: 35px;
+            font-size: 17px;
+            color: black;
+        }
+        .rec_price {
+            margin: 0 auto;
+            width: 250px;
+            height: 25px;
+            font-size: 17px;
+            color: black;
+            font-weight: bold;
+        }
+        
+        
+        .custom-btn2 {
+            margin: 0px auto;
+            width: 260px;
+            height: 40px;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 25px;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+            7px 7px 20px 0px rgba(0,0,0,.1),
+            4px 4px 5px 0px rgba(0,0,0,.1);
+            outline: none;
+        }
+        .btn-13 {
+            background-color: #f192f0;
+            background-image: linear-gradient(315deg, #f192f0 0%, #A28DCE 74%);
+            border: none;
+            z-index: 1;
+        }
+        .btn-13:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 5px;
+            background-color: #D4f2f0;
+            background-image: linear-gradient(315deg, #d4f2f0 0%, #e989cf 74%);
+            box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+            transition: all 0.3s ease;
+        }
+            .btn-13:hover {
+            color: #fff;
+        }
+        .btn-13:hover:after {
+            top: 0;
+            height: 100%;
+        }
+            .btn-13:active {
+            top: 2px;
+        }
+        .multi-layout {
+            column-count: 3;
+        }
     </style>
 
     {% endblock %}
-
+   	
     {% block main %}
+
     <br>
-    <br>
-    <br><br><br>
-    <div class="green-bg" style="margin-bottom: 60px;">
-        <hr class="divider">
+        <br>
+        <br><br><br>
+        <div class="green-bg" style="margin-bottom: 60px;">
+            <hr class="divider">
+        </div>
+    <div class="multi-layout" style="margin: 0px 220px;">
+    {% for f in filtered_items %}
+        <div class="rec_box" style="margin: 20px;">
+            <div class="rec_image">
+                <img class="image" src="{{f.image}}" alt="{{f.title}} 이미지">
+            </div>
+            <div class="rec_title">
+                <p class="title" style="font-size: 17px;">{{f.title}}</p>
+            </div>
+            <div class="rec_price">
+                <p class="price">{{f.price}}원</p>
+            </div>
+            <div class="rec_button">
+                <button class="custom-btn2 btn-13" type="button" onclick="location.href='{{f.link}}'">
+                    상품 보러가기
+                </button>
+            </div>
+        </div>
+    {% endfor %}
     </div>
 
+    </div>
+    <br><br>
     {% endblock %}

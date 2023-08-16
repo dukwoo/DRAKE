@@ -52,10 +52,10 @@ def game(request):
         'prensend/game.html'
     )
     
-def gamerecommend(request):
+def quiz(request):
     return render(
         request,
-        'prensend/gamerecommend.html'
+        'prensend/quiz.html',
     )
 
 #head가 안되어서 상위 3개만 읽어오는 함수 만들어봄
