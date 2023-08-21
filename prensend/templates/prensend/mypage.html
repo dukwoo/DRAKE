@@ -184,6 +184,35 @@
           .accordion>.card:not(:first-of-type){border-top-left-radius:0;border-top-right-radius:0}
           .accordion>.card>.card-header{border-radius:0;margin-bottom:-1px}.
           </style>
+          <script>
+            function modify1() {
+              let clue = document.getElementById('clue1').value;
+              if(clue == ""){
+                alert('수정된 항목이 없습니다.\n수정을 원한다면 글자를 클릭하고 입력해주세요.');
+              }
+            else {
+              alert(clue+"(으)로 첫 번째 단서가 수정되었습니다.");
+              }
+            }
+            function modify2() {
+              let clue = document.getElementById('clue2').value;
+              if(clue == ""){
+                alert('수정된 항목이 없습니다.\n수정을 원한다면 글자를 클릭하고 입력해주세요.');
+              }
+            else {
+              alert(clue+"(으)로 첫 번째 단서가 수정되었습니다.");
+              }
+            }
+            function modify3() {
+              let clue = document.getElementById('clue3').value;
+              if(clue == ""){
+                alert('수정된 항목이 없습니다.\n수정을 원한다면 글자를 클릭하고 입력해주세요.');
+              }
+            else {
+              alert(clue+"(으)로 첫 번째 단서가 수정되었습니다.");
+              }
+            }
+          </script>
     {% endblock %}    
     {% block main %}
     <br>
@@ -231,8 +260,9 @@
           </div>
           <div class="card-body">
               <h3>🎁</h3>
-              <input type="text" placeholder="곰돌이 인형" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
-              <button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>
+              <input type="text" id="clue1" placeholder="모자" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+              <input type="button" class="custom-btn btn-13" onclick="modify1()" value="수정">
+              <!--<button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>-->
           </div>
         </div>
         <div style="margin-top:20px" class="card mb-4 shadow-sm">
@@ -241,8 +271,8 @@
           </div>
           <div class="card-body">
               <h3>🎁</h3>
-              <input type="text" placeholder="키보드" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
-              <button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>
+              <input type="text" id="clue2" placeholder="운동화" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+              <input type="button" class="custom-btn btn-13" onclick="modify2()" value="수정">
           </div>
         </div>
         <div style="margin-top:20px" class="card mb-4 shadow-sm">
@@ -251,8 +281,8 @@
           </div>
           <div class="card-body">
               <h3>🎁</h3>
-              <input type="text" placeholder="모자" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
-              <button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>
+              <input type="text" id="clue3" placeholder="선크림" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+              <input type="button" class="custom-btn btn-13" onclick="modify3()" value="수정">
           </div>
         </div>
       </div>
