@@ -54,6 +54,12 @@ def game(request):
         {'gameint' :gameint}
     )
     
+def modal(request):
+    return render(
+        request,
+        'prensend/modal.html',
+    )
+    
 #head가 안되어서 상위 3개만 읽어오는 함수 만들어봄
 def get_top_n(list_a, num):
     '''
