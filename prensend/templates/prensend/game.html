@@ -66,6 +66,41 @@
             4px 4px 5px 0px rgba(0,0,0,.1);
             outline: none;
         }
+        .btn-14 {
+            background-color: #d43f8d;
+            background-image: linear-gradient(315deg, #d43f8d 0%, #0250c5 74%);
+            border: none;
+            z-index: 1;
+        }
+        .btn-14:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 5px;
+            background-color: #D4f2f0;
+            background-image: linear-gradient(315deg, #d4f2f0 0%, #e989cf 74%);
+            box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+            transition: all 0.3s ease;
+        }
+            .btn-14:hover {
+            color: #fff;
+        }
+        .btn-14:hover:after {
+            top: 0;
+            height: 100%;
+        }
+            .btn-14:active {
+            top: 2px;
+        }
+
         .btn-13 {
             background-color: #f192f0;
             background-image: linear-gradient(315deg, #f192f0 0%, #A28DCE 74%);
@@ -248,16 +283,16 @@
         style="margin: auto; margin-right: 450px; margin-left: 450px;">{% csrf_token %}
 
         <div>
-            <button class="custom-btn3 btn-13" type="button" onclick="location.href='https://frensend.itch.io/stage-1'">
+            <button class="custom-btn3 btn-14" type="button" onclick="location.href='https://frensend.itch.io/stage-1'">
                 STAGE 1
-            </button>
-            <button class="custom-btn3 btn-13" type="button" onclick="location.href='https://frensend2.itch.io/stage-2'">
+            </button>&nbsp;
+            <button class="custom-btn3 btn-14" type="button" onclick="location.href='https://frensend2.itch.io/stage-2'">
                 STAGE 2
-            </button>
-            <button class="custom-btn3 btn-13" type="button" onclick="location.href='https://frensend3.itch.io/stage-3'">
+            </button>&nbsp;
+            <button class="custom-btn3 btn-14" type="button" onclick="location.href='https://frensend3.itch.io/stage-3'">
                 STAGE 3
-            </button>
-            <button class="custom-btn3 btn-13" type="button" onclick="location.href='https://frensend4.itch.io/stage-4'">
+            </button>&nbsp;
+            <button class="custom-btn3 btn-14" type="button" onclick="location.href='https://frensend4.itch.io/stage-4'">
                 STAGE 4
             </button>
         </div><br>
