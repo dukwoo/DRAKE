@@ -152,25 +152,30 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     result_list = []
 
     #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    if price == '13':
-        result_list.append(similar_products1.query("price < 30000").values.tolist())
-        result_list.append(similar_products2.query("price < 30000").values.tolist())
-        result_list.append(similar_products3.query("price < 30000").values.tolist())
+    if price == '01':
+        result_list.append(similar_products1.query("price < 10000").values.tolist())
+        result_list.append(similar_products2.query("price < 10000").values.tolist())
+        result_list.append(similar_products3.query("price < 10000").values.tolist())
 
-    elif price == '35':
-        result_list.append(similar_products1.query("price < 60000 and price >= 30000").values.tolist())
-        result_list.append(similar_products2.query("price < 60000 and price >= 30000").values.tolist())
-        result_list.append(similar_products3.query("price < 60000 and price >= 30000").values.tolist())
+    elif price == '12':
+        result_list.append(similar_products1.query("price < 30000 and price >= 10000").values.tolist())
+        result_list.append(similar_products2.query("price < 30000 and price >= 10000").values.tolist())
+        result_list.append(similar_products3.query("price < 30000 and price >= 10000").values.tolist())
 
-    elif price == '69':
-        result_list.append(similar_products1.query("price < 100000 and price >= 60000").values.tolist())
-        result_list.append(similar_products2.query("price < 100000 and price >= 60000").values.tolist())
-        result_list.append(similar_products3.query("price < 100000 and price >= 60000").values.tolist())
+    elif price == '34':
+        result_list.append(similar_products1.query("price < 50000 and price >= 30000").values.tolist())
+        result_list.append(similar_products2.query("price < 50000 and price >= 30000").values.tolist())
+        result_list.append(similar_products3.query("price < 50000 and price >= 30000").values.tolist())
  
-    elif price == '10':
-        result_list.append(similar_products1.query("price >= 100000").values.tolist())
-        result_list.append(similar_products2.query("price >= 100000").values.tolist())
-        result_list.append(similar_products3.query("price >= 100000").values.tolist())
+    elif price == '56':
+        result_list.append(similar_products1.query("price < 70000 and price >= 50000").values.tolist())
+        result_list.append(similar_products2.query("price < 70000 and price >= 50000").values.tolist())
+        result_list.append(similar_products3.query("price < 70000 and price >= 50000").values.tolist())
+        
+    elif price == '78':
+        result_list.append(similar_products1.query("price >= 700000").values.tolist())
+        result_list.append(similar_products2.query("price >= 700000").values.tolist())
+        result_list.append(similar_products3.query("price >= 700000").values.tolist())
 
     print("title: ", result_list[0][1][0])
     res_dic = {}; res_list = []
