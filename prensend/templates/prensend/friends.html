@@ -27,14 +27,14 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-        
+                
                 width: 600px;
-                height: 500px;
+                height: 400px;
         
                 padding: 40px;
         
                 text-align: center;
-        
+                vertical-align: middle;
                 background-color: rgb(255, 255, 255);
                 border-radius: 10px;
                 box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
@@ -100,11 +100,11 @@
                 transition:all 0.9s, color 0.3;
             }
             .custom-btn {
-                margin-left: 220px;
-                width: 130px;
+                margin-left: 260px;
+                width: 115px;
                 height: 40px;
                 color: #fff;
-                border-radius: 5px;
+                border-radius: 10px;
                 padding: 10px 25px;
                 font-family: 'Lato', sans-serif;
                 font-weight: bold;
@@ -120,10 +120,10 @@
             }
             .custom-btn2 {
                 margin-left: 0px;
-                width: 130px;
+                width: 115px;
                 height: 40px;
                 color: #fff;
-                border-radius: 5px;
+                border-radius: 10px;
                 padding: 10px 25px;
                 font-family: 'Lato', sans-serif;
                 font-weight: bold;
@@ -290,7 +290,7 @@
             display: flex;
             flex-direction: row;
             width: 100%;
-            max-width: 410px;
+            max-width: 530px;
             margin: 0;
             border-radius: 5px;
             padding: 1px 0px 1px 0px;
@@ -334,7 +334,73 @@
                 color: #BFD2FF;
             }
         }
+        .modalheader{
+            text-align: left;
+            margin-top: 10px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 10px;
+            line-height: 160%;
+        }
         </style>
+
+        <script>
+            function stage1() {
+                let answer = document.getElementById('answer').value;
+                if(answer == ""){
+                    alert('답을 기입해 주십시오');
+                }
+                else if(answer == "0112"){
+                    alert('정답입니다');
+                }
+                else{
+                    document.getElementById('answer').value = "";
+                    alert('정답이 아닙니다');
+                }
+            }
+    
+            function stage2() {
+                let answer = document.getElementById('answer2').value;
+                if(answer == ""){
+                    alert('답을 기입해 주십시오');
+                }
+                else if(answer == "설인노34"){
+                    alert('정답입니다');
+                }
+                else{
+                    document.getElementById('answer2').value = "";
+                    alert('정답이 아닙니다');
+                }
+            }
+    
+            function stage3() {
+                let answer = document.getElementById('answer3').value;
+                if(answer == ""){
+                    alert('답을 기입해 주십시오');
+                }
+                else if(answer == "5359"){
+                    alert('정답입니다');
+                }
+                else{
+                    document.getElementById('answer3').value = "";
+                    alert('정답이 아닙니다');
+                }
+            }
+    
+            function stage4() {
+                let answer = document.getElementById('answer4').value;
+                if(answer == ""){
+                    alert('답을 기입해 주십시오');
+                }
+                else if(answer == "0510"){
+                    alert('정답입니다');
+                }
+                else{
+                    document.getElementById('answer4').value = "";
+                    alert('정답이 아닙니다');
+                }
+            }
+        </script>
     {% endblock %}
 
     {% block main %}
@@ -350,43 +416,45 @@
                 <div style="text-align: center;">
                     <form action="{% url 'prensend:quizinfo_index_game' %}" method="post">{% csrf_token %}
             
-                    {% if gameint == 1 %}
-                        <button class="custom-btn3 btn-14" type="button" onclick="window.open('https://frensend3.itch.io/stage-3')">
-                            STAGE
-                        </button><br>
-            
+                    {% if gameint == 3 %}           
 
-                        <div>
-                            FREN:SEND의 단서찾기 게임입니다.
-                            <br>
-                            힌트를 확인하기 위해서는 가구 근처에서 'X'키를 누르고, 대화창을 넘기기 위해서는 'Z'키를 눌러야해요!
-                            <br>
-                            모든 힌트를 기억하고 있어야 돌아가서 단서를 획득할 수 있겠죠? 힌트는 총 4개입니다.
-                        </div>
+                        
 
                         <div class="stage3">
                             <div style="text-align: left;">
-                                <h3>STAGE. </h3>
-                                <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--5359-->
+                                <h2>Quest. </h2>
+                                <div class="modalheader">
+                                    비밀번호 네 자리에 관한 힌트를 얻기 위해서는 맵을 돌아다녀보세요!<br>
+                                    힌트를 읽고 문제를 푼 후 비밀번호를 기억해주세요!
+                                </div>
+                                <p style="font-weight: bold">게임에서 얻은 네자리 수를 적어주세요.</p> <!--5359-->
                             </div>
             
                             <span style="font-size: 2.3em;">🎁</span> &nbsp;
                             <div class="webflow-style-input" style="display: inline-block;"> 
                                 <input class="" type="text" placeholder="" id="answer3"></input>
                             </div>
-                            &nbsp;
-                            <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage1()" value="정답 확인">
+                            <br><br><br><br>
+                            <input type="button" class="custom-btn2 btn-13" style="width: 280px; height: 40px;" onclick="stage3()" value="정답 확인">&nbsp;&nbsp;
+                            <button class="custom-btn2 btn-13" style="width: 280px;" type="submit" id="g_btn">
+                                맞춤형 선물 추천
+                            </button>
                         </div>
             
-                    {% elif gameint == 2 %}
-                    <button class="custom-btn3 btn-14" type="button" onclick="window.open('https://frensend.itch.io/stage-1')">
-                        STAGE
-                    </button>
+                    {% elif gameint == 1 %}
+
             
+                    
+                    
                     <div class="stage1">
                         <div style="text-align: left;">
-                            <h3>STAGE. </h3>
-                            <p>게임에서 얻은 네자리 수를 적어주세요.</p> <!--0112-->
+                            <h2>Quest. </h2>
+                            <div class="modalheader">
+                                힌트를 확인하기 위해서는 가구 근처에서 'X'키를 누르고,<br>대화창을 넘기기 위해서는 'Z'키를 눌러야해요!
+                                <br>
+                                모든 힌트를 기억하고 있어야 돌아가서 단서를 획득할 수 있겠죠? 힌트는 총 4개입니다.
+                            </div>
+                            <p style="font-weight: bold">게임에서 얻은 네자리 수를 적어주세요.</p> <!--0112-->
                         </div>
             
                         <span style="font-size: 2.3em;">🎁</span>
@@ -394,19 +462,24 @@
                         <div class="webflow-style-input" style="display: inline-block;"> 
                             <input class="" type="text" placeholder="" id="answer"></input>
                         </div>
-                        &nbsp;
-                        <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage2()" value="정답 확인">
+                        <br><br><br><br>
+                        <input type="button" class="custom-btn2 btn-13" style="width: 280px; height: 40px;" onclick="stage1()" value="정답 확인">&nbsp;&nbsp;
+                        <button class="custom-btn2 btn-13" style="width: 280px;" type="submit" id="g_btn">
+                            맞춤형 선물 추천
+                        </button>
                     </div>
             
                     {% else %}
-                    <button class="custom-btn3 btn-14" type="button" onclick="window.open('https://frensend2.itch.io/stage-2')">
-                        STAGE
-                    </button>
-            
+                    
                     <div class="stage2">
                         <div style="text-align: left;">
-                            <h3>STAGE. </h3>
-                            <p>
+                            <h2>Quest. </h2>
+                            <div class="modalheader">
+                                힌트를 확인하기 위해서는 동물 근처에서 'X'키를 누르고,<br>대화창을 넘기기 위해서는 'Z'키를 눌러야해요!
+                                <br>
+                                모든 힌트를 기억하고 있어야 돌아가서 단서를 획득할 수 있겠죠? 힌트는 총 4개입니다.
+                            </div>
+                            <p style="font-weight: bold">
                                 동물 친구들이 내는 퀴즈를 맞춰주세요.
                                 <br><br>
                                 연개구리: 전[ ], 고양이: 개[ ]지도, 청개구리: [ ]래, 여우: 숫자 2개 <!--설인노34-->
@@ -419,15 +492,16 @@
                             <input class="" type="text" placeholder="" id="answer2"></input>
                         </div>
                         &nbsp;
-                        <input type="button" class="custom-btn2 btn-13" style="width: 100px; height: 40px;" onclick="stage3()" value="정답 확인">
+
+                        <br><br><br><br>
+                        <input type="button" class="custom-btn2 btn-13" style="width: 280px; height: 40px;" onclick="stage2()" value="정답 확인">&nbsp;&nbsp;
+                        <button class="custom-btn2 btn-13" style="width: 280px;" type="submit" id="g_btn">
+                            맞춤형 선물 추천
+                        </button>
                     </div>
             
                     {% endif %}
-                    <br><br><br>
-    
-                        <button class="custom-btn2 btn-13" style="width: 300px;" type="submit" id="g_btn">
-                            맞춤형 선물 보기
-                        </button>
+                        
                     </form>
                 </div>
                 <br><br><br><br>
@@ -442,10 +516,10 @@
                 <p class="name">임예진</p>
             </div>
             <div class="friend_button">
-                <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend3.itch.io/stage-3')">
-                    단서 찾기
+                <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
+                    단서 게임
                 </button>
-                <button class="btn-open-popup custom-btn2 btn-13" style="margin-left: 5px;">정답 확인</button>
+                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
         </div>
         <div class="freind_box2">
@@ -456,9 +530,10 @@
                 <p class="name">김지현</p>
             </div>
             <div class="friend_button">
-                <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend.itch.io/stage-1')">
-                    방 단서 찾기
+                <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
+                    단서 게임
                 </button>
+                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
             
         </div>
@@ -470,9 +545,10 @@
                 <p class="name">이수민</p>
             </div>
             <div class="friend_button">
-                <button class="custom-btn btn-13" type="button" onclick="location.href='/game/'">
-                    방 단서 찾기
+                <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
+                    단서 게임
                 </button>
+                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
         </div>
         <div class="freind_box2">
@@ -483,10 +559,10 @@
                 <p class="name">조수인</p>
             </div>
             <div class="friend_button">
-                <button class="custom-btn btn-13" type="button" onclick="location.href='/game/'">
-                    방 단서 찾기
+                <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
+                    단서 찾기
                 </button>
-
+                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">결과 확인</button>
             </div>
         </div>
         <div class="friend_button" style="justify-content: center; margin-left: 40%;">
@@ -523,60 +599,6 @@
               }
             });
 
-            function stage1() {
-                let answer = document.getElementById('answer').value;
-                if(answer == ""){
-                    alert('답을 기입해 주십시오');
-                }
-                else if(answer == "5359"){
-                    alert('정답입니다');
-                }
-                else{
-                    document.getElementById('answer').value = "";
-                    alert('정답이 아닙니다');
-                }
-            }
-    
-            function stage2() {
-                let answer = document.getElementById('answer2').value;
-                if(answer == ""){
-                    alert('답을 기입해 주십시오');
-                }
-                else if(answer == "0112"){
-                    alert('정답입니다');
-                }
-                else{
-                    document.getElementById('answer2').value = "";
-                    alert('정답이 아닙니다');
-                }
-            }
-    
-            function stage3() {
-                let answer = document.getElementById('answer3').value;
-                if(answer == ""){
-                    alert('답을 기입해 주십시오');
-                }
-                else if(answer == "설인노34"){
-                    alert('정답입니다');
-                }
-                else{
-                    document.getElementById('answer3').value = "";
-                    alert('정답이 아닙니다');
-                }
-            }
-    
-            function stage4() {
-                let answer = document.getElementById('answer4').value;
-                if(answer == ""){
-                    alert('답을 기입해 주십시오');
-                }
-                else if(answer == "0510"){
-                    alert('정답입니다');
-                }
-                else{
-                    document.getElementById('answer4').value = "";
-                    alert('정답이 아닙니다');
-                }
-            }
+            
           </script>
     {% endblock %}
