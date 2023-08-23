@@ -233,8 +233,7 @@
         <div class="modal">
             <div class="modal_body">
                 <div style="text-align: center;">
-                    <form action="{% url 'prensend:quizinfo_index_game' %}" method="post" 
-                    style="margin: auto; margin-right: 450px; margin-left: 450px;">{% csrf_token %}
+                    <form action="{% url 'prensend:quizinfo_index_game' %}" method="post">{% csrf_token %}
             
                     {% if gameint == 1 %}
                         <button class="custom-btn3 btn-14" type="button" onclick="window.open('https://frensend3.itch.io/stage-3')">
