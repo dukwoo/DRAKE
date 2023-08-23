@@ -47,9 +47,11 @@ def login(request):
     )
 
 def game(request):
+    gameint = random.randint(1, 3)
     return render(
         request,
-        'prensend/game.html'
+        'prensend/game.html',
+        {'gameint' :gameint}
     )
     
 #head가 안되어서 상위 3개만 읽어오는 함수 만들어봄
