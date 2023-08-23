@@ -519,7 +519,7 @@
                 <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
                     단서 게임
                 </button>
-                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
+                <button class="btn-open-popup1 custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
         </div>
         <div class="freind_box2">
@@ -533,7 +533,7 @@
                 <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
                     단서 게임
                 </button>
-                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
+                <button class="btn-open-popup2 custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
             
         </div>
@@ -548,7 +548,7 @@
                 <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
                     단서 게임
                 </button>
-                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
+                <button class="btn-open-popup3 custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
         </div>
         <div class="freind_box2">
@@ -560,9 +560,9 @@
             </div>
             <div class="friend_button">
                 <button class="custom-btn btn-13" type="button" onclick="window.open('https://frensend{{gameint}}.itch.io/stage-{{gameint}}')">
-                    단서 찾기
+                    단서 게임
                 </button>
-                <button class="btn-open-popup custom-btn3 btn-14" style="margin-left: 5px;">결과 확인</button>
+                <button class="btn-open-popup4 custom-btn3 btn-14" style="margin-left: 5px;">문제/결과</button>
             </div>
         </div>
         <div class="friend_button" style="justify-content: center; margin-left: 40%;">
@@ -579,15 +579,41 @@
         <script>
             const body = document.querySelector('body');
             const modal = document.querySelector('.modal');
-            const btnOpenPopup = document.querySelector('.btn-open-popup');
+            const btnOpenPopup1 = document.querySelector('.btn-open-popup1');
+            const btnOpenPopup2 = document.querySelector('.btn-open-popup2');
+            const btnOpenPopup3 = document.querySelector('.btn-open-popup3');
+            const btnOpenPopup4 = document.querySelector('.btn-open-popup4');
       
-            btnOpenPopup.addEventListener('click', () => {
+            btnOpenPopup1.addEventListener('click', () => {
               modal.classList.toggle('show');
       
               if (modal.classList.contains('show')) {
                 body.style.overflow = 'hidden';
               }
             });
+
+            btnOpenPopup2.addEventListener('click', () => {
+                modal.classList.toggle('show');
+        
+                if (modal.classList.contains('show')) {
+                  body.style.overflow = 'hidden';
+                }
+              });
+
+              btnOpenPopup3.addEventListener('click', () => {
+                modal.classList.toggle('show');
+        
+                if (modal.classList.contains('show')) {
+                  body.style.overflow = 'hidden';
+                }
+              });
+              btnOpenPopup4.addEventListener('click', () => {
+                modal.classList.toggle('show');
+        
+                if (modal.classList.contains('show')) {
+                  body.style.overflow = 'hidden';
+                }
+              });
       
             modal.addEventListener('click', (event) => {
               if (event.target === modal) {
