@@ -309,3 +309,51 @@ def quizinfo_index_game(request):
         }
 
         return render(request, 'prensend/gamerecommend.html', context)
+    
+def quizinfo_index_game2(request):
+    #clues = Clue.objects.all()
+    #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
+    
+    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
+    
+    if request.method == 'POST':
+
+        filtered_clues = get_filtered_items_game(clueArray[0], clueArray[1], clueArray[2])
+
+        context = {
+            'filtered_clues': filtered_clues,
+        }
+
+        return render(request, 'prensend/gamerecommend2.html', context)
+    
+def quizinfo_index_game3(request):
+    #clues = Clue.objects.all()
+    #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
+    
+    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
+    
+    if request.method == 'POST':
+
+        filtered_clues = get_filtered_items_game(clueArray[0], clueArray[1], clueArray[2])
+
+        context = {
+            'filtered_clues': filtered_clues,
+        }
+
+        return render(request, 'prensend/gamerecommend3.html', context)
+    
+def quizinfo_index_game4(request):
+    #clues = Clue.objects.all()
+    #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
+    
+    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
+    
+    if request.method == 'POST':
+
+        filtered_clues = get_filtered_items_game(clueArray[0], clueArray[1], clueArray[2])
+
+        context = {
+            'filtered_clues': filtered_clues,
+        }
+
+        return render(request, 'prensend/gamerecommend4.html', context)
