@@ -178,16 +178,11 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
         result_list.append(similar_products2.query("price < 50000 and price >= 30000").values.tolist())
         result_list.append(similar_products3.query("price < 50000 and price >= 30000").values.tolist())
  
-    elif price == '56':
-        result_list.append(similar_products1.query("price < 70000 and price >= 50000").values.tolist())
-        result_list.append(similar_products2.query("price < 70000 and price >= 50000").values.tolist())
-        result_list.append(similar_products3.query("price < 70000 and price >= 50000").values.tolist())
+    elif price == '05':
+        result_list.append(similar_products1.query("price >= 50000").values.tolist())
+        result_list.append(similar_products2.query("price >= 50000").values.tolist())
+        result_list.append(similar_products3.query("price >= 50000").values.tolist())
         
-    elif price == '78':
-        result_list.append(similar_products1.query("price >= 700000").values.tolist())
-        result_list.append(similar_products2.query("price >= 700000").values.tolist())
-        result_list.append(similar_products3.query("price >= 700000").values.tolist())
-
     print("title: ", result_list[0][1][0])
     res_dic = {}; res_list = []
     
