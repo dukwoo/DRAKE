@@ -324,8 +324,8 @@ def quizinfo_index_game2(request):
 def quizinfo_index_game3(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    #비타민, 선풍기, 반팔
-    clueArray=["닥터아돌 칼슘 마그네슘 비타민D 해조칼슘", "업투유 에어컨 손선풍기 손풍기 급속 냉각 선풍기 쿨링", "나이키 반팔티 데일리 무지 루즈핏 기본"]
+    #비타민, 디퓨저, 반팔
+    clueArray=["닥터아돌 칼슘 마그네슘 비타민D 해조칼슘", "1+1 코코도르 디퓨저 200ml 실내방향제 인테리어 대용량", "나이키 반팔티 데일리 무지 루즈핏 기본"]
     
     if request.method == 'POST':
 
