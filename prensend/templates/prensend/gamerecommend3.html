@@ -7,7 +7,22 @@
     <!--recommend css-->
     <link rel="stylesheet" href="{% static 'prensend/css/recommend.css' %}?after">
     <style>
-        
+        /* 더보기 구현 */
+            .showstep1{
+                max-height: 300px;
+                overflow: hidden;
+            }
+            .showstep2{
+                max-height: 600px;
+                overflow: hidden;
+            }
+            .content{
+                height: 1000px;
+                background-color: #a00;
+            }
+            .hide{
+                display: none;
+            }
         
         hr.divider {
             padding: 20px;
@@ -59,8 +74,8 @@
         }
         .rec_title {
             width: 210px;
-            height: 50px;
-            font-size: 10px; margin: 0px auto;
+            height: 48px;
+            font-size: 8px; margin: 0px auto;
         }
         
         .image {
@@ -163,15 +178,12 @@
             text-align: center;
             vertical-align: middle;
         }        
-        .newc:hover{
-            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
-        }
+    
     </style>
 
     {% endblock %}
-   	
-    {% block main %}
 
+    {% block main %}
     <br>
         <br>
         <br><br><br>
@@ -180,9 +192,9 @@
         </div>
     <br>
 
-    
-    
-    <h3 style="text-align: center;">친구 조수인님의 단서</h3>
+    <h2 style="text-align: center;">친구 이수민님의 단서</h2>
+
+    <div style="margin-left: 20px;">
     <div style="margin: 0px 220px;">
 
         <div class="newc" style="font-size: 20px; margin: 20px;">
@@ -199,8 +211,7 @@
     <br>
     <br>
 
-    <div class="multi-layout" style="margin: 0px 220px;">
-
+        <div class="multi-layout" style="margin: 0px 220px;">
         {% for f in filtered_clues %}
             <div class="rec_box" style="margin: 20px;">
                 <div class="rec_image">
@@ -220,4 +231,6 @@
             </div>
         {% endfor %}
         </div>
+    </div>
+
     {% endblock %}
