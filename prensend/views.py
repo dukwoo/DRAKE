@@ -309,7 +309,7 @@ def quizinfo_index_game2(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
     #인형, 목걸이, 반지
-    clueArray=["산리오인형 시나모롤 마이멜로디 쿠로미 우사하나 폼폼푸린 포차코 키티 하트 파스텔 코스튬 케이크 프렌즈 레인보우 꽃 캐릭터 가방고리 대형 귀여운 애착인형", "진주 목걸이 못난이 925실버 14K 초커 코디", "14K 커플링 심플한 웨이브 18k 금 무광 20대 반지"]
+    clueArray=["산리오인형 시나모롤 마이멜로디 쿠로미 우사하나 폼폼푸린 포차코 키티 하트 파스텔 코스튬 케이크 프렌즈 레인보우 꽃 캐릭터 가방고리 대형 귀여운 애착인형", "발목양말 10켤레 무지 스니커즈 국산 면 짧은 여자 흰양말세트", "14K 커플링 심플한 웨이브 18k 금 무광 20대 반지"]
     
     if request.method == 'POST':
 
