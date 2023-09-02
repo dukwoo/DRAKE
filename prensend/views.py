@@ -292,7 +292,7 @@ def quiz(request):
 def quizinfo_index_game(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    
+    #모자, 운동화, 선크림
     clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
     
     if request.method == 'POST':
@@ -308,8 +308,8 @@ def quizinfo_index_game(request):
 def quizinfo_index_game2(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    
-    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
+    #가방, 로션, 떡볶이
+    clueArray=["실버 포켓 복조리 숄더 백팩", "바이오가 우유단백질 바디로션", "빨강고구마 떡볶이 밀키트 (오리지널)"]
     
     if request.method == 'POST':
 
@@ -324,8 +324,8 @@ def quizinfo_index_game2(request):
 def quizinfo_index_game3(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    
-    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
+    #비타민, 선풍기, 반팔
+    clueArray=["닥터아돌 칼슘 마그네슘 비타민D 해조칼슘", "업투유 에어컨 손선풍기 손풍기 급속 냉각 선풍기 쿨링", "나이키 반팔티 데일리 무지 루즈핏 기본"]
     
     if request.method == 'POST':
 
@@ -340,8 +340,8 @@ def quizinfo_index_game3(request):
 def quizinfo_index_game4(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    
-    clueArray=["나이키 모자 헤리티지86 레거시91 스우시 볼캡 3종", "BFL2101 화이트 발편한 운동화 가벼운 런닝화 조깅화", "라운드랩 자작나무 수분 선크림 50ml (SPF 50+,PA++++)"]
+    #샴푸, 청소기, 닭가슴살
+    clueArray=["BEST 헤드앤숄더 쿨 멘솔 샴푸 850ml 1+1개 +(증정) 미니샴푸 80ml 1개", "아이닉 무선청소기 NEW i20", "스팀 닭가슴살 불짬뽕 10팩"]
     
     if request.method == 'POST':
 
