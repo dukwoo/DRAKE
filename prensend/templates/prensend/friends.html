@@ -508,6 +508,103 @@
             </div>
         </div>
 
+
+        <!--모달2-->
+        <div class="modal2">
+            <div class="modal_body">
+                <div style="text-align: center;">
+                    <form action="{% url 'prensend:quizinfo_index_game2' %}" method="post">{% csrf_token %}
+            
+                    {% if gameint == 3 %}           
+
+                        
+
+                        <div class="stage3">
+                            <div style="text-align: left;">
+                                <h2>Quest. </h2>
+                                <div class="modalheader">
+                                    비밀번호 네 자리에 관한 힌트를 얻기 위해서는 맵을 돌아다녀보세요!<br>
+                                    힌트를 읽고 문제를 푼 후 비밀번호를 기억해주세요!
+                                </div>
+                                <p style="font-weight: bold">게임에서 얻은 네자리 수를 적어주세요.</p> <!--5359-->
+                            </div>
+            
+                            <span style="font-size: 2.3em;">🎁</span> &nbsp;
+                            <div class="webflow-style-input" style="display: inline-block;"> 
+                                <input class="" type="text" placeholder="" id="answer3"></input>
+                            </div>
+                            <br><br><br><br>
+                            <input type="button" class="custom-btn2 btn-13" style="width: 280px; height: 40px;" onclick="stage3()" value="정답 확인">&nbsp;&nbsp;
+                            <button class="custom-btn2 btn-13" style="width: 280px;" type="submit" id="g_btn">
+                                맞춤형 선물 추천
+                            </button>
+                        </div>
+            
+                    {% elif gameint == 1 %}
+
+                    <div class="stage1">
+                        <div style="text-align: left;">
+                            <h2>Quest. </h2>
+                            <div class="modalheader">
+                                힌트를 확인하기 위해서는 가구 근처에서 'X'키를 누르고,<br>대화창을 넘기기 위해서는 'Z'키를 눌러야해요!
+                                <br>
+                                모든 힌트를 기억하고 있어야 돌아가서 단서를 획득할 수 있겠죠? 힌트는 총 4개입니다.
+                            </div>
+                            <p style="font-weight: bold">게임에서 얻은 네자리 수를 적어주세요.</p> <!--0112-->
+                        </div>
+            
+                        <span style="font-size: 2.3em;">🎁</span>
+                        &nbsp;
+                        <div class="webflow-style-input" style="display: inline-block;"> 
+                            <input class="" type="text" placeholder="" id="answer"></input>
+                        </div>
+                        <br><br><br><br>
+                        <input type="button" class="custom-btn2 btn-13" style="width: 280px; height: 40px;" onclick="stage1()" value="정답 확인">&nbsp;&nbsp;
+                        <button class="custom-btn2 btn-13" style="width: 280px;" type="submit" id="g_btn">
+                            맞춤형 선물 추천
+                        </button>
+                    </div>
+            
+                    {% else %}
+                    
+                    <div class="stage2">
+                        <div style="text-align: left;">
+                            <h2>Quest. </h2>
+                            <div class="modalheader">
+                                힌트를 확인하기 위해서는 동물 근처에서 'X'키를 누르고,<br>대화창을 넘기기 위해서는 'Z'키를 눌러야해요!
+                                <br>
+                                모든 힌트를 기억하고 있어야 돌아가서 단서를 획득할 수 있겠죠? 힌트는 총 4개입니다.
+                            </div>
+                            <p style="font-weight: bold">
+                                동물 친구들이 내는 퀴즈를 맞춰주세요.
+                                <br><br>
+                                연개구리: 전[ ], 고양이: 개[ ]지도, 청개구리: [ ]래, 여우: 숫자 2개 <!--설인노34-->
+                            </p>
+                        </div>
+            
+                        <span style="font-size: 2.3em;">🎁</span>
+                        &nbsp;
+                        <div class="webflow-style-input" style="display: inline-block;"> 
+                            <input class="" type="text" placeholder="" id="answer2"></input>
+                        </div>
+                        &nbsp;
+
+                        <br><br><br><br>
+                        <input type="button" class="custom-btn2 btn-13" style="width: 280px; height: 40px;" onclick="stage2()" value="정답 확인">&nbsp;&nbsp;
+                        <button class="custom-btn2 btn-13" style="width: 280px;" type="submit" id="g_btn">
+                            맞춤형 선물 추천
+                        </button>
+                    </div>
+            
+                    {% endif %}
+                        
+                    </form>
+                </div>
+                <br><br><br><br>
+            </div>
+        </div>
+
+        <!--친구목록-->
         <div class="freind_box2">
             <div class="friend_image">
                 <img class="image" src="{% static 'prensend/images/프로필1.png' %}" alt="친구프로필1">
@@ -579,6 +676,7 @@
         <script>
             const body = document.querySelector('body');
             const modal = document.querySelector('.modal');
+            const modal2 = document.querySelector('.modal2');
             const btnOpenPopup1 = document.querySelector('.btn-open-popup1');
             const btnOpenPopup2 = document.querySelector('.btn-open-popup2');
             const btnOpenPopup3 = document.querySelector('.btn-open-popup3');
@@ -593,9 +691,9 @@
             });
 
             btnOpenPopup2.addEventListener('click', () => {
-                modal.classList.toggle('show');
+                modal2.classList.toggle('show');
         
-                if (modal.classList.contains('show')) {
+                if (modal2.classList.contains('show')) {
                   body.style.overflow = 'hidden';
                 }
               });
