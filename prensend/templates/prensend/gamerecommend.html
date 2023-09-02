@@ -161,6 +161,47 @@
         </div>
     <br><br>
 
+
+    <div class="dc">
+        <h3>단서</h3>
+        <div class="card-deck" style="width: 970px; text-align:center; font-size:1.1em;">
+            <div style="margin-top:20px" class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">첫 번째 단서</h4>
+                </div>
+                <div class="card-body">
+                    <h3>🎁</h3>
+                    <input type="text" id="clue1" placeholder="모자" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+                    <input type="button" class="custom-btn btn-13" onclick="modify1()" value="수정">
+                    <!--<button class="custom-btn btn-13" type="button" style="color: #fff">수정</button>-->
+                </div>
+            </div>
+            <div style="margin-top:20px" class="card mb-4 shadow-sm">
+                <div class="card-header">
+                <h4 class="my-0 font-weight-normal">두 번째 단서</h4>
+            </div>
+            <div class="card-body">
+                <h3>🎁</h3>
+                <input type="text" id="clue2" placeholder="운동화" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+                <input type="button" class="custom-btn btn-13" onclick="modify2()" value="수정">
+            </div>
+        </div>
+        <div style="margin-top:20px" class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">세 번째 단서</h4>
+            </div>
+            <div class="card-body">
+                <h3>🎁</h3>
+                <input type="text" id="clue3" placeholder="선크림" style="text-align:center; background-color:rgba(0, 0, 0, 0); border: 0px solid black; width: 180px; padding: 7px; height:20px; margin-bottom: 12px; font-size:1.1em; font-weight: bold"><br>
+                <input type="button" class="custom-btn btn-13" onclick="modify3()" value="수정">
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+
     <div class="multi-layout" style="margin: 0px 220px;">
         {% for f in filtered_clues %}
             <div class="rec_box" style="margin: 20px;">
