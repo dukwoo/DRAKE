@@ -308,8 +308,8 @@ def quizinfo_index_game(request):
 def quizinfo_index_game2(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    #가방, 목걸이, 떡볶이
-    clueArray=["실버 포켓 복조리 숄더 백팩", "천연 담수 진주 목걸이 못난이 925실버 14K 초커 코디", "빨강고구마 떡볶이 밀키트 (오리지널)"]
+    #인형, 목걸이, 반지
+    clueArray=["산리오인형 시나모롤 마이멜로디 쿠로미 우사하나 폼폼푸린 포차코 키티 하트 파스텔 코스튬 케이크 프렌즈 레인보우 꽃 캐릭터 가방고리 대형 귀여운 애착인형", "천연 담수 진주 목걸이 못난이 925실버 14K 초커 코디", "14K 커플링 심플한 웨이브 18k 금 무광 20대 반지"]
     
     if request.method == 'POST':
 
