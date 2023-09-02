@@ -14,4 +14,7 @@ urlpatterns = [
     path('game/', views.game),
     path('modal/', views.modal),
     path('gamerecommend/', views.quizinfo_index_game, name='quizinfo_index_game'),
+    path('gamerecommend2/', views.quizinfo_index_game2, name='quizinfo_index_game2'),
+    path('gamerecommend3/', views.quizinfo_index_game3, name='quizinfo_index_game3'),
+    path('gamerecommend4/', views.quizinfo_index_game4, name='quizinfo_index_game4'),
 ]
