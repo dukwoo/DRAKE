@@ -340,8 +340,8 @@ def quizinfo_index_game3(request):
 def quizinfo_index_game4(request):
     #clues = Clue.objects.all()
     #products_df = pd.DataFrame(clues.values('clueid', 'userid', 'cluename'))
-    #샴푸, 청소기, 닭가슴살
-    clueArray=["BEST 헤드앤숄더 쿨 멘솔 샴푸 850ml 1+1개 +(증정) 미니샴푸 80ml 1개", "아이닉 무선청소기 NEW i20", "스팀 닭가슴살 불짬뽕 10팩"]
+    #샴푸, 청소기, 베개
+    clueArray=["BEST 헤드앤숄더 쿨 멘솔 샴푸 850ml 1+1개 +(증정) 미니샴푸 80ml 1개", "아이닉 무선청소기 NEW i20", "메밀 경추베개 목디스크 일자목 거북목베개 목침 목베개 숙면 원형"]
     
     if request.method == 'POST':
 
