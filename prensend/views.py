@@ -152,6 +152,29 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
 
         similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 10)
         print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+        
+        result_list = []
+
+        #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
+        if price == '01':
+            result_list.append(similar_products1.query("price < 10000").values.tolist())
+            result_list.append(similar_products2.query("price < 10000").values.tolist())
+            result_list.append(similar_products3.query("price < 10000").values.tolist())
+
+        elif price == '12':
+            result_list.append(similar_products1.query("price < 30000 and price >= 10000").values.tolist())
+            result_list.append(similar_products2.query("price < 30000 and price >= 10000").values.tolist())
+            result_list.append(similar_products3.query("price < 30000 and price >= 10000").values.tolist())
+
+        elif price == '34':
+            result_list.append(similar_products1.query("price < 50000 and price >= 30000").values.tolist())
+            result_list.append(similar_products2.query("price < 50000 and price >= 30000").values.tolist())
+            result_list.append(similar_products3.query("price < 50000 and price >= 30000").values.tolist())
+    
+        elif price == '05':
+            result_list.append(similar_products1.query("price >= 50000").values.tolist())
+            result_list.append(similar_products2.query("price >= 50000").values.tolist())
+            result_list.append(similar_products3.query("price >= 50000").values.tolist())
 
 
     except IndexError:
@@ -166,57 +189,31 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
         similar_products3 = find_name(products_df, titleArray3, 50)
         print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
         
-    """
-    rows = 9
-    cols = 7
-    similar_products = [[0] * cols] * rows
-    
-    
-    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 3)
-    print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
-    
-    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 3)
-    print("similar_products2: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
-    
-    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 3)
-    print("similar_products3: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+        result_list = []
 
-    print("similar_products1[0]: ", similar_products1[0])
-    print("similar_products1[0][1]: ", similar_products1[0][1])
-    print("similar_products1[0][1][1]: ", similar_products1[0][1][1])
+        #2차 필터링 진행 (가격)
+        if price == '01':
+            result_list.append(similar_products1.query("price < 10000").values.tolist())
+            result_list.append(similar_products2.query("price < 10000").values.tolist())
+            result_list.append(similar_products3.query("price < 10000").values.tolist())
+
+        elif price == '12':
+            result_list.append(similar_products1.query("price < 30000 and price >= 10000").values.tolist())
+            result_list.append(similar_products2.query("price < 30000 and price >= 10000").values.tolist())
+            result_list.append(similar_products3.query("price < 30000 and price >= 10000").values.tolist())
+
+        elif price == '34':
+            result_list.append(similar_products1.query("price < 50000 and price >= 30000").values.tolist())
+            result_list.append(similar_products2.query("price < 50000 and price >= 30000").values.tolist())
+            result_list.append(similar_products3.query("price < 50000 and price >= 30000").values.tolist())
     
-    for i in range(3):
-        similar_products[i].append(similar_products1[i])
-    
-    for i in range(3):
-        similar_products[i+3].append(similar_products2[i])
-        
-    for i in range(3):
-        similar_products[i+6].append(similar_products3[i])
-    """
+        elif price == '05':
+            result_list.append(similar_products1.query("price >= 50000").values.tolist())
+            result_list.append(similar_products2.query("price >= 50000").values.tolist())
+            result_list.append(similar_products3.query("price >= 50000").values.tolist())
 
-    result_list = []
 
-    #유사도 측정 후 유사한 상품들만 가져와서 2차 필터링 진행 (가격)
-    if price == '01':
-        result_list.append(similar_products1.query("price < 10000").values.tolist())
-        result_list.append(similar_products2.query("price < 10000").values.tolist())
-        result_list.append(similar_products3.query("price < 10000").values.tolist())
 
-    elif price == '12':
-        result_list.append(similar_products1.query("price < 30000 and price >= 10000").values.tolist())
-        result_list.append(similar_products2.query("price < 30000 and price >= 10000").values.tolist())
-        result_list.append(similar_products3.query("price < 30000 and price >= 10000").values.tolist())
-
-    elif price == '34':
-        result_list.append(similar_products1.query("price < 50000 and price >= 30000").values.tolist())
-        result_list.append(similar_products2.query("price < 50000 and price >= 30000").values.tolist())
-        result_list.append(similar_products3.query("price < 50000 and price >= 30000").values.tolist())
- 
-    elif price == '05':
-        result_list.append(similar_products1.query("price >= 50000").values.tolist())
-        result_list.append(similar_products2.query("price >= 50000").values.tolist())
-        result_list.append(similar_products3.query("price >= 50000").values.tolist())
         
     print("title: ", result_list[0][1][0])
     res_dic = {}; res_list = []
