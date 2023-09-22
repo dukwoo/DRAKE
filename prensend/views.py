@@ -230,20 +230,50 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
         res_dic = {}; res_list = []
         
         print("len(result_list[0]: ", len(result_list[0]))
-
-        for i in range(3):
-            for k in range(2):
-                res_dic["title"] = str(result_list[i][k][1])
-                res_dic["price"] = str(result_list[i][k][2])
-                res_dic["image"] = str(result_list[i][k][3])
-                res_dic["link"] = str(result_list[i][k][4])
-                res_list.append(res_dic)
-                res_dic = {}
-
-
-
         
-    
+        res_dic["title"] = str(result_list[0][0][1])
+        res_dic["price"] = str(result_list[0][0][2])
+        res_dic["image"] = str(result_list[0][0][3])
+        res_dic["link"] = str(result_list[0][0][4])
+        res_list.append(res_dic)
+        res_dic = {}
+        
+        res_dic["title"] = str(result_list[0][1][1])
+        res_dic["price"] = str(result_list[0][1][2])
+        res_dic["image"] = str(result_list[0][1][3])
+        res_dic["link"] = str(result_list[0][1][4])
+        res_list.append(res_dic)
+        res_dic = {}
+        
+        res_dic["title"] = str(result_list[1][2][1])
+        res_dic["price"] = str(result_list[1][2][2])
+        res_dic["image"] = str(result_list[1][2][3])
+        res_dic["link"] = str(result_list[1][2][4])
+        res_list.append(res_dic)
+        res_dic = {}
+        
+        res_dic["title"] = str(result_list[1][3][1])
+        res_dic["price"] = str(result_list[1][3][2])
+        res_dic["image"] = str(result_list[1][3][3])
+        res_dic["link"] = str(result_list[1][3][4])
+        res_list.append(res_dic)
+        res_dic = {}
+        
+        res_dic["title"] = str(result_list[2][4][1])
+        res_dic["price"] = str(result_list[2][4][2])
+        res_dic["image"] = str(result_list[2][4][3])
+        res_dic["link"] = str(result_list[2][4][4])
+        res_list.append(res_dic)
+        res_dic = {}
+        
+        res_dic["title"] = str(result_list[2][5][1])
+        res_dic["price"] = str(result_list[2][5][2])
+        res_dic["image"] = str(result_list[2][5][3])
+        res_dic["link"] = str(result_list[2][5][4])
+        res_list.append(res_dic)
+        res_dic = {}
+
+
 
     print("\n최종 결과: ", res_list, "\n")
     return res_list
