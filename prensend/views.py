@@ -194,13 +194,13 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     except:
         print("except문 실행 \n")
         
-        similar_products1 = find_name(products_df, titleArray1, 50)
+        similar_products1 = find_name(products_df, name_sim_sorted_ind, 50)
         print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-        similar_products2 = find_name(products_df, titleArray2, 50)
+        similar_products2 = find_name(products_df, name_sim_sorted_ind, 50)
         print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-        similar_products3 = find_name(products_df, titleArray3, 50)
+        similar_products3 = find_name(products_df, name_sim_sorted_ind, 50)
         print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
         
         result_list = []
