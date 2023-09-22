@@ -94,8 +94,27 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
         similar_indexes = similar_indexes.reshape(-1)
 
         return df.iloc[similar_indexes]
+    
+    
+def find_name(df, sorted_ind, top_n):
+        #인자로 입력된 products_df DataFrame에서 'title' 칼럼이 입력된 product_name 값인 DataFrame 추출
+        title_product = df['title']
+        print("title_product: ", title_product)
+        
+        #product_name을 가진 DataFrame의 index 객체를 ndarray로 반환하고
+        #sorted_ind 인자로 입력된 name_sim_sorted_ind 객체에서 유사도 순으로 top_n개의 index 추출
+        title_index = title_product.index.values
+        print("title_index: ", title_index, "\n")
+        similar_indexes = sorted_ind[title_index, :(top_n)]
 
-#추천 알고리즘 (상품명, 가격 입력받음)def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
+        #추출된 top_n index 출력. top_n idnex는 2차원 데이터.
+        #DataFrame 에서 index로 사용하기 위해선 1차원 array로 변경
+        print("similar_indexes : ", similar_indexes, "\n")
+        similar_indexes = similar_indexes.reshape(-1)
+
+        return df.iloc[similar_indexes]
+    
+    
 def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     #2
     warnings.filterwarnings('ignore')
@@ -109,28 +128,42 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     #CountVectorizer를 적용하기 위해 공백문자로 word 단위가 구분되는 문자열로 반환
     #상품명을 공백으로 나눠서 각각의 단어의 개수를 추출.
     #3
-    products_df['title_literal'] = products_df['title'].apply(lambda x:('').join(x))
-    count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
-    name_mat = count_vect.fit_transform(products_df['title_literal'])
-    print("name_mat.shape : ", name_mat.shape, "\n")
+    
 
-    name_sim = cosine_similarity(name_mat, name_mat)
-    print("name_sim.shape :", name_sim.shape, "\n")
-    print("name_sim[:1] : ", name_sim[:1], "\n")
+    try:
+        products_df['title_literal'] = products_df['title'].apply(lambda x:('').join(x))
+        count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
+        name_mat = count_vect.fit_transform(products_df['title_literal'])
+        print("name_mat.shape : ", name_mat.shape, "\n")
 
-    name_sim_sorted_ind = name_sim.argsort()[:, ::-1]
-    print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
+        name_sim = cosine_similarity(name_mat, name_mat)
+        print("name_sim.shape :", name_sim.shape, "\n")
+        print("name_sim[:1] : ", name_sim[:1], "\n")
 
-    #유사한 상품들 가져옴
-    similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 10)
-    print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+        name_sim_sorted_ind = name_sim.argsort()[:, ::-1]
+        print("name_sim_sorted_ind[:1] : ", name_sim_sorted_ind[:1], "\n")
+        
+        #유사한 상품들 가져옴
+        similar_products1 = find_sim_name(products_df, name_sim_sorted_ind, titleArray1, 10)
+        print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 10)
-    print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+        similar_products2 = find_sim_name(products_df, name_sim_sorted_ind, titleArray2, 10)
+        print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-    similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 10)
-    print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+        similar_products3 = find_sim_name(products_df, name_sim_sorted_ind, titleArray3, 10)
+        print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
+
+    except IndexError:
+        similar_products1 = find_name(products_df, titleArray1, 50)
+        print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+        similar_products2 = find_name(products_df, titleArray2, 50)
+        print("similar_products1: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+
+        similar_products3 = find_name(products_df, titleArray3, 50)
+        print("similar_products1: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
+        
     """
     rows = 9
     cols = 7
