@@ -99,7 +99,7 @@ def find_sim_name(df, sorted_ind, product_name, top_n=3):
 def find_name(df, sorted_ind, top_n):
         #인자로 입력된 products_df DataFrame에서 'title' 칼럼이 입력된 product_name 값인 DataFrame 추출
         title_product = df['title']
-        print("title_product: ", title_product)
+        print("title_product: ", title_product, "\n")
         
         #product_name을 가진 DataFrame의 index 객체를 ndarray로 반환하고
         #sorted_ind 인자로 입력된 name_sim_sorted_ind 객체에서 유사도 순으로 top_n개의 index 추출
@@ -155,6 +155,8 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
 
 
     except IndexError:
+        print("except문 실행 \n")
+        
         similar_products1 = find_name(products_df, titleArray1, 50)
         print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
