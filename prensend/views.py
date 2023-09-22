@@ -177,7 +177,7 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
             result_list.append(similar_products3.query("price >= 50000").values.tolist())
 
 
-    except IndexError:
+    except:
         print("except문 실행 \n")
         
         similar_products1 = find_name(products_df, titleArray1, 50)
