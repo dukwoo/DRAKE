@@ -175,6 +175,20 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
             result_list.append(similar_products1.query("price >= 50000").values.tolist())
             result_list.append(similar_products2.query("price >= 50000").values.tolist())
             result_list.append(similar_products3.query("price >= 50000").values.tolist())
+            
+        print("title: ", result_list[0][1][0])
+        res_dic = {}; res_list = []
+        
+        print("len(result_list[0]: ", len(result_list[0]))
+
+        for i in range(3):
+            for k in range(2):
+                res_dic["title"] = str(result_list[i][k][1])
+                res_dic["price"] = str(result_list[i][k][2])
+                res_dic["image"] = str(result_list[i][k][3])
+                res_dic["link"] = str(result_list[i][k][4])
+                res_list.append(res_dic)
+                res_dic = {}
 
 
     except:
@@ -211,23 +225,25 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
             result_list.append(similar_products1.query("price >= 50000").values.tolist())
             result_list.append(similar_products2.query("price >= 50000").values.tolist())
             result_list.append(similar_products3.query("price >= 50000").values.tolist())
+            
+        print("title: ", result_list[0][1][0])
+        res_dic = {}; res_list = []
+        
+        print("len(result_list[0]: ", len(result_list[0]))
+
+        for i in range(3):
+            for k in range(2):
+                res_dic["title"] = str(result_list[i][k][1])
+                res_dic["price"] = str(result_list[i][k][2])
+                res_dic["image"] = str(result_list[i][k][3])
+                res_dic["link"] = str(result_list[i][k][4])
+                res_list.append(res_dic)
+                res_dic = {}
 
 
 
         
-    print("title: ", result_list[0][1][0])
-    res_dic = {}; res_list = []
     
-    print("len(result_list[0]: ", len(result_list[0]))
-
-    for i in range(3):
-        for k in range(2):
-            res_dic["title"] = str(result_list[i][k][1])
-            res_dic["price"] = str(result_list[i][k][2])
-            res_dic["image"] = str(result_list[i][k][3])
-            res_dic["link"] = str(result_list[i][k][4])
-            res_list.append(res_dic)
-            res_dic = {}
 
     print("\n최종 결과: ", res_list, "\n")
     return res_list
