@@ -233,14 +233,24 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
         
         
         for i in range(3):
-            for k in range(2):
-                randint1 = random.randint(1,20)
-                res_dic["title"] = str(result_list[i][randint1][1])
-                res_dic["price"] = str(result_list[i][randint1][2])
-                res_dic["image"] = str(result_list[i][randint1][3])
-                res_dic["link"] = str(result_list[i][randint1][4])
-                res_list.append(res_dic)
-                res_dic = {}
+            randint1 = random.randint(1,9)
+            randint2 = random.randint(11,19)
+            
+            res_dic["title"] = str(result_list[i][randint1][1])
+            res_dic["price"] = str(result_list[i][randint1][2])
+            res_dic["image"] = str(result_list[i][randint1][3])
+            res_dic["link"] = str(result_list[i][randint1][4])
+            res_list.append(res_dic)
+            res_dic = {}
+                
+            res_dic["title"] = str(result_list[i][randint2][1])
+            res_dic["price"] = str(result_list[i][randint2][2])
+            res_dic["image"] = str(result_list[i][randint2][3])
+            res_dic["link"] = str(result_list[i][randint2][4])
+            res_list.append(res_dic)
+            res_dic = {}
+            
+                
         
         
 
