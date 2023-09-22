@@ -194,13 +194,13 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
     except:
         print("except문 실행 \n")
         
-        similar_products1 = find_name(products_df, name_sim_sorted_ind, 20)
+        similar_products1 = find_name(products_df, name_sim_sorted_ind, 50)
         print("similar_products1: ", similar_products1[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-        similar_products2 = find_name(products_df, name_sim_sorted_ind, 20)
+        similar_products2 = find_name(products_df, name_sim_sorted_ind, 50)
         print("similar_products2: ", similar_products2[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
 
-        similar_products3 = find_name(products_df, name_sim_sorted_ind, 20)
+        similar_products3 = find_name(products_df, name_sim_sorted_ind, 50)
         print("similar_products3: ", similar_products3[['rank', 'title', 'price', 'image', 'link', 'rate']], "\n")
         
         result_list = []
@@ -232,25 +232,15 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
         print("len(result_list[0]: ", len(result_list[0]))
         
         
-        for i in range(3):
-            randint1 = random.randint(1,9)
-            randint2 = random.randint(11,19)
-            
-            res_dic["title"] = str(result_list[i][randint1][1])
-            res_dic["price"] = str(result_list[i][randint1][2])
-            res_dic["image"] = str(result_list[i][randint1][3])
-            res_dic["link"] = str(result_list[i][randint1][4])
-            res_list.append(res_dic)
-            res_dic = {}
-                
-            res_dic["title"] = str(result_list[i][randint2][1])
-            res_dic["price"] = str(result_list[i][randint2][2])
-            res_dic["image"] = str(result_list[i][randint2][3])
-            res_dic["link"] = str(result_list[i][randint2][4])
-            res_list.append(res_dic)
-            res_dic = {}
-            
-                
+        for i in range(3):            
+            for k in range(2):
+                randint1 = random.randint(1,49)
+                res_dic["title"] = str(result_list[i][randint1][1])
+                res_dic["price"] = str(result_list[i][randint1][2])
+                res_dic["image"] = str(result_list[i][randint1][3])
+                res_dic["link"] = str(result_list[i][randint1][4])
+                res_list.append(res_dic)
+                res_dic = {}
         
         
 
