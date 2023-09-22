@@ -232,9 +232,15 @@ def get_filtered_items(titleArray1, titleArray2, titleArray3, price):
         print("len(result_list[0]: ", len(result_list[0]))
         
         
+        
+        intlist=[]
         for i in range(3):            
             for k in range(2):
                 randint1 = random.randint(1,49)
+                while randint1 in intlist:
+                    randint1 = random.randint(1,49)
+                intlist.append(randint1)
+                
                 print("randint: ", randint1, "\n")
                 res_dic["title"] = str(result_list[i][randint1][1])
                 res_dic["price"] = str(result_list[i][randint1][2])
