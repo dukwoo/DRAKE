@@ -23,12 +23,20 @@ def prensend(request):
     )
 
 def friends(request):
-    gameint = random.randint(1, 3)
-    
+    gameint1 = random.randint(1, 3)
+    gameint2 = random.randint(1, 3)
+    gameint3 = random.randint(1, 3)
+    gameint4 = random.randint(1, 3)
+
     return render(
         request,
         'prensend/friends.html',
-        {'gameint' :gameint},
+        {
+            'gameint1' :gameint1,
+            'gameint2' :gameint2,
+            'gameint3' :gameint3,
+            'gameint4' :gameint4,
+        },
     )
 
 def calendar(request):
