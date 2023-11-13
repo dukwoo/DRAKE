@@ -468,7 +468,7 @@
                 <div style="text-align: center;">
                     <form action="{% url 'prensend:quizinfo_index_game' %}" method="post">{% csrf_token %}
             
-                    {% if gameint == 3 %}           
+                    {% if gameint1 == 3 or gameint2 == 3 or gameint3 == 3 or gameint4 == 3 %}           
 
                         
 
@@ -493,7 +493,7 @@
                             </button>
                         </div>
             
-                    {% elif gameint == 1 %}
+                    {% elif gameint1 == 1 or gameint2 == 1 or gameint3 == 1 or gameint4 == 1 %}
 
             
                     
@@ -567,7 +567,7 @@
                 <div style="text-align: center;">
                     <form action="{% url 'prensend:quizinfo_index_game2' %}" method="post">{% csrf_token %}
             
-                    {% if gameint == 3 %}           
+                    {% if gameint1 == 3 or gameint2 == 3 or gameint3 == 3 or gameint4 == 3 %}           
 
                         
 
@@ -592,7 +592,7 @@
                             </button>
                         </div>
             
-                    {% elif gameint == 1 %}
+                    {% elif gameint1 == 1 or gameint2 == 1 or gameint3 == 1 or gameint4 == 1 %}
 
                     <div class="stage1">
                         <div style="text-align: left;">
@@ -662,7 +662,7 @@
                 <div style="text-align: center;">
                     <form action="{% url 'prensend:quizinfo_index_game3' %}" method="post">{% csrf_token %}
             
-                    {% if gameint == 3 %}           
+                    {% if gameint1 == 3 or gameint2 == 3 or gameint3 == 3 or gameint4 == 3 %}           
 
                         
 
@@ -687,7 +687,7 @@
                             </button>
                         </div>
             
-                    {% elif gameint == 1 %}
+                    {% elif gameint1 == 1 or gameint2 == 1 or gameint3 == 1 or gameint4 == 1 %}
 
             
                     
@@ -760,7 +760,7 @@
                 <div style="text-align: center;">
                     <form action="{% url 'prensend:quizinfo_index_game4' %}" method="post">{% csrf_token %}
             
-                    {% if gameint == 3 %}           
+                    {% if gameint1 == 3 or gameint2 == 3 or gameint3 == 3 or gameint4 == 3 %}           
 
                         
 
@@ -785,7 +785,7 @@
                             </button>
                         </div>
             
-                    {% elif gameint == 1 %}
+                    {% elif gameint1 == 1 or gameint2 == 1 or gameint3 == 1 or gameint4 == 1 %}
 
             
                     
